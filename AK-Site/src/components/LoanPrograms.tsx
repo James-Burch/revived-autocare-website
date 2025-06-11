@@ -5,118 +5,146 @@ interface LoanProgram {
   id: string;
   name: string;
   description: string;
-  minCreditScore: number;
-  maxLoanAmount: number;
-  minDownPayment: number;
+  minCreditScore?: string;
+  maxLTV: number;
+  minDeposit: number;
   benefits: string[];
   requirements: string[];
   bestFor: string;
+  typicalRate: string;
 }
 
 const loanPrograms: LoanProgram[] = [
   {
-    id: 'conventional',
-    name: 'Conventional Loan',
-    description: 'Traditional mortgage not backed by government agencies',
-    minCreditScore: 620,
-    maxLoanAmount: 766550,
-    minDownPayment: 3,
-    bestFor: 'Borrowers with good credit and stable income',
+    id: 'residential',
+    name: 'Residential Mortgage',
+    description: 'Standard residential mortgages for home purchases and remortgaging',
+    minCreditScore: 'Good',
+    maxLTV: 95,
+    minDeposit: 5,
+    typicalRate: 'From 4.65%',
+    bestFor: 'Home buyers and those looking to remortgage',
     benefits: [
-      'Competitive interest rates',
-      'No upfront mortgage insurance premium',
-      'PMI can be removed at 20% equity',
-      'Flexible property types'
+      'Competitive rates from 90+ lenders',
+      'Up to 95% LTV available',
+      'Fixed, tracker, and variable options',
+      'Portability options available'
     ],
     requirements: [
-      'Credit score of 620+',
-      'Debt-to-income ratio under 43%',
-      'Employment verification',
-      'Asset documentation'
+      'Good credit history',
+      'Proof of income',
+      'UK resident',
+      'Property valuation required'
     ]
   },
   {
-    id: 'fha',
-    name: 'FHA Loan',
-    description: 'Government-backed loan with flexible qualification requirements',
-    minCreditScore: 580,
-    maxLoanAmount: 472030,
-    minDownPayment: 3.5,
-    bestFor: 'First-time buyers and those with lower credit scores',
+    id: 'first-time-buyer',
+    name: 'First Time Buyer',
+    description: 'Specialist mortgages and government schemes for first-time buyers',
+    minCreditScore: 'Fair to Good',
+    maxLTV: 95,
+    minDeposit: 5,
+    typicalRate: 'From 4.89%',
+    bestFor: 'Those buying their first home',
     benefits: [
-      'Low down payment (3.5%)',
-      'Lower credit score requirements',
-      'Gift funds allowed for down payment',
-      'Assumable loans'
+      'Government schemes available',
+      'Stamp duty relief up to £425k',
+      'Shared ownership options',
+      'Help to Buy available'
     ],
     requirements: [
-      'Credit score of 580+ (3.5% down) or 500+ (10% down)',
-      'Debt-to-income ratio under 57%',
-      'Primary residence only',
-      'Mortgage insurance required'
+      'First-time buyer status',
+      'Minimum 5% deposit',
+      'Income verification',
+      'Property under £600k (Help to Buy)'
     ]
   },
   {
-    id: 'va',
-    name: 'VA Loan',
-    description: 'Zero down payment loans for eligible veterans and service members',
-    minCreditScore: 620,
-    maxLoanAmount: 766550,
-    minDownPayment: 0,
-    bestFor: 'Veterans, active military, and eligible spouses',
+    id: 'buy-to-let',
+    name: 'Buy-to-Let Mortgage',
+    description: 'Investment property mortgages for landlords and property investors',
+    minCreditScore: 'Good to Excellent',
+    maxLTV: 75,
+    minDeposit: 25,
+    typicalRate: 'From 5.25%',
+    bestFor: 'Property investors and landlords',
     benefits: [
-      'No down payment required',
-      'No private mortgage insurance',
-      'Competitive interest rates',
-      'No prepayment penalties'
+      'Portfolio landlord options',
+      'Interest-only available',
+      'Limited company mortgages',
+      'HMO and multi-unit properties'
     ],
     requirements: [
-      'Valid Certificate of Eligibility',
-      'Credit score typically 620+',
-      'Sufficient income and employment',
-      'Primary residence requirement'
+      '25% minimum deposit',
+      'Rental income assessment',
+      'Landlord experience preferred',
+      'Property management plan'
     ]
   },
   {
-    id: 'usda',
-    name: 'USDA Loan',
-    description: 'Zero down payment loans for rural and suburban areas',
-    minCreditScore: 640,
-    maxLoanAmount: 0, // No set limit
-    minDownPayment: 0,
-    bestFor: 'Buyers in rural and suburban eligible areas',
+    id: 'right-to-buy',
+    name: 'Right to Buy',
+    description: 'Mortgages for council and housing association tenants',
+    minCreditScore: 'Fair to Good',
+    maxLTV: 100,
+    minDeposit: 0,
+    typicalRate: 'From 4.95%',
+    bestFor: 'Council tenants exercising Right to Buy',
     benefits: [
-      'No down payment required',
-      'Low interest rates',
-      'Low mortgage insurance',
-      'Flexible credit guidelines'
+      'Up to 70% discount available',
+      'No deposit required with discount',
+      'Specialist lenders available',
+      'Fast-track applications'
     ],
     requirements: [
-      'Property in USDA-eligible area',
-      'Income limits apply',
-      'Credit score of 640+',
-      'Primary residence only'
+      'Minimum 3 years tenancy',
+      'Right to Buy eligibility',
+      'Council approval',
+      'Property valuation'
     ]
   },
   {
-    id: 'jumbo',
-    name: 'Jumbo Loan',
-    description: 'Loans that exceed conforming loan limits',
-    minCreditScore: 700,
-    maxLoanAmount: 0, // No upper limit
-    minDownPayment: 10,
-    bestFor: 'High-value property purchases',
+    id: 'self-employed',
+    name: 'Self-Employed Mortgage',
+    description: 'Mortgages for contractors, freelancers, and business owners',
+    minCreditScore: 'Good',
+    maxLTV: 90,
+    minDeposit: 10,
+    typicalRate: 'From 5.15%',
+    bestFor: 'Self-employed individuals and contractors',
     benefits: [
-      'No loan amount restrictions',
-      'Competitive rates for qualified borrowers',
-      'Flexible terms available',
-      'Various property types eligible'
+      'Bank statement mortgages',
+      'Day rate contractor products',
+      'Minimal paperwork options',
+      'Up to 90% LTV available'
     ],
     requirements: [
-      'Credit score of 700+',
-      'Low debt-to-income ratio',
-      'Significant assets and reserves',
-      'Higher down payment requirements'
+      '1-2 years trading history',
+      'Accountant certification',
+      'Business bank statements',
+      'SA302 forms or equivalent'
+    ]
+  },
+  {
+    id: 'adverse-credit',
+    name: 'Adverse Credit Mortgage',
+    description: 'Specialist mortgages for those with credit history issues',
+    minCreditScore: 'Poor to Fair',
+    maxLTV: 85,
+    minDeposit: 15,
+    typicalRate: 'From 6.25%',
+    bestFor: 'Those with previous credit issues',
+    benefits: [
+      'Specialist adverse credit lenders',
+      'CCJs and defaults considered',
+      'Bankruptcy discharged options',
+      'Credit repair guidance included'
+    ],
+    requirements: [
+      'Minimum 15% deposit',
+      'Satisfactory explanation of issues',
+      'Current income verification',
+      'No recent missed payments'
     ]
   }
 ];
@@ -126,8 +154,8 @@ const LoanPrograms: React.FC = () => {
     <div className="loan-programs">
       <div className="container">
         <div className="section-header">
-          <h2>Mortgage Loan Programs</h2>
-          <p>Choose the right loan program that fits your needs and financial situation</p>
+          <h2>UK Mortgage Products</h2>
+          <p>Find the right mortgage product for your unique circumstances</p>
         </div>
 
         <div className="programs-grid">
@@ -139,21 +167,24 @@ const LoanPrograms: React.FC = () => {
                 <div className="program-highlight">
                   <strong>Best for:</strong> {program.bestFor}
                 </div>
+                <div className="program-rate">
+                  <strong>{program.typicalRate}</strong>
+                </div>
               </div>
 
               <div className="program-details">
                 <div className="detail-row">
-                  <span>Min. Credit Score:</span>
-                  <span className="value">{program.minCreditScore}</span>
+                  <span>Max LTV:</span>
+                  <span className="value">{program.maxLTV}%</span>
                 </div>
                 <div className="detail-row">
-                  <span>Min. Down Payment:</span>
-                  <span className="value">{program.minDownPayment}%</span>
+                  <span>Min. Deposit:</span>
+                  <span className="value">{program.minDeposit}%</span>
                 </div>
-                {program.maxLoanAmount > 0 && (
+                {program.minCreditScore && (
                   <div className="detail-row">
-                    <span>Max. Loan Amount:</span>
-                    <span className="value">${program.maxLoanAmount.toLocaleString()}</span>
+                    <span>Credit Score:</span>
+                    <span className="value">{program.minCreditScore}</span>
                   </div>
                 )}
               </div>
@@ -177,12 +208,12 @@ const LoanPrograms: React.FC = () => {
               </div>
 
               <div className="program-action">
-                <button className="btn btn--primary btn--small">
-                  Learn More
-                </button>
-                <button className="btn btn--outline btn--small">
-                  Apply Now
-                </button>
+                <Button variant="primary" size="small">
+                  Get Quote
+                </Button>
+                <Button variant="outline" size="small">
+                  More Info
+                </Button>
               </div>
             </Card>
           ))}
