@@ -5,7 +5,6 @@ import Contact from './pages/Contact';
 import './styles/globals.css';
 import './styles/components.css';
 import './styles/mortgage.css';
-import './styles/pages.css';
 
 function App() {
   return (

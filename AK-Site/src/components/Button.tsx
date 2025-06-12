@@ -1,49 +1,39 @@
 import React from 'react';
 
 interface ButtonProps {
-  children: React.ReactNode;
-  variant?: 'primary' | 'secondary' | 'danger' | 'success' | 'outline';
+  variant?: 'primary' | 'secondary' | 'outline';
   size?: 'small' | 'medium' | 'large';
-  disabled?: boolean;
-  loading?: boolean;
+  children: React.ReactNode;
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
   className?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({
-  children,
   variant = 'primary',
   size = 'medium',
-  disabled = false,
-  loading = false,
+  children,
   onClick,
   type = 'button',
-  className = ""
+  disabled = false,
+  className = ''
 }) => {
-  const baseClass = 'btn';
-  const variantClass = `btn--${variant}`;
-  const sizeClass = `btn--${size}`;
-  const disabledClass = disabled || loading ? 'btn--disabled' : '';
-  const loadingClass = loading ? 'btn--loading' : '';
+  const baseClass = 'button';
+  const variantClass = `button-${variant}`;
+  const sizeClass = size !== 'medium' ? `button-${size}` : '';
   
-  const buttonClass = [
-    baseClass,
-    variantClass,
-    sizeClass,
-    disabledClass,
-    loadingClass,
-    className
-  ].filter(Boolean).join(' ');
+  const classes = [baseClass, variantClass, sizeClass, className]
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <button
       type={type}
-      className={buttonClass}
-      disabled={disabled || loading}
+      className={classes}
       onClick={onClick}
+      disabled={disabled}
     >
-      {loading && <span className="btn-spinner">⟳</span>}
       {children}
     </button>
   );
