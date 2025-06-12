@@ -5,25 +5,22 @@ import Footer from './Footer';
 interface LayoutProps {
   children: React.ReactNode;
   title?: string;
-  showHeader?: boolean;
-  showFooter?: boolean;
-  className?: string;
 }
 
-const Layout: React.FC<LayoutProps> = ({
-  children,
-  title,
-  showHeader = true,
-  showFooter = true,
-  className = ""
-}) => {
+const Layout: React.FC<LayoutProps> = ({ children, title }) => {
+  React.useEffect(() => {
+    if (title) {
+      document.title = title;
+    }
+  }, [title]);
+
   return (
-    <div className={`layout ${className}`}>
-      {showHeader && <Header title={title} />}
-      <main className="layout-main">
+    <div className="layout">
+      <Header />
+      <main className="main-content">
         {children}
       </main>
-      {showFooter && <Footer />}
+      <Footer />
     </div>
   );
 };
