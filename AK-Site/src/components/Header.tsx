@@ -9,7 +9,7 @@ const Header: React.FC = () => {
       <div className="container">
         <div className="header-content">
           <Link to="/" className="logo">
-            <h1>UK Mortgage Broker - Best Rates Guaranteed</h1>
+            <h1>UK Mortgage Advisor - Best Rates Guaranteed</h1>
           </Link>
           <nav className="nav">
             <Link 
