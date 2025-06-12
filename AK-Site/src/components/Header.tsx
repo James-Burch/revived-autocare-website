@@ -1,27 +1,37 @@
 import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
-interface HeaderProps {
-  title?: string;
-  showNav?: boolean;
-  className?: string;
-}
+const Header: React.FC = () => {
+  const location = useLocation();
 
-const Header: React.FC<HeaderProps> = ({ 
-  title = "My React App", 
-  showNav = true,
-  className = ""
-}) => {
   return (
-    <header className={`header ${className}`}>
-      <div className="header-container">
-        <h1 className="header-title">{title}</h1>
-        {showNav && (
-          <nav className="header-nav">
-            <a href="/" className="nav-link">Home</a>
-            <a href="/about" className="nav-link">About</a>
-            <a href="/contact" className="nav-link">Contact</a>
+    <header className="header">
+      <div className="container">
+        <div className="header-content">
+          <Link to="/" className="logo">
+            <h1>UK Mortgage Broker - Best Rates Guaranteed</h1>
+          </Link>
+          <nav className="nav">
+            <Link 
+              to="/" 
+              className={location.pathname === '/' ? 'nav-link active' : 'nav-link'}
+            >
+              Home
+            </Link>
+            <Link 
+              to="/products" 
+              className={location.pathname === '/products' ? 'nav-link active' : 'nav-link'}
+            >
+              Products
+            </Link>
+            <Link 
+              to="/contact" 
+              className={location.pathname === '/contact' ? 'nav-link active' : 'nav-link'}
+            >
+              Contact
+            </Link>
           </nav>
-        )}
+        </div>
       </div>
     </header>
   );
