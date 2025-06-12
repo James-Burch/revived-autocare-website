@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 
 const Home: React.FC = () => {
   return (
-    <Layout title="UK Mortgage Broker - Best Rates Guaranteed">
+    <Layout title="UK Mortgage Advisor - Best Rates Guaranteed">
       <div className="home-page">
         {/* Hero Section */}
         <section className="hero">
           <div className="container">
             <div className="hero-content">
               <div className="hero-text">
-                <h1>UK's Leading Mortgage Broker</h1>
+                <h1>UK's Leading Mortgage Advisor</h1>
                 <p>
                   Access exclusive rates from 90+ lenders. Get your Agreement in Principle
                   in minutes and save thousands with our expert mortgage advice.
@@ -24,7 +24,7 @@ const Home: React.FC = () => {
                 </div>
                 <div className="hero-features">
                   <div className="feature">✓ Whole of market access</div>
-                  <div className="feature">✓ No broker fees</div>
+                  <div className="feature">✓ No advisor fees</div>
                   <div className="feature">✓ FCA regulated advisers</div>
                 </div>
               </div>
@@ -152,11 +152,11 @@ const Home: React.FC = () => {
               <Card className="feature-card">
                 <div className="feature-icon">🏆</div>
                 <h3>Award-Winning Service</h3>
-                <p>Winner of 'Best Mortgage Broker 2024' with over 18 years of experience helping clients secure the best mortgage deals.</p>
+                <p>Winner of 'Best Mortgage Advisor 2024' with over 18 years of experience helping clients secure the best mortgage deals.</p>
               </Card>
               <Card className="feature-card">
                 <div className="feature-icon">💰</div>
-                <h3>No Broker Fees</h3>
+                <h3>No Advisor Fees</h3>
                 <p>Our mortgage advice is completely free to you. We're paid by the lender only when your mortgage completes successfully.</p>
               </Card>
               <Card className="feature-card">

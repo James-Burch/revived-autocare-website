@@ -1,12 +1,11 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Products from './pages/Products';
 import Contact from './pages/Contact';
 import './styles/globals.css';
-import './styles/pages.css';
 import './styles/components.css';
 import './styles/mortgage.css';
+import './styles/pages.css';
 
 function App() {
   return (
