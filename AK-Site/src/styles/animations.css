@@ -1,248 +1,314 @@
 /* ========== Base Animation Keyframes ========== */
 @keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.4s ease-out forwards;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-down {
+    animation: fadeInDown 0.4s ease-out forwards;
+}
+
+
+@keyframes fadeOutDown {
   from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
     opacity: 1;
     transform: translateY(0);
   }
+  to {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+}
+
+.fade-out-down {
+  animation: fadeOutDown 0.4s ease-in forwards;
 }
 
 @keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 @keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 @keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 /* ========== Scroll Triggered Animations ========== */
 .scroll-animate {
-  opacity: 0;
-  transition: all 0.6s ease-out;
+    opacity: 0;
+    transition: all 0.6s ease-out;
 }
 
 .scroll-animate.in-view {
-  opacity: 1;
+    opacity: 1;
 }
 
 .scroll-animate.fade-up {
-  transform: translateY(50px);
+    transform: translateY(50px);
 }
 
 .scroll-animate.fade-up.in-view {
-  transform: translateY(0);
+    transform: translateY(0);
 }
 
 .scroll-animate.fade-left {
-  transform: translateX(-50px);
+    transform: translateX(-50px);
 }
 
 .scroll-animate.fade-left.in-view {
-  transform: translateX(0);
+    transform: translateX(0);
 }
 
 .scroll-animate.fade-right {
-  transform: translateX(50px);
+    transform: translateX(50px);
 }
 
 .scroll-animate.fade-right.in-view {
-  transform: translateX(0);
+    transform: translateX(0);
 }
 
 .scroll-animate.scale {
-  transform: scale(0.8);
+    transform: scale(0.8);
 }
 
 .scroll-animate.scale.in-view {
-  transform: scale(1);
+    transform: scale(1);
 }
 
 /* ========== Stagger Animations ========== */
-.animate-stagger > * {
-  opacity: 0;
-  animation: fadeInUp 0.6s ease-out forwards;
+.animate-stagger>* {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
 }
 
-.animate-stagger > *:nth-child(1) { animation-delay: 0.1s; }
-.animate-stagger > *:nth-child(2) { animation-delay: 0.2s; }
-.animate-stagger > *:nth-child(3) { animation-delay: 0.3s; }
-.animate-stagger > *:nth-child(4) { animation-delay: 0.4s; }
-.animate-stagger > *:nth-child(5) { animation-delay: 0.5s; }
-.animate-stagger > *:nth-child(6) { animation-delay: 0.6s; }
-.animate-stagger > *:nth-child(7) { animation-delay: 0.7s; }
-.animate-stagger > *:nth-child(8) { animation-delay: 0.8s; }
+.animate-stagger>*:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.animate-stagger>*:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.animate-stagger>*:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.animate-stagger>*:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.animate-stagger>*:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.animate-stagger>*:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+.animate-stagger>*:nth-child(7) {
+    animation-delay: 0.7s;
+}
+
+.animate-stagger>*:nth-child(8) {
+    animation-delay: 0.8s;
+}
 
 /* ========== Hero Section Animations ========== */
 .hero-animate-in {
-  animation: fadeInUp 0.8s ease-out;
+    animation: fadeInUp 0.8s ease-out;
 }
 
 .word-reveal {
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: revealWord 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: revealWord 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 @keyframes revealWord {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .hero-description-animated {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.6s ease-out 0.5s forwards;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out 0.5s forwards;
 }
 
 .hero-buttons-animated {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.6s ease-out 0.7s forwards;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out 0.7s forwards;
 }
 
 /* ========== Button Hover Effects ========== */
 .btn-modern {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  transform: translateZ(0);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateZ(0);
 }
 
 .btn-modern::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
-  transform: translate(-50%, -50%);
-  transition: width 0.6s, height 0.6s;
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
 }
 
 .btn-modern:hover::before {
-  width: 300px;
-  height: 300px;
+    width: 300px;
+    height: 300px;
 }
 
 .hover-lift:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 .hover-grow:hover {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 /* ========== Card Animations ========== */
 .card-modern {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-modern:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-xl);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
 }
 
 /* ========== Service Card Enhanced Animations ========== */
 .service-card-interactive {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .service-card-interactive:hover {
-  transform: translateY(-8px) scale(1.02);
+    transform: translateY(-8px) scale(1.02);
 }
 
 .service-card-interactive .service-icon-new {
-  transition: all 0.4s ease;
+    transition: all 0.4s ease;
 }
 
 .service-card-interactive:hover .service-icon-new {
-  transform: scale(1.1) rotate(5deg);
+    transform: scale(1.1) rotate(5deg);
 }
 
 /* ========== Page Transitions ========== */
 .page-transition {
-  animation: pageEnter 0.5s ease-out;
+    animation: pageEnter 0.5s ease-out;
 }
 
 @keyframes pageEnter {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* ========== Loading Animation ========== */
 @keyframes shimmer {
-  0% {
-    background-position: -1000px 0;
-  }
-  100% {
-    background-position: 1000px 0;
-  }
+    0% {
+        background-position: -1000px 0;
+    }
+
+    100% {
+        background-position: 1000px 0;
+    }
 }
 
 .skeleton {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-  background-size: 1000px 100%;
-  animation: shimmer 2s infinite;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite;
 }
 
 /* ========== Smooth Scrolling ========== */
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 /* ========== Focus States ========== */
 *:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
 }
 
 /* ========== Reduced Motion ========== */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }
