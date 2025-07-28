@@ -1,5 +1,3 @@
-// src/utils/scrollObserver.ts
-
 export class ScrollObserver {
   private observer: IntersectionObserver;
   
@@ -15,8 +13,6 @@ export class ScrollObserver {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('in-view');
-          // Optional: unobserve after animation to improve performance
-          // this.observer.unobserve(entry.target);
         }
       });
     }, defaultOptions);
@@ -36,30 +32,9 @@ export class ScrollObserver {
   }
 }
 
-// Hook for React components
-import { useEffect, useRef } from 'react';
-
-export const useScrollAnimation = (options?: IntersectionObserverInit) => {
-  const elementRef = useRef<HTMLElement>(null);
-  
-  useEffect(() => {
-    const element = elementRef.current;
-    if (!element) return;
-    
-    const observer = new ScrollObserver(options);
-    observer.observe(element);
-    
-    return () => observer.disconnect();
-  }, []);
-  
-  return elementRef;
-};
-
-// Global initialization for non-React elements
 export const initScrollAnimations = () => {
   const observer = new ScrollObserver();
   observer.observeAll('.scroll-animate');
   
-  // Re-observe on route changes if using SPA
   return () => observer.disconnect();
 };

@@ -1,13 +1,22 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
 import Home from './pages/Home';
 import Products from './pages/Products';
 import Contact from './pages/Contact';
 import ProductPage from './components/ProductPage';
+import { initScrollAnimations } from './utils/scrollObserver';
 import './styles/globals.css';
 import './styles/components.css';
 import './styles/mortgage.css';
+import './styles/animations.css';
+import './styles/hero-animations.css';
 
 function App() {
+  useEffect(() => {
+    const cleanup = initScrollAnimations();
+    return cleanup;
+  }, []);
+
   return (
     <Router>
       <Routes>
