@@ -10,11 +10,30 @@ import './styles/components.css';
 import './styles/mortgage.css';
 import './styles/animations.css';
 import './styles/hero-animations.css';
+import './styles/professional-enhancements.css';
 
 function App() {
   useEffect(() => {
     const cleanup = initScrollAnimations();
-    return cleanup;
+    
+    // Add scroll effect to header
+    const handleScroll = () => {
+      const header = document.querySelector('.header');
+      if (header) {
+        if (window.scrollY > 10) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    
+    return () => {
+      cleanup();
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   return (
