@@ -609,7 +609,7 @@
 .hamburger-icon {
   font-size: var(--font-size-xl);
   font-weight: bold;
-  color: var(--color-text-primary);
+  color: var(--color-teal);
 }
 
 .mobile-nav-overlay {
@@ -650,7 +650,7 @@
   background: none;
   border: none;
   font-size: var(--font-size-2xl);
-  color: var(--color-text-primary);
+  color: var(--color-teal);
   cursor: pointer;
   padding: var(--spacing-xs);
 }
