@@ -4,12 +4,13 @@ import { Link, useLocation } from 'react-router-dom';
 interface ProductItem {
   name: string;
   path: string;
-  description?: string;
 }
 
 const Header: React.FC = () => {
   const location = useLocation();
   const [isProductsOpen, setIsProductsOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const products: ProductItem[] = [
@@ -41,6 +42,19 @@ const Header: React.FC = () => {
     setIsProductsOpen(!isProductsOpen);
   };
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const toggleMobileDropdown = () => {
+    setIsMobileDropdownOpen(!isMobileDropdownOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+    setIsMobileDropdownOpen(false);
+  };
+
   const isProductsActive = location.pathname.startsWith('/products') || location.pathname.startsWith('/calculators');
 
   return (
@@ -50,7 +64,8 @@ const Header: React.FC = () => {
           <Link to="/" className="logo">
             <h1>UK Mortgage Advisor - Best Rates Guaranteed</h1>
           </Link>
-
+          
+          {/* Desktop Navigation */}
           <nav className="nav">
             <Link
               to="/"
@@ -58,7 +73,7 @@ const Header: React.FC = () => {
             >
               Home
             </Link>
-
+            
             {/* Products Dropdown */}
             <div className="nav-dropdown" ref={dropdownRef}>
               <button
@@ -69,7 +84,7 @@ const Header: React.FC = () => {
                 Products
                 <span className={`dropdown-arrow ${isProductsOpen ? 'open' : ''}`}>▼</span>
               </button>
-
+              
               <div className={`dropdown-menu ${isProductsOpen ? 'open' : ''}`}>
                 <div className="dropdown-content">
                   {products.map((product) => (
@@ -87,7 +102,7 @@ const Header: React.FC = () => {
                 </div>
               </div>
             </div>
-
+            
             <Link
               to="/contact"
               className={location.pathname === '/contact' ? 'nav-link active' : 'nav-link'}
@@ -95,7 +110,73 @@ const Header: React.FC = () => {
               Contact
             </Link>
           </nav>
+
+          {/* Mobile Menu Toggle */}
+          <button 
+            className="mobile-menu-toggle"
+            onClick={toggleMobileMenu}
+            aria-label="Menu"
+          >
+            <span className="hamburger-icon">☰</span>
+          </button>
         </div>
+      </div>
+
+      {/* Mobile Navigation Overlay */}
+      <div className={`mobile-nav-overlay ${isMobileMenuOpen ? 'open' : ''}`}>
+        <div className="mobile-nav-header">
+          <Link to="/" className="logo" onClick={closeMobileMenu}>
+            <h2>UK Mortgage Advisor</h2>
+          </Link>
+          <button 
+            onClick={closeMobileMenu} 
+            className="mobile-close-btn"
+            aria-label="Close menu"
+          >
+            ✕
+          </button>
+        </div>
+        
+        <nav className="mobile-nav-menu">
+          <Link 
+            to="/" 
+            className={location.pathname === '/' ? 'nav-link active' : 'nav-link'} 
+            onClick={closeMobileMenu}
+          >
+            Home
+          </Link>
+          
+          <div>
+            <button 
+              className="mobile-dropdown-toggle" 
+              onClick={toggleMobileDropdown}
+            >
+              Products
+              <span>{isMobileDropdownOpen ? '▲' : '▼'}</span>
+            </button>
+            
+            <div className={`mobile-dropdown-menu ${isMobileDropdownOpen ? 'open' : ''}`}>
+              {products.map((product) => (
+                <Link 
+                  key={product.path} 
+                  to={product.path} 
+                  className="dropdown-item" 
+                  onClick={closeMobileMenu}
+                >
+                  {product.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+          
+          <Link 
+            to="/contact" 
+            className={location.pathname === '/contact' ? 'nav-link active' : 'nav-link'} 
+            onClick={closeMobileMenu}
+          >
+            Contact
+          </Link>
+        </nav>
       </div>
     </header>
   );

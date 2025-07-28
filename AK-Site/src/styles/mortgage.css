@@ -1202,3 +1202,144 @@
     font-size: var(--font-size-2xl);
   }
 }
+
+/* Mobile Hero Section Fixes */
+@media (max-width: 768px) {
+  .hero-new {
+    min-height: 70vh;
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .hero-content-new {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+    text-align: center;
+  }
+
+  .hero-text-new h1 {
+    font-size: var(--font-size-3xl);
+    line-height: 1.1;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .hero-text-new p {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-xl);
+    padding: 0 var(--spacing-md);
+  }
+
+  .hero-buttons-new {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    align-items: center;
+  }
+
+  .hero-buttons-new .button {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  /* Services Grid Mobile */
+  .services-grid-6 {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .services-grid-2 {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .service-card-new,
+  .service-card-interactive {
+    height: auto;
+    min-height: 150px;
+  }
+
+  /* Lenders Section Mobile */
+  .lenders-section .section-header h2 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .lenders-section .section-header p {
+    font-size: var(--font-size-base);
+    padding: 0 var(--spacing-md);
+  }
+
+  /* Reviews Section Mobile */
+  .reviews-section .section-header h2 {
+    font-size: var(--font-size-2xl);
+    text-align: center;
+  }
+
+  .reviews-section .section-header h3 {
+    font-size: var(--font-size-xl);
+    text-align: center;
+  }
+
+  /* Contact Section Mobile */
+  .contact-section {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .contact-content h2 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .contact-methods {
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+
+  .contact-method {
+    font-size: var(--font-size-sm);
+    text-align: center;
+  }
+
+  /* CTA Section Mobile */
+  .cta-new {
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .cta-new h2 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .cta-new p {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-xl);
+    padding: 0 var(--spacing-md);
+  }
+
+  .cta-new .cta-buttons {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    align-items: center;
+  }
+
+  .cta-new .cta-buttons .button {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text-new h1 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .service-card-new h3,
+  .service-card-interactive h3 {
+    font-size: var(--font-size-base);
+  }
+
+  .section-header h2 {
+    font-size: var(--font-size-xl);
+  }
+
+  .container {
+    padding: 0 var(--spacing-md);
+  }
+}

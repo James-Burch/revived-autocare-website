@@ -20,49 +20,57 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   className = ''
 }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const [isFlipped, setIsFlipped] = useState(isActive);
 
   const handleMouseEnter = () => {
-    setIsHovered(true);
     if (description) {
-      setIsFlipped(true);
+      setIsHovered(true);
     }
   };
 
   const handleMouseLeave = () => {
     setIsHovered(false);
-    if (!isActive) {
-      setIsFlipped(false);
-    }
   };
 
+  const handleClick = () => {
+    window.location.href = link;
+  };
+
+  // For cards without description (like additional services)
+  if (!description) {
+    return (
+      <div 
+        className={`service-card-new ${className.includes('additional') ? 'additional' : ''}`}
+        onClick={handleClick}
+      >
+        <div className="service-icon-new">{icon}</div>
+        <h3>{title}</h3>
+      </div>
+    );
+  }
+
+  // For cards with description, use simple hover effect (no flipping)
   return (
     <div 
-      className={`service-card-interactive ${className} ${isFlipped ? 'flipped' : ''}`}
+      className={`service-card-interactive ${className} ${isHovered || isActive ? 'flipped' : ''}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="card-inner">
-        {/* Front of card */}
-        <div className="card-front">
-          <div className="service-icon-new">{icon}</div>
-          <h3>{title}</h3>
-        </div>
-        
-        {/* Back of card */}
-        {description && (
-          <div className="card-back">
-            <h3>{title}</h3>
-            <p>{description}</p>
-            <div className="card-actions">
-              <Link to={link}>
-                <Button variant="secondary" size="small">Learn More</Button>
-              </Link>
-              <div className="arrow-icon">→</div>
-            </div>
+      <div className="service-icon-new">{icon}</div>
+      <h3>{title}</h3>
+      
+      {description && (
+        <>
+          <div className="card-description">
+            {description}
           </div>
-        )}
-      </div>
+          <div className="card-actions">
+            <Link to={link}>
+              <Button variant="outline" size="small">Learn More</Button>
+            </Link>
+            <div className="arrow-icon">→</div>
+          </div>
+        </>
+      )}
     </div>
   );
 };
