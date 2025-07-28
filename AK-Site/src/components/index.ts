@@ -1,8 +1,11 @@
 export { default as Button } from './Button';
-export { default as Card } from './ServiceCard';
+export { default as ServiceCard } from './ServiceCard';
 export { default as Counter } from './Counter';
 export { default as Footer } from './Footer';
 export { default as Header } from './Header';
 export { default as Layout } from './Layout';
 export { default as Loading } from './Loading';
 export { default as Modal } from './Modal';
+export { default as HeroSection } from './HeroSection';
+export { default as ServicesGrid } from './ServicesGrid';
+export { default as ChatWidget } from './ChatWidget';

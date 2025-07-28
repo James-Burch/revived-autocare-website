@@ -13,14 +13,14 @@ const Header: React.FC = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const products: ProductItem[] = [
-    { name: 'Purchase (First Time Buyers)', path: '/products/first-time-buyers', description: 'Get on the property ladder' },
-    { name: 'Home Mover', path: '/products/home-mover', description: 'Moving to your next home' },
-    { name: 'Remortgage', path: '/products/remortgage', description: 'Switch to a better deal' },
-    { name: 'Buy To Let', path: '/products/buy-to-let', description: 'Investment property finance' },
-    { name: 'New Build', path: '/products/new-build', description: 'New construction financing' },
-    { name: 'Help To Buy', path: '/products/help-to-buy', description: 'Government assistance schemes' },
-    { name: 'Limited Companies (BTL)', path: '/products/limited-companies', description: 'Corporate buy-to-let' },
-    { name: 'Mortgage Calculators', path: '/calculators', description: 'Plan your mortgage' }
+    { name: 'Purchase (First Time Buyers)', path: '/products/first-time-buyers' },
+    { name: 'Remortgage', path: '/products/remortgage' },
+    { name: 'Home Mover', path: '/products/home-mover' },
+    { name: 'Buy to Let (BTL)', path: '/products/buy-to-let' },
+    { name: 'New Build', path: '/products/new-build' },
+    { name: 'Help to Buy', path: '/products/help-to-buy' },
+    { name: 'Limited Companies (BTL)', path: '/products/limited-companies' },
+    { name: 'Mortgage Calculators', path: '/calculators' }
   ];
 
   // Close dropdown when clicking outside
@@ -72,43 +72,18 @@ const Header: React.FC = () => {
 
               <div className={`dropdown-menu ${isProductsOpen ? 'open' : ''}`}>
                 <div className="dropdown-content">
-                  <div className="dropdown-section">
-                    <h4>Mortgage Products</h4>
-                    {products.slice(0, 6).map((product) => (
-                      <Link
-                        key={product.path}
-                        to={product.path}
-                        className="dropdown-item"
-                        onClick={() => setIsProductsOpen(false)}
-                      >
-                        <div className="item-content">
-                          <span className="item-name">{product.name}</span>
-                          {product.description && (
-                            <span className="item-description">{product.description}</span>
-                          )}
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-
-                  <div className="dropdown-section">
-                    <h4>Additional Services</h4>
-                    {products.slice(6).map((product) => (
-                      <Link
-                        key={product.path}
-                        to={product.path}
-                        className="dropdown-item"
-                        onClick={() => setIsProductsOpen(false)}
-                      >
-                        <div className="item-content">
-                          <span className="item-name">{product.name}</span>
-                          {product.description && (
-                            <span className="item-description">{product.description}</span>
-                          )}
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
+                  {products.map((product) => (
+                    <Link
+                      key={product.path}
+                      to={product.path}
+                      className="dropdown-item"
+                      onClick={() => setIsProductsOpen(false)}
+                    >
+                      <div className="item-content">
+                        <span className="item-name">{product.name}</span>
+                      </div>
+                    </Link>
+                  ))}
                 </div>
               </div>
             </div>

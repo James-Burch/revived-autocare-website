@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import HeroSection from '../components/HeroSection';
 import ServicesGrid from '../components/ServicesGrid';
 import ChatWidget from '../components/ChatWidget';
+import ServiceCard from '../components/ServiceCard';
 
 const Home: React.FC = () => {
   // Service data configuration
@@ -11,6 +12,7 @@ const Home: React.FC = () => {
     {
       id: 'first-time-buyers',
       title: 'Purchase (First Time Buyers)',
+      description: 'Get on the property ladder with our first-time buyer mortgage options.',
       icon: '🏠',
       link: '/products/first-time-buyers'
     },
@@ -19,30 +21,33 @@ const Home: React.FC = () => {
       title: 'Home Mover',
       description: 'Whether it be upsize, downsize or just because you fancy a change...',
       icon: '🔄',
-      link: '/products/home-mover',
-      isActive: true
+      link: '/products/home-mover'
     },
     {
       id: 'remortgage',
       title: 'Remortgage',
+      description: 'Switch to a better deal and potentially save thousands on your monthly payments.',
       icon: '💱',
       link: '/products/remortgage'
     },
     {
       id: 'buy-to-let',
       title: 'Buy To Let',
+      description: 'Investment property finance with competitive rates and flexible terms.',
       icon: '🏢',
       link: '/products/buy-to-let'
     },
     {
       id: 'new-build',
       title: 'New Build',
+      description: 'New construction financing with specialist advice for new builds.',
       icon: '🏗️',
       link: '/products/new-build'
     },
     {
       id: 'help-to-buy',
       title: 'Help To Buy',
+      description: 'Government assistance schemes to help you get on the property ladder.',
       icon: '🎯',
       link: '/products/help-to-buy'
     }
