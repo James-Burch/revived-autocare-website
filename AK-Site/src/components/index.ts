@@ -9,5 +9,6 @@ export { default as Modal } from './Modal';
 export { default as MortgageCalculator } from './MortgageCalculator';
 export { default as ProductPage } from './ProductPage';
 export { default as ServicesGrid } from './ServicesGrid';
-export { default as UnifiedCard } from './UnifiedCard'
-export { default as ProductsGrid } from './ProductsGrid'
+export { default as UnifiedCard } from './UnifiedCard';
+export { default as ProductsGrid } from './ProductsGrid';
+export { default as ContactBar } from './ContactBar';

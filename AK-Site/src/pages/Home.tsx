@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChatWidget, Layout } from '../components';
+import { ChatWidget, Layout, ContactBar } from '../components';
 import ServicesGrid from '../components/ServicesGrid';
 import { getMainServices, getAdditionalServices } from '../data';
 import { Link } from 'react-router-dom';
@@ -66,7 +66,7 @@ const Home: React.FC = () => {
             </div>
           </div>
         </section>
-
+        <ContactBar />
         {/* Reviews Section */}
         <section className="reviews-section">
           <div className="container">
@@ -90,7 +90,7 @@ const Home: React.FC = () => {
                 <Link to="/contact"
                   className={location.pathname === '/contact' ? 'nav-link active' : 'nav-link'}>
                   <button className="button button-primary button-large">
-                    Start Your Application
+                    Contact Us Here
                   </button>
                 </Link>
                 <Link to="/contact"
