@@ -5,6 +5,8 @@ import Products from './pages/Products';
 import Contact from './pages/Contact';
 import ProductPage from './components/ProductPage';
 import InsurancePage from './pages/InsurancePage';
+import { ContactBar, MortgageCalculator } from './components';
+import { Layout } from './components';
 import { initScrollAnimations } from './utils/scrollObserver';
 import './styles/main.css';
 
@@ -40,11 +42,20 @@ function App() {
         <Route path="/contact" element={<Contact />} />
 
         <Route path="/mortgages/:productType" element={<ProductPage />} />
-        
+
         <Route path="/insurance/:insuranceType" element={<InsurancePage />} />
 
         {/* Calculators Page */}
-        <Route path="/calculators" element={<ProductPage />} />
+        {/* <Route path="/mortgage-calculator" element={<MortgageCalculator />} /> */}
+        <Route
+          path="/mortgage-calculator"
+          element={
+            <Layout title="Mortgage Calculator">
+              <MortgageCalculator />
+              <ContactBar />
+            </Layout>
+          }
+        />
       </Routes>
     </Router>
   );
