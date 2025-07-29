@@ -1,54 +1,54 @@
 import React from 'react';
 import UnifiedCard from './UnifiedCard';
-
-interface Service {
-  id: string;
-  title: string;
-  description?: string;
-  icon: string;
-  link: string;
-  isActive?: boolean;
-}
+import { ServiceData } from '../data/index.ts';
 
 interface ServicesGridProps {
-  services: Service[];
-  additionalServices?: Service[];
+  services: ServiceData[];
+  additionalServices?: ServiceData[];
   className?: string;
+  showDescriptions?: boolean;
 }
 
 const ServicesGrid: React.FC<ServicesGridProps> = ({
   services,
   additionalServices = [],
-  className = ''
+  className = '',
+  showDescriptions = true
 }) => {
   return (
     <section className={`services-new ${className}`}>
       <div className="container">
         {/* Main 6-card grid */}
-        <div className="services-grid-6">
-          {services.map((service) => (
-            <ServiceCard
-              key={service.id}
-              title={service.title}
-              description={service.description}
-              icon={service.icon}
-              link={service.link}
-              isActive={service.isActive}
-            />
-          ))}
-        </div>
+        {services.length > 0 && (
+          <div className="services-grid-6">
+            {services.map((service) => (
+              <UnifiedCard
+                key={service.id}
+                variant="service"
+                title={service.title}
+                description={showDescriptions ? service.description : undefined}
+                icon={service.icon}
+                linkTo={service.link}
+                animated={true}
+              />
+            ))}
+          </div>
+        )}
 
         {/* Additional services if provided */}
         {additionalServices.length > 0 && (
           <div className="additional-services">
             <div className="services-grid-2">
               {additionalServices.map((service) => (
-                <ServiceCard
+                <UnifiedCard
                   key={service.id}
+                  variant="service"
                   title={service.title}
+                  description={showDescriptions ? service.description : undefined}
                   icon={service.icon}
-                  link={service.link}
-                  className="additional"
+                  linkTo={service.link}
+                  size="small"
+                  animated={true}
                 />
               ))}
             </div>
