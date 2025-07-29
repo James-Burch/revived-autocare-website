@@ -1,12 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// Unified Card Types
 type CardVariant = 'basic' | 'service' | 'product' | 'feature';
 type CardSize = 'small' | 'medium' | 'large';
+type ButtonVariant = 'primary' | 'outline' | 'secondary';
 
 interface BaseCardProps {
-    children?: React.ReactNode;
     className?: string;
     onClick?: () => void;
     variant?: CardVariant;
@@ -14,45 +13,49 @@ interface BaseCardProps {
     animated?: boolean;
 }
 
-// Service Card specific props
+interface ActionButton {
+    label: string;
+    variant: ButtonVariant;
+    linkTo?: string;
+    onClick?: () => void;
+}
+
+interface Spec {
+    label: string;
+    value: string;
+}
+
+// Service Card Props
 interface ServiceCardProps extends BaseCardProps {
     variant: 'service';
-    icon?: string;
     title: string;
     description?: string;
+    icon?: string;
     linkTo?: string;
     showActions?: boolean;
 }
 
-// Product Card specific props
+// Product Card Props
 interface ProductCardProps extends BaseCardProps {
     variant: 'product';
     title: string;
     description?: string;
     rate?: string;
     bestFor?: string;
-    specs?: Array<{
-        label: string;
-        value: string;
-    }>;
-    actions?: Array<{
-        label: string;
-        variant: 'primary' | 'outline';
-        linkTo?: string;
-        onClick?: () => void;
-    }>;
+    specs?: Spec[];
+    actions?: ActionButton[];
 }
 
-// Basic card props
+// Basic/Feature Card Props
 interface BasicCardProps extends BaseCardProps {
     variant?: 'basic' | 'feature';
+    children: React.ReactNode;
 }
 
 type UnifiedCardProps = ServiceCardProps | ProductCardProps | BasicCardProps;
 
 const UnifiedCard: React.FC<UnifiedCardProps> = (props) => {
     const {
-        children,
         className = '',
         onClick,
         variant = 'basic',
@@ -60,8 +63,8 @@ const UnifiedCard: React.FC<UnifiedCardProps> = (props) => {
         animated = true,
     } = props;
 
-    // Base classes
-    const baseClasses = [
+    // Build CSS classes
+    const cardClasses = [
         'card',
         `card--${variant}`,
         `card--${size}`,
@@ -71,40 +74,41 @@ const UnifiedCard: React.FC<UnifiedCardProps> = (props) => {
 
     // Render Service Card
     if (variant === 'service') {
-        const { icon, title, description, linkTo, showActions = true } = props as ServiceCardProps;
+        const { title, description, icon, linkTo, showActions = true } = props as ServiceCardProps;
 
-        const content = (
+        const serviceContent = (
             <div className="card__inner">
                 {icon && (
-                    <div className="card__icon">
+                    <div className="card__icon service-icon-new">
                         {icon}
                     </div>
                 )}
                 <h3 className="card__title">{title}</h3>
                 {description && (
-                    <p className="card__description">{description}</p>
+                    <p className="card__description card-description">
+                        {description}
+                    </p>
                 )}
                 {showActions && (
-                    <div className="card__actions">
-                        <span className="card__action-text">Learn More</span>
-                        <span className="card__arrow">→</span>
+                    <div className="card__actions card-actions">
+                        <span className="card__action-text learn-more">Learn More</span>
+                        <span className="card__arrow arrow-icon">→</span>
                     </div>
                 )}
-                {children}
             </div>
         );
 
         if (linkTo) {
             return (
-                <Link to={linkTo} className={baseClasses}>
-                    {content}
+                <Link to={linkTo} className={cardClasses} style={{ textDecoration: 'none', color: 'inherit' }}>
+                    {serviceContent}
                 </Link>
             );
         }
 
         return (
-            <div className={baseClasses} onClick={onClick}>
-                {content}
+            <div className={cardClasses} onClick={onClick}>
+                {serviceContent}
             </div>
         );
     }
@@ -114,28 +118,28 @@ const UnifiedCard: React.FC<UnifiedCardProps> = (props) => {
         const { title, description, rate, bestFor, specs, actions } = props as ProductCardProps;
 
         return (
-            <div className={baseClasses} onClick={onClick}>
+            <div className={cardClasses} onClick={onClick}>
                 <div className="card__inner">
                     <h3 className="card__title">{title}</h3>
                     {description && <p className="card__description">{description}</p>}
 
-                    <div className="card__details">
+                    <div className="card__details product-details">
                         {bestFor && (
-                            <div className="card__best-for">
+                            <div className="card__best-for best-for">
                                 <strong>Best for:</strong> {bestFor}
                             </div>
                         )}
 
                         {rate && (
-                            <div className="card__rate-badge">From {rate}</div>
+                            <div className="card__rate-badge rate-badge">From {rate}</div>
                         )}
 
                         {specs && specs.length > 0 && (
-                            <div className="card__specs">
+                            <div className="card__specs product-specs">
                                 {specs.map((spec, index) => (
-                                    <div key={index} className="card__spec-row">
+                                    <div key={index} className="card__spec-row spec-row">
                                         <span>{spec.label}:</span>
-                                        <span className="card__spec-value">{spec.value}</span>
+                                        <span className="card__spec-value spec-value">{spec.value}</span>
                                     </div>
                                 ))}
                             </div>
@@ -143,18 +147,18 @@ const UnifiedCard: React.FC<UnifiedCardProps> = (props) => {
                     </div>
 
                     {actions && actions.length > 0 && (
-                        <div className="card__actions card__actions--buttons">
+                        <div className="card__actions card__actions--buttons product-actions">
                             {actions.map((action, index) => (
                                 action.linkTo ? (
                                     <Link key={index} to={action.linkTo}>
-                                        <button className={`button button--${action.variant} button--small`}>
+                                        <button className={`button button-${action.variant} button-small`}>
                                             {action.label}
                                         </button>
                                     </Link>
                                 ) : (
                                     <button
                                         key={index}
-                                        className={`button button--${action.variant} button--small`}
+                                        className={`button button-${action.variant} button-small`}
                                         onClick={action.onClick}
                                     >
                                         {action.label}
@@ -163,16 +167,15 @@ const UnifiedCard: React.FC<UnifiedCardProps> = (props) => {
                             ))}
                         </div>
                     )}
-
-                    {children}
                 </div>
             </div>
         );
     }
 
     // Render Basic/Feature Card
+    const { children } = props as BasicCardProps;
     return (
-        <div className={baseClasses} onClick={onClick}>
+        <div className={cardClasses} onClick={onClick}>
             <div className="card__inner">
                 {children}
             </div>
