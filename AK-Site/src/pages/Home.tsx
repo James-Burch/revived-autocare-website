@@ -115,8 +115,8 @@ const Home: React.FC = () => {
                 <Link to="/contact"
                   className={location.pathname === '/contact' ? 'nav-link active' : 'nav-link'}>
                   <button className="button button-secondary button-large">
-                  Book Free Consultation
-                </button>
+                    Book Free Consultation
+                  </button>
                 </Link>
               </div>
               <p className="cta-disclaimer">

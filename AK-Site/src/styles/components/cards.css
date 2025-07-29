@@ -331,9 +331,6 @@
 }
 
 /* Animation Control */
-.card--animated {
-    /* Animations enabled by default */
-}
 
 .card:not(.card--animated) {
     transform: translate3d(0, 0, 0) !important;
