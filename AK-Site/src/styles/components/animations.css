@@ -1,0 +1,368 @@
+/* All animations, keyframes, and transitions */
+
+/* ========== Base Animation Keyframes ========== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOutDown {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+@keyframes rotateGlow {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pageEnter {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shimmerButton {
+    0% {
+        transform: translateX(-100%) rotate(45deg);
+    }
+
+    100% {
+        transform: translateX(200%) rotate(45deg);
+    }
+}
+
+@keyframes chatSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes dropdownSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ========== Hero Background Animations ========== */
+@keyframes floatGradient {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+        transform: translate(30px, -30px) scale(1.1);
+    }
+
+    66% {
+        transform: translate(-20px, 20px) scale(0.9);
+    }
+}
+
+@keyframes scrollWheel {
+    0% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(15px);
+    }
+}
+
+@keyframes revealWord {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heroAnimation {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
+
+/* ========== Animation Classes ========== */
+.fade-in-up {
+    animation: fadeInUp 0.4s ease-out forwards;
+}
+
+.fade-in-down {
+    animation: fadeInDown 0.4s ease-out forwards;
+}
+
+.fade-out-down {
+    animation: fadeOutDown 0.4s ease-in forwards;
+}
+
+/* ========== Scroll Triggered Animations ========== */
+.scroll-animate {
+    opacity: 0;
+    transition: all 0.6s ease-out;
+}
+
+.scroll-animate.in-view {
+    opacity: 1;
+}
+
+.scroll-animate.fade-up {
+    transform: translateY(50px);
+}
+
+.scroll-animate.fade-up.in-view {
+    transform: translateY(0);
+}
+
+.scroll-animate.fade-left {
+    transform: translateX(-50px);
+}
+
+.scroll-animate.fade-left.in-view {
+    transform: translateX(0);
+}
+
+.scroll-animate.fade-right {
+    transform: translateX(50px);
+}
+
+.scroll-animate.fade-right.in-view {
+    transform: translateX(0);
+}
+
+.scroll-animate.scale {
+    transform: scale(0.8);
+}
+
+.scroll-animate.scale.in-view {
+    transform: scale(1);
+}
+
+/* ========== Stagger Animations ========== */
+.animate-stagger>* {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-stagger>*:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.animate-stagger>*:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.animate-stagger>*:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.animate-stagger>*:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.animate-stagger>*:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.animate-stagger>*:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+.animate-stagger>*:nth-child(7) {
+    animation-delay: 0.7s;
+}
+
+.animate-stagger>*:nth-child(8) {
+    animation-delay: 0.8s;
+}
+
+/* Service Cards Stagger */
+.services-grid .service-card-interactive:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.services-grid .service-card-interactive:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.services-grid .service-card-interactive:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.services-grid .service-card-interactive:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.services-grid .service-card-interactive:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.services-grid .service-card-interactive:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+.services-grid .service-card-interactive:nth-child(7) {
+    animation-delay: 0.7s;
+}
+
+.services-grid .service-card-interactive:nth-child(8) {
+    animation-delay: 0.8s;
+}
+
+/* ========== Hero Section Animations ========== */
+.hero-animate-in {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.word-reveal {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: revealWord 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.hero-description-animated {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out 0.5s forwards;
+}
+
+.hero-buttons-animated {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out 0.7s forwards;
+}
+
+/* ========== Page Transitions ========== */
+.page-transition {
+    animation: pageEnter 0.5s ease-out;
+}
+
+/* ========== Loading Animation ========== */
+.loading-card {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite;
+    box-shadow: var(--shadow-md);
+    border-radius: var(--border-radius-lg);
+}
+
+/* ========== Reduced Motion ========== */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .chat-toggle::before {
+        animation: none;
+    }
+}
