@@ -1,5 +1,5 @@
 import React from 'react';
-import ServiceCard from './ServiceCard';
+import UnifiedCard from './UnifiedCard';
 
 interface Service {
   id: string;
