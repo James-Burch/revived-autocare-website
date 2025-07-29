@@ -2,6 +2,7 @@ import React from 'react';
 import { Layout } from '../components';
 import ServicesGrid from '../components/ServicesGrid';
 import { getMainServices, getAdditionalServices } from '../data';
+import { Link } from 'react-router-dom';
 
 const Home: React.FC = () => {
   // Get data from centralized data layer
@@ -24,12 +25,18 @@ const Home: React.FC = () => {
                   lenders. We'll find you the perfect mortgage solution.
                 </p>
                 <div className="hero-buttons-new">
-                  <button className="button button-primary button-large">
-                    Get Free Advice
-                  </button>
-                  <button className="button button-secondary button-large">
-                    Call 0800 123 4567
-                  </button>
+                  <Link to="/contact"
+                    className={location.pathname === '/contact' ? 'nav-link active' : 'nav-link'}>
+                    <button className="button button-primary button-large">
+                      Get Free Advice
+                    </button>
+                  </Link>
+                  <Link to="/contact"
+                    className={location.pathname === '/contact' ? 'nav-link active' : 'nav-link'}>
+                    <button className="button button-secondary button-large">
+                      Call 0800 123 4567
+                    </button>
+                  </Link>
                 </div>
               </div>
 
@@ -99,12 +106,18 @@ const Home: React.FC = () => {
                 We'll guide you through every step of the process.
               </p>
               <div className="cta-buttons">
-                <button className="button button-primary button-large">
-                  Start Your Application
-                </button>
-                <button className="button button-secondary button-large">
+                <Link to="/contact"
+                  className={location.pathname === '/contact' ? 'nav-link active' : 'nav-link'}>
+                  <button className="button button-primary button-large">
+                    Start Your Application
+                  </button>
+                </Link>
+                <Link to="/contact"
+                  className={location.pathname === '/contact' ? 'nav-link active' : 'nav-link'}>
+                  <button className="button button-secondary button-large">
                   Book Free Consultation
                 </button>
+                </Link>
               </div>
               <p className="cta-disclaimer">
                 *Your home may be repossessed if you do not keep up repayments on your mortgage.

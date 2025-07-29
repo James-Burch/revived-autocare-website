@@ -359,17 +359,6 @@
     }
 }
 
-/* Dark Mode Support */
-@media (prefers-color-scheme: dark) {
-    .header {
-        background: rgba(30, 30, 30, 0.98);
-    }
-
-    .glass {
-        background: rgba(30, 30, 30, 0.7);
-    }
-}
-
 /* Performance Optimizations for Mobile */
 @media (prefers-reduced-motion: reduce) {
     .chat-toggle::before {
