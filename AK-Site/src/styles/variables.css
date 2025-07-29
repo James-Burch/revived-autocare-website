@@ -1,12 +1,12 @@
 /* Color Palette */
 :root {
   /* Primary Colors - Teal Theme */
-  --color-primary: #2c5556; /* Dark teal */
+  --color-primary: #2c5556;
   --color-primary-light: #3a6b6c;
   --color-primary-dark: #1e3d3e;
   
   /* Signature Teal/Turquoise */
-  --color-accent: #4db6ac; /* Main teal */
+  --color-accent: #4db6ac;
   --color-accent-light: #7cc7c0;
   --color-accent-dark: #26a69a;
   
@@ -36,7 +36,7 @@
   --color-background: #ffffff;
   --color-surface: #fafafa;
   --color-surface-elevated: #ffffff;
-  --color-dark-bg: #2c5556; /* Dark teal background */
+  --color-dark-bg: #2c5556;
   
   /* Text Colors */
   --color-text-primary: #212121;
@@ -80,17 +80,22 @@
   --border-radius-xl: 1.5rem;
   --border-radius-2xl: 2rem;
   
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  /* Professional Shadow System */
+  --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.08), 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.08);
+  --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.15), 0 10px 20px rgba(0, 0, 0, 0.1);
+  
+  /* Colored shadows for accent elements */
+  --shadow-accent: 0 10px 30px rgba(77, 182, 172, 0.3);
+  --shadow-accent-lg: 0 20px 40px rgba(77, 182, 172, 0.4);
   
   /* Gradients */
   --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
   --gradient-teal: linear-gradient(135deg, var(--color-teal) 0%, var(--color-teal-light) 100%);
   --gradient-accent: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+  --gradient-success: linear-gradient(135deg, var(--color-success) 0%, var(--color-success-light) 100%);
   --gradient-hero: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 50%, var(--color-teal-dark) 100%);
 }
