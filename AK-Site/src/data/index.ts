@@ -233,3 +233,114 @@ export const getServiceById = (id: string): ServiceData | undefined => {
 export const getProductById = (id: string): ProductData | undefined => {
     return PRODUCTS.find(product => product.id === id);
 };
+
+// ========== INSURANCE DATA STRUCTURE ==========
+
+export interface InsuranceData {
+    id: string;
+    title: string;
+    description: string;
+    keyBenefits: string[];
+    whoNeedsIt: string;
+    typicalCoverage: string;
+    link: string;
+    featured: boolean;
+    category: 'life' | 'health' | 'property';
+}
+
+// ========== INSURANCE PRODUCTS DATA ==========
+export const INSURANCE_PRODUCTS: InsuranceData[] = [
+    {
+        id: 'life-insurance',
+        title: 'Life Insurance',
+        description: 'Financial protection for your family in the event of your death',
+        keyBenefits: [
+            'Tax-free lump sum to beneficiaries',
+            'Covers mortgage repayment',
+            'Income replacement for family',
+            'Flexible coverage amounts'
+        ],
+        whoNeedsIt: 'Anyone with financial dependents or outstanding debts',
+        typicalCoverage: '£100,000 - £1,000,000+',
+        link: '/insurance/life-insurance',
+        featured: true,
+        category: 'life'
+    },
+    {
+        id: 'income-protection',
+        title: 'Income Protection',
+        description: 'Replace up to 70% of your income if you cannot work due to illness or injury',
+        keyBenefits: [
+            'Monthly payments until retirement',
+            'Covers most illnesses and injuries',
+            'Own occupation cover available',
+            'Inflation protection options'
+        ],
+        whoNeedsIt: 'Working professionals without adequate sick pay',
+        typicalCoverage: '50-70% of gross income',
+        link: '/insurance/income-protection',
+        featured: true,
+        category: 'health'
+    },
+    {
+        id: 'critical-illness',
+        title: 'Critical Illness Cover',
+        description: 'Lump sum payment following diagnosis of a serious illness',
+        keyBenefits: [
+            'Covers over 50 critical illnesses',
+            'Tax-free lump sum payment',
+            'Partial payment options',
+            'Additional support services'
+        ],
+        whoNeedsIt: 'Those wanting financial security during serious illness',
+        typicalCoverage: '£25,000 - £500,000+',
+        link: '/insurance/critical-illness',
+        featured: true,
+        category: 'health'
+    },
+    {
+        id: 'accident-sickness-unemployment',
+        title: 'Accident, Sickness & Unemployment',
+        description: 'Short-term cover for mortgage payments during unemployment or illness',
+        keyBenefits: [
+            'Covers monthly mortgage payments',
+            'Up to 12-24 months coverage',
+            'Accident and sickness cover',
+            'Involuntary unemployment protection'
+        ],
+        whoNeedsIt: 'Homeowners concerned about mortgage payment difficulties',
+        typicalCoverage: 'Monthly mortgage payments up to £2,000',
+        link: '/insurance/accident-sickness-unemployment',
+        featured: false,
+        category: 'property'
+    },
+    {
+        id: 'home-buildings-contents',
+        title: 'Home, Buildings & Contents Insurance',
+        description: 'Comprehensive protection for your property and possessions',
+        keyBenefits: [
+            'Buildings insurance (often mandatory)',
+            'Contents insurance for possessions',
+            'Personal liability cover',
+            'Alternative accommodation costs'
+        ],
+        whoNeedsIt: 'All homeowners and many tenants',
+        typicalCoverage: 'Rebuild costs + contents value',
+        link: '/insurance/home-buildings-contents',
+        featured: false,
+        category: 'property'
+    }
+];
+
+// ========== INSURANCE UTILITY FUNCTIONS ==========
+export const getFeaturedInsurance = (): InsuranceData[] => {
+    return INSURANCE_PRODUCTS.filter(product => product.featured);
+};
+
+export const getInsuranceByCategory = (category: string): InsuranceData[] => {
+    return INSURANCE_PRODUCTS.filter(product => product.category === category);
+};
+
+export const getInsuranceById = (id: string): InsuranceData | undefined => {
+    return INSURANCE_PRODUCTS.find(product => product.id === id);
+};
