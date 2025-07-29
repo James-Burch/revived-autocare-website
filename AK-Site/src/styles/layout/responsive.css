@@ -316,6 +316,24 @@
     .scroll-indicator-wrapper {
         bottom: 20px;
     }
+
+    .button {
+        min-height: 48px;
+        /* Better touch targets */
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    .button-group .button {
+        width: 100%;
+    }
+
+    .button-large {
+        padding: var(--spacing-md) var(--spacing-xl);
+        font-size: var(--font-size-base);
+    }
 }
 
 /* Small Mobile (480px and below) */

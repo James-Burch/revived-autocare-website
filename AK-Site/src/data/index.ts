@@ -41,7 +41,7 @@ export const SERVICES: ServiceData[] = [
         title: 'First Time Buyers',
         description: 'Get on the property ladder with our specialist advice and access to exclusive schemes',
         icon: '🏠',
-        link: '/products/first-time-buyers',
+        link: '/mortgages/first-time-buyers',
         category: 'main',
         order: 1
     },
@@ -50,7 +50,7 @@ export const SERVICES: ServiceData[] = [
         title: 'Home Mover',
         description: 'Moving up the property ladder? We\'ll find you the best deals for your next home',
         icon: '🔄',
-        link: '/products/home-mover',
+        link: '/mortgages/home-mover',
         category: 'main',
         order: 2
     },
@@ -59,7 +59,7 @@ export const SERVICES: ServiceData[] = [
         title: 'Remortgage',
         description: 'Save money with a better deal on your existing property with our remortgage service',
         icon: '💰',
-        link: '/products/remortgage',
+        link: '/mortgages/remortgage',
         category: 'main',
         order: 3
     },
@@ -68,7 +68,7 @@ export const SERVICES: ServiceData[] = [
         title: 'Buy to Let',
         description: 'Investment property mortgages with competitive rates for landlords and investors',
         icon: '🏢',
-        link: '/products/buy-to-let',
+        link: '/mortgages/buy-to-let',
         category: 'main',
         order: 4
     },
@@ -77,7 +77,7 @@ export const SERVICES: ServiceData[] = [
         title: 'New Build',
         description: 'Specialist mortgages for new build properties with developer incentives',
         icon: '🏗️',
-        link: '/products/new-build',
+        link: '/mortgages/new-build',
         category: 'main',
         order: 5
     },
@@ -86,7 +86,7 @@ export const SERVICES: ServiceData[] = [
         title: 'Help to Buy',
         description: 'Government schemes to help you buy your first home with a smaller deposit',
         icon: '🤝',
-        link: '/products/help-to-buy',
+        link: '/mortgages/help-to-buy',
         category: 'main',
         order: 6
     },
@@ -96,7 +96,7 @@ export const SERVICES: ServiceData[] = [
         title: 'Limited Companies',
         description: 'Corporate mortgage solutions for business property purchases',
         icon: '🏛️',
-        link: '/products/limited-companies',
+        link: '/mortgages/limited-companies',
         category: 'additional',
         order: 7
     },
@@ -124,7 +124,7 @@ export const PRODUCTS: ProductData[] = [
             { label: 'Min. Deposit', value: '5%' },
             { label: 'Credit Score', value: 'Good' }
         ],
-        link: '/products/residential-mortgage',
+        link: '/mortgages/residential-mortgage',
         category: 'residential',
         featured: true
     },
@@ -139,7 +139,7 @@ export const PRODUCTS: ProductData[] = [
             { label: 'Min. Deposit', value: '5%' },
             { label: 'Credit Score', value: 'Fair to Good' }
         ],
-        link: '/products/first-time-buyer',
+        link: '/mortgages/first-time-buyer',
         category: 'residential',
         featured: true
     },
@@ -154,7 +154,7 @@ export const PRODUCTS: ProductData[] = [
             { label: 'Min. Deposit', value: '25%' },
             { label: 'Credit Score', value: 'Good to Excellent' }
         ],
-        link: '/products/buy-to-let',
+        link: '/mortgages/buy-to-let',
         category: 'investment',
         featured: true
     },
@@ -169,13 +169,12 @@ export const PRODUCTS: ProductData[] = [
             { label: 'Min. Deposit', value: '15%' },
             { label: 'Credit Score', value: 'Good' }
         ],
-        link: '/products/self-employed',
+        link: '/mortgages/self-employed',
         category: 'specialist',
         featured: true
     }
 ];
 
-// ========== NAVIGATION DATA ==========
 export const NAVIGATION: NavigationData[] = [
     {
         id: 'home',
@@ -183,18 +182,31 @@ export const NAVIGATION: NavigationData[] = [
         path: '/'
     },
     {
-        id: 'products',
-        label: 'Products',
-        path: '/products',
+        id: 'mortgages',
+        label: 'Mortgages',
+        path: '/mortgages',
         hasDropdown: true,
         dropdownItems: [
-            { label: 'First Time Buyers', path: '/products/first-time-buyers' },
-            { label: 'Home Mover', path: '/products/home-mover' },
-            { label: 'Remortgage', path: '/products/remortgage' },
-            { label: 'Buy to Let', path: '/products/buy-to-let' },
-            { label: 'New Build', path: '/products/new-build' },
-            { label: 'Help to Buy', path: '/products/help-to-buy' },
-            { label: 'Limited Companies', path: '/products/limited-companies' }
+            { label: 'First Time Buyers', path: '/mortgages/first-time-buyers' },
+            { label: 'Home Mover', path: '/mortgages/home-mover' },
+            { label: 'Remortgage', path: '/mortgages/remortgage' },
+            { label: 'Buy to Let', path: '/mortgages/buy-to-let' },
+            { label: 'New Build', path: '/mortgages/new-build' },
+            { label: 'Help to Buy', path: '/mortgages/help-to-buy' },
+            { label: 'Limited Companies', path: '/mortgages/limited-companies' }
+        ]
+    },
+    {
+        id: 'insurance',
+        label: 'Insurance',
+        path: '/insurance',
+        hasDropdown: true,
+        dropdownItems: [
+            { label: 'Life Insurance', path: '/insurance/life-insurance' },
+            { label: 'Income Protection', path: '/insurance/income-protection' },
+            { label: 'Critical Illness', path: '/insurance/critical-illness' },
+            { label: 'Accident, Sickness & Unemployment', path: '/insurance/accident-sickness-unemployment' },
+            { label: 'Home, Buildings & Contents Insurance', path: '/insurance/home-buildings-contents' }
         ]
     },
     {
@@ -209,33 +221,7 @@ export const NAVIGATION: NavigationData[] = [
     }
 ];
 
-// ========== DATA UTILITIES ==========
-export const getMainServices = (): ServiceData[] => {
-    return SERVICES.filter(service => service.category === 'main').sort((a, b) => a.order - b.order);
-};
-
-export const getAdditionalServices = (): ServiceData[] => {
-    return SERVICES.filter(service => service.category === 'additional').sort((a, b) => a.order - b.order);
-};
-
-export const getFeaturedProducts = (): ProductData[] => {
-    return PRODUCTS.filter(product => product.featured);
-};
-
-export const getProductsByCategory = (category: string): ProductData[] => {
-    return PRODUCTS.filter(product => product.category === category);
-};
-
-export const getServiceById = (id: string): ServiceData | undefined => {
-    return SERVICES.find(service => service.id === id);
-};
-
-export const getProductById = (id: string): ProductData | undefined => {
-    return PRODUCTS.find(product => product.id === id);
-};
-
 // ========== INSURANCE DATA STRUCTURE ==========
-
 export interface InsuranceData {
     id: string;
     title: string;
@@ -331,6 +317,31 @@ export const INSURANCE_PRODUCTS: InsuranceData[] = [
         category: 'property'
     }
 ];
+
+// ========== DATA UTILITIES ==========
+export const getMainServices = (): ServiceData[] => {
+    return SERVICES.filter(service => service.category === 'main').sort((a, b) => a.order - b.order);
+};
+
+export const getAdditionalServices = (): ServiceData[] => {
+    return SERVICES.filter(service => service.category === 'additional').sort((a, b) => a.order - b.order);
+};
+
+export const getFeaturedProducts = (): ProductData[] => {
+    return PRODUCTS.filter(product => product.featured);
+};
+
+export const getProductsByCategory = (category: string): ProductData[] => {
+    return PRODUCTS.filter(product => product.category === category);
+};
+
+export const getServiceById = (id: string): ServiceData | undefined => {
+    return SERVICES.find(service => service.id === id);
+};
+
+export const getProductById = (id: string): ProductData | undefined => {
+    return PRODUCTS.find(product => product.id === id);
+};
 
 // ========== INSURANCE UTILITY FUNCTIONS ==========
 export const getFeaturedInsurance = (): InsuranceData[] => {

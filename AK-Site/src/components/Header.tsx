@@ -1,33 +1,46 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-interface ProductItem {
+interface NavigationItem {
   name: string;
   path: string;
 }
 
 const Header: React.FC = () => {
   const location = useLocation();
-  const [isProductsOpen, setIsProductsOpen] = useState(false);
+  const [isMortgagesOpen, setIsMortgagesOpen] = useState(false);
+  const [isInsuranceOpen, setIsInsuranceOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [isMobileMortgagesOpen, setIsMobileMortgagesOpen] = useState(false);
+  const [isMobileInsuranceOpen, setIsMobileInsuranceOpen] = useState(false);
+  const mortgagesDropdownRef = useRef<HTMLDivElement>(null);
+  const insuranceDropdownRef = useRef<HTMLDivElement>(null);
 
-  const products: ProductItem[] = [
-    { name: 'Purchase (First Time Buyers)', path: '/products/first-time-buyers' },
-    { name: 'Remortgage', path: '/products/remortgage' },
-    { name: 'Home Mover', path: '/products/home-mover' },
-    { name: 'Buy to Let (BTL)', path: '/products/buy-to-let' },
-    { name: 'New Build', path: '/products/new-build' },
-    { name: 'Help to Buy', path: '/products/help-to-buy' },
-    { name: 'Limited Companies (BTL)', path: '/products/limited-companies' },
-    { name: 'Mortgage Calculators', path: '/calculators' }
+  const mortgages: NavigationItem[] = [
+    { name: 'First Time Buyers', path: '/mortgages/first-time-buyers' },
+    { name: 'Home Mover', path: '/mortgages/home-mover' },
+    { name: 'Remortgage', path: '/mortgages/remortgage' },
+    { name: 'Buy to Let', path: '/mortgages/buy-to-let' },
+    { name: 'New Build', path: '/mortgages/new-build' },
+    { name: 'Help to Buy', path: '/mortgages/help-to-buy' },
+    { name: 'Limited Companies', path: '/mortgages/limited-companies' }
+  ];
+
+  const insurance: NavigationItem[] = [
+    { name: 'Life Insurance', path: '/insurance/life-insurance' },
+    { name: 'Income Protection', path: '/insurance/income-protection' },
+    { name: 'Critical Illness', path: '/insurance/critical-illness' },
+    { name: 'Accident, Sickness & Unemployment', path: '/insurance/accident-sickness-unemployment' },
+    { name: 'Home, Buildings & Contents Insurance', path: '/insurance/home-buildings-contents' }
   ];
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsProductsOpen(false);
+      if (mortgagesDropdownRef.current && !mortgagesDropdownRef.current.contains(event.target as Node)) {
+        setIsMortgagesOpen(false);
+      }
+      if (insuranceDropdownRef.current && !insuranceDropdownRef.current.contains(event.target as Node)) {
+        setIsInsuranceOpen(false);
       }
     };
 
@@ -37,24 +50,36 @@ const Header: React.FC = () => {
     };
   }, []);
 
-  const toggleProducts = () => {
-    setIsProductsOpen(!isProductsOpen);
+  const toggleMortgages = () => {
+    setIsMortgagesOpen(!isMortgagesOpen);
+    setIsInsuranceOpen(false); // Close insurance when opening mortgages
+  };
+
+  const toggleInsurance = () => {
+    setIsInsuranceOpen(!isInsuranceOpen);
+    setIsMortgagesOpen(false); // Close mortgages when opening insurance
   };
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const toggleMobileDropdown = () => {
-    setIsMobileDropdownOpen(!isMobileDropdownOpen);
+  const toggleMobileMortgages = () => {
+    setIsMobileMortgagesOpen(!isMobileMortgagesOpen);
+  };
+
+  const toggleMobileInsurance = () => {
+    setIsMobileInsuranceOpen(!isMobileInsuranceOpen);
   };
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
-    setIsMobileDropdownOpen(false);
+    setIsMobileMortgagesOpen(false);
+    setIsMobileInsuranceOpen(false);
   };
 
-  const isProductsActive = location.pathname.startsWith('/products') || location.pathname.startsWith('/calculators');
+  const isMortgagesActive = location.pathname.startsWith('/mortgages');
+  const isInsuranceActive = location.pathname.startsWith('/insurance');
 
   return (
     <header className="header">
@@ -73,28 +98,57 @@ const Header: React.FC = () => {
               Home
             </Link>
 
-            {/* Products Dropdown */}
-            <div className="nav-dropdown" ref={dropdownRef}>
+            {/* Mortgages Dropdown */}
+            <div className="nav-dropdown" ref={mortgagesDropdownRef}>
               <button
-                className={`nav-link dropdown-toggle ${isProductsActive ? 'active' : ''}`}
-                onClick={toggleProducts}
-                aria-expanded={isProductsOpen}
+                className={`nav-link dropdown-toggle ${isMortgagesActive ? 'active' : ''}`}
+                onClick={toggleMortgages}
+                aria-expanded={isMortgagesOpen}
               >
-                Products
-                <span className={`dropdown-arrow ${isProductsOpen ? 'open' : ''}`}>▼</span>
+                Mortgages
+                <span className={`dropdown-arrow ${isMortgagesOpen ? 'open' : ''}`}>▼</span>
               </button>
 
-              <div className={`dropdown-menu ${isProductsOpen ? 'open' : ''}`}>
+              <div className={`dropdown-menu ${isMortgagesOpen ? 'open' : ''}`}>
                 <div className="dropdown-content">
-                  {products.map((product) => (
+                  {mortgages.map((mortgage) => (
                     <Link
-                      key={product.path}
-                      to={product.path}
+                      key={mortgage.path}
+                      to={mortgage.path}
                       className="dropdown-item"
-                      onClick={() => setIsProductsOpen(false)}
+                      onClick={() => setIsMortgagesOpen(false)}
                     >
                       <div className="item-content">
-                        <span className="item-name">{product.name}</span>
+                        <span className="item-name">{mortgage.name}</span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Insurance Dropdown */}
+            <div className="nav-dropdown" ref={insuranceDropdownRef}>
+              <button
+                className={`nav-link dropdown-toggle ${isInsuranceActive ? 'active' : ''}`}
+                onClick={toggleInsurance}
+                aria-expanded={isInsuranceOpen}
+              >
+                Insurance
+                <span className={`dropdown-arrow ${isInsuranceOpen ? 'open' : ''}`}>▼</span>
+              </button>
+
+              <div className={`dropdown-menu ${isInsuranceOpen ? 'open' : ''}`}>
+                <div className="dropdown-content">
+                  {insurance.map((insuranceItem) => (
+                    <Link
+                      key={insuranceItem.path}
+                      to={insuranceItem.path}
+                      className="dropdown-item"
+                      onClick={() => setIsInsuranceOpen(false)}
+                    >
+                      <div className="item-content">
+                        <span className="item-name">{insuranceItem.name}</span>
                       </div>
                     </Link>
                   ))}
@@ -144,24 +198,49 @@ const Header: React.FC = () => {
             Home
           </Link>
 
+          {/* Mobile Mortgages Dropdown */}
           <div>
             <button
               className="mobile-dropdown-toggle"
-              onClick={toggleMobileDropdown}
+              onClick={toggleMobileMortgages}
             >
-              Products
-              <span>{isMobileDropdownOpen ? '▲' : '▼'}</span>
+              Mortgages
+              <span>{isMobileMortgagesOpen ? '▲' : '▼'}</span>
             </button>
 
-            <div className={`mobile-dropdown-menu ${isMobileDropdownOpen ? 'open fade-in-up' : ''}`}>
-              {products.map((product) => (
+            <div className={`mobile-dropdown-menu ${isMobileMortgagesOpen ? 'open fade-in-up' : ''}`}>
+              {mortgages.map((mortgage) => (
                 <Link
-                  key={product.path}
-                  to={product.path}
+                  key={mortgage.path}
+                  to={mortgage.path}
                   className="dropdown-item"
                   onClick={closeMobileMenu}
                 >
-                  {product.name}
+                  {mortgage.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile Insurance Dropdown */}
+          <div>
+            <button
+              className="mobile-dropdown-toggle"
+              onClick={toggleMobileInsurance}
+            >
+              Insurance
+              <span>{isMobileInsuranceOpen ? '▲' : '▼'}</span>
+            </button>
+
+            <div className={`mobile-dropdown-menu ${isMobileInsuranceOpen ? 'open fade-in-up' : ''}`}>
+              {insurance.map((insuranceItem) => (
+                <Link
+                  key={insuranceItem.path}
+                  to={insuranceItem.path}
+                  className="dropdown-item"
+                  onClick={closeMobileMenu}
+                >
+                  {insuranceItem.name}
                 </Link>
               ))}
             </div>
