@@ -39,20 +39,9 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/contact" element={<Contact />} />
 
-        <Route path="/insurance/life-insurance" element={<InsurancePage />} />
-        <Route path="/insurance/income-protection" element={<InsurancePage />} />
-        <Route path="/insurance/critical-illness" element={<InsurancePage />} />
-        <Route path="/insurance/accident-sickness-unemployment" element={<InsurancePage />} />
-        <Route path="/insurance/home-buildings-contents" element={<InsurancePage />} />
-
-        {/* Individual Product Pages */}
-        <Route path="/products/first-time-buyers" element={<ProductPage />} />
-        <Route path="/products/home-mover" element={<ProductPage />} />
-        <Route path="/products/remortgage" element={<ProductPage />} />
-        <Route path="/products/buy-to-let" element={<ProductPage />} />
-        <Route path="/products/new-build" element={<ProductPage />} />
-        <Route path="/products/help-to-buy" element={<ProductPage />} />
-        <Route path="/products/limited-companies" element={<ProductPage />} />
+        <Route path="/mortgages/:productType" element={<ProductPage />} />
+        
+        <Route path="/insurance/:insuranceType" element={<InsurancePage />} />
 
         {/* Calculators Page */}
         <Route path="/calculators" element={<ProductPage />} />

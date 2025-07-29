@@ -248,6 +248,8 @@ const Home: React.FC = () => {
           </div>
         </section>
 
+        <ContactBar />
+
         {/* Protection Section */}
         <section className="protection-section">
           <div className="container">
@@ -299,8 +301,6 @@ const Home: React.FC = () => {
             </div>
           </div>
         </section>
-
-        <ContactBar />
 
         {/* Reviews Section */}
         <section className="reviews-section">
