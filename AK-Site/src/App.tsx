@@ -11,6 +11,8 @@ import './styles/mortgage.css';
 import './styles/animations.css';
 import './styles/hero-animations.css';
 import './styles/professional-enhancements.css';
+import './styles/service-card-enhancements.css';
+import './styles/loading-states.css';
 
 function App() {
   useEffect(() => {
