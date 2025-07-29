@@ -5,14 +5,7 @@ import Products from './pages/Products';
 import Contact from './pages/Contact';
 import ProductPage from './components/ProductPage';
 import { initScrollAnimations } from './utils/scrollObserver';
-import './styles/globals.css';
-import './styles/components.css';
-import './styles/mortgage.css';
-import './styles/animations.css';
-import './styles/hero-animations.css';
-import './styles/professional-enhancements.css';
-import './styles/service-card-enhancements.css';
-import './styles/loading-states.css';
+import './styles/main.css';
 
 function App() {
   useEffect(() => {

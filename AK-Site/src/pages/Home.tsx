@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import HeroSection from '../components/HeroSection';
 import ServicesGrid from '../components/ServicesGrid';
 import ChatWidget from '../components/ChatWidget';
-import ServiceCard from '../components/ServiceCard';
 
 const Home: React.FC = () => {
   // Service data configuration
