@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Layout, Button, Card } from '../components';
+import { Layout, Button, UnifiedCard} from '../components';
 import emailjs from '@emailjs/browser';
 
 const Contact: React.FC = () => {
@@ -79,7 +79,7 @@ const Contact: React.FC = () => {
           <div className="container">
             <div className="contact-grid">
               <div className="contact-form-container">
-                <Card className="contact-form-card">
+                <UnifiedCard className="contact-form-card">
                   <h2>Tell Us About Your Requirements</h2>
                   
                   {submitStatus === 'success' && (
@@ -203,11 +203,11 @@ const Contact: React.FC = () => {
                       Your home may be repossessed if you do not keep up repayments on your mortgage.
                     </p>
                   </form>
-                </Card>
+                </UnifiedCard>
               </div>
 
               <div className="contact-info">
-                <Card className="contact-info-card">
+                <UnifiedCard className="contact-info-card">
                   <h3>Get In Touch</h3>
                   <div className="contact-methods">
                     <div className="contact-method">
@@ -226,9 +226,9 @@ const Contact: React.FC = () => {
                       <small>By appointment only</small>
                     </div>
                   </div>
-                </Card>
+                </UnifiedCard>
 
-                <Card className="why-choose-card">
+                <UnifiedCard className="why-choose-card">
                   <h3>Why Choose Us?</h3>
                   <ul className="benefits-list">
                     <li>✅ No fees to you - completely free advice</li>
@@ -237,7 +237,7 @@ const Contact: React.FC = () => {
                     <li>✅ Award-winning service</li>
                     <li>✅ Typically complete in 2-3 weeks</li>
                   </ul>
-                </Card>
+                </UnifiedCard>
               </div>
             </div>
           </div>

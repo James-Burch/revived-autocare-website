@@ -5,9 +5,9 @@ export { default as Header } from './Header';
 export { default as HeroSection } from './HeroSection';
 export { default as Layout } from './Layout';
 export { default as Loading } from './Loading';
-export { default as LoanPrograms } from './LoanPrograms';
 export { default as Modal } from './Modal';
 export { default as MortgageCalculator } from './MortgageCalculator';
 export { default as ProductPage } from './ProductPage';
 export { default as ServicesGrid } from './ServicesGrid';
 export { default as UnifiedCard } from './UnifiedCard'
+export { default as ProductsGrid } from './ProductsGrid'

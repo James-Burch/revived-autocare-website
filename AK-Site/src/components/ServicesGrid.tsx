@@ -1,6 +1,6 @@
 import React from 'react';
 import UnifiedCard from './UnifiedCard';
-import { ServiceData } from '../data/index.ts';
+import type { ServiceData } from '../data';
 
 interface ServicesGridProps {
   services: ServiceData[];
