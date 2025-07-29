@@ -375,6 +375,22 @@
     .container {
         padding: 0 var(--spacing-md);
     }
+
+    .insurance-hero h1 {
+        font-size: 28px;
+    }
+
+    .insurance-section h2 {
+        font-size: 24px;
+    }
+
+    .insurance-coverage-highlight {
+        padding: 24px;
+    }
+
+    .sidebar-card {
+        padding: 20px;
+    }
 }
 
 /* Performance Optimizations for Mobile */
