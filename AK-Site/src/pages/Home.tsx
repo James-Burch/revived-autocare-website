@@ -1,133 +1,90 @@
 import React from 'react';
-import { Layout, Button } from '../components';
-import { Link } from 'react-router-dom';
-import HeroSection from '../components/HeroSection';
+import { Layout } from '../components';
 import ServicesGrid from '../components/ServicesGrid';
-import ChatWidget from '../components/ChatWidget';
+import { getMainServices, getAdditionalServices } from '../data';
 
 const Home: React.FC = () => {
-  // Service data configuration
-  const mainServices = [
-    {
-      id: 'first-time-buyers',
-      title: 'Purchase (First Time Buyers)',
-      description: 'Get on the property ladder with our first-time buyer mortgage options.',
-      icon: '🏠',
-      link: '/products/first-time-buyers'
-    },
-    {
-      id: 'home-mover',
-      title: 'Home Mover',
-      description: 'Whether it be upsize, downsize or just because you fancy a change...',
-      icon: '🔄',
-      link: '/products/home-mover'
-    },
-    {
-      id: 'remortgage',
-      title: 'Remortgage',
-      description: 'Switch to a better deal and potentially save thousands on your monthly payments.',
-      icon: '💱',
-      link: '/products/remortgage'
-    },
-    {
-      id: 'buy-to-let',
-      title: 'Buy To Let',
-      description: 'Investment property finance with competitive rates and flexible terms.',
-      icon: '🏢',
-      link: '/products/buy-to-let'
-    },
-    {
-      id: 'new-build',
-      title: 'New Build',
-      description: 'New construction financing with specialist advice for new builds.',
-      icon: '🏗️',
-      link: '/products/new-build'
-    },
-    {
-      id: 'help-to-buy',
-      title: 'Help To Buy',
-      description: 'Government assistance schemes to help you get on the property ladder.',
-      icon: '🎯',
-      link: '/products/help-to-buy'
-    }
-  ];
-
-  const additionalServices = [
-    {
-      id: 'limited-companies',
-      title: 'Limited Companies (BTL)',
-      icon: '🏛️',
-      link: '/products/limited-companies'
-    },
-    {
-      id: 'calculators',
-      title: 'Mortgage Calculators',
-      icon: '📊',
-      link: '/calculators'
-    }
-  ];
+  // Get data from centralized data layer
+  const mainServices = getMainServices();
+  const additionalServices = getAdditionalServices();
 
   return (
-    <Layout title="UK Mortgage Advisor - Best Rates Guaranteed">
+    <Layout title="UK Mortgage Advisor - Expert Mortgage Advice">
       <div className="home-page">
         {/* Hero Section */}
-        <HeroSection
-          title="WE KEEP THINGS SIMPLE"
-          subtitle="BECAUSE LIFE IS COMPLICATED ENOUGH."
-          description="Whatever your financial needs, from mortgages to protection insurance, you can rely on us for clear, uncomplicated choices for your next move."
-          primaryButtonText="Contact us"
-          primaryButtonLink="/contact"
-          secondaryButtonText="Meet Our Team"
-          secondaryButtonLink="/about"
-          showContactWidget={false}
+        <section className="hero-new">
+          <div className="container">
+            <div className="hero-content-new">
+              <div className="hero-text-new">
+                <h1>
+                  Your <span className="hero-accent">Trusted</span> UK Mortgage Advisor
+                </h1>
+                <p>
+                  Get expert mortgage advice and access to exclusive deals from whole-of-market
+                  lenders. We'll find you the perfect mortgage solution.
+                </p>
+                <div className="hero-buttons-new">
+                  <button className="button button-primary button-large">
+                    Get Free Advice
+                  </button>
+                  <button className="button button-secondary button-large">
+                    Call 0800 123 4567
+                  </button>
+                </div>
+              </div>
+
+              {/* Contact Widget */}
+              <div className="contact-widget">
+                <div className="widget-header">
+                  <h3>Get Your Free Mortgage Quote</h3>
+                  <p>Speak to one of our expert advisors today</p>
+                </div>
+                <form className="widget-form">
+                  <input type="text" placeholder="Your Name" required />
+                  <input type="email" placeholder="Email Address" required />
+                  <input type="tel" placeholder="Phone Number" required />
+                  <textarea
+                    placeholder="Tell us about your mortgage needs..."
+                    rows={3}
+                  ></textarea>
+                  <button type="submit" className="send-button">
+                    Get Free Quote
+                  </button>
+                  <p className="form-disclaimer">
+                    Your information is secure and will only be used to provide your quote.
+                  </p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Services Section */}
+        <ServicesGrid
+          services={mainServices}
+          additionalServices={additionalServices}
+          showDescriptions={true}
         />
 
-        {/* Our Lenders Section */}
+        {/* Lenders Section */}
         <section className="lenders-section">
           <div className="container">
             <div className="section-header">
-              <h2>Our Lenders</h2>
+              <h2>We Work With Leading UK Lenders</h2>
               <p>
-                We're not limited by a handful of lenders, we have access to the biggest players 
-                in the market as well as niche lenders. We'll search over 90 lenders to find you 
-                the right available product tailored to you and your needs.
+                Access to exclusive deals from major banks, building societies,
+                and specialist lenders across the UK mortgage market.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Services Grid */}
-        <ServicesGrid 
-          services={mainServices}
-          additionalServices={additionalServices}
-        />
-
-        {/* Client Reviews Section */}
+        {/* Reviews Section */}
         <section className="reviews-section">
           <div className="container">
             <div className="section-header">
-              <h2>Our Clients' Reviews</h2>
-              <h3>Insurance</h3>
-            </div>
-          </div>
-        </section>
-
-        {/* Contact Section */}
-        <section className="contact-section">
-          <div className="container">
-            <div className="contact-content">
-              <h2>Got a question? Contact us today!</h2>
-              <div className="contact-methods">
-                <div className="contact-method">
-                  <span>📧</span>
-                  <span>admin@example.co.uk</span>
-                </div>
-                <div className="contact-method">
-                  <span>📞</span>
-                  <span>01234 567890</span>
-                  <span>Text: 07123456789</span>
-                </div>
-              </div>
+              <h2>What Our Clients Say</h2>
+              <h3>Trusted by thousands of homeowners</h3>
             </div>
           </div>
         </section>
@@ -137,22 +94,24 @@ const Home: React.FC = () => {
           <div className="container">
             <div className="cta-content">
               <h2>Ready to Find Your Perfect Mortgage?</h2>
-              <p>Join thousands of satisfied customers who've saved money with our expert mortgage advice. Get your free consultation today and discover how much you could save.</p>
+              <p>
+                Get expert advice from our qualified mortgage advisors.
+                We'll guide you through every step of the process.
+              </p>
               <div className="cta-buttons">
-                <Link to="/contact">
-                  <Button variant="primary" size="large">Get Free Mortgage Advice</Button>
-                </Link>
-                <Button variant="secondary" size="large">Call 0800 123 4567</Button>
+                <button className="button button-primary button-large">
+                  Start Your Application
+                </button>
+                <button className="button button-secondary button-large">
+                  Book Free Consultation
+                </button>
               </div>
               <p className="cta-disclaimer">
-                Your home may be repossessed if you do not keep up repayments on your mortgage.
+                *Your home may be repossessed if you do not keep up repayments on your mortgage.
               </p>
             </div>
           </div>
         </section>
-
-        {/* Floating Chat Widget */}
-        <ChatWidget />
       </div>
     </Layout>
   );
