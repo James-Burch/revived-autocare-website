@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout } from '../components';
+import { ChatWidget, Layout } from '../components';
 import ServicesGrid from '../components/ServicesGrid';
 import { getMainServices, getAdditionalServices } from '../data';
 import { Link } from 'react-router-dom';
@@ -41,30 +41,11 @@ const Home: React.FC = () => {
               </div>
 
               {/* Contact Widget */}
-              <div className="contact-widget">
-                <div className="widget-header">
-                  <h3>Get Your Free Mortgage Quote</h3>
-                  <p>Speak to one of our expert advisors today</p>
-                </div>
-                <form className="widget-form">
-                  <input type="text" placeholder="Your Name" required />
-                  <input type="email" placeholder="Email Address" required />
-                  <input type="tel" placeholder="Phone Number" required />
-                  <textarea
-                    placeholder="Tell us about your mortgage needs..."
-                    rows={3}
-                  ></textarea>
-                  <button type="submit" className="send-button">
-                    Get Free Quote
-                  </button>
-                  <p className="form-disclaimer">
-                    Your information is secure and will only be used to provide your quote.
-                  </p>
-                </form>
-              </div>
+              <ChatWidget />
             </div>
           </div>
         </section>
+
 
         {/* Services Section */}
         <ServicesGrid
