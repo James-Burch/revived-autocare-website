@@ -309,6 +309,19 @@
         font-size: var(--font-size-sm);
         text-align: center;
     }
+    
+    .contact-form-section {
+        padding: var(--spacing-2xl) 0;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+    
+    .contact-page {
+        padding: 0 var(--spacing-md);
+    }
 }
 
 /* Hero Background Mobile */

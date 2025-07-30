@@ -4,7 +4,9 @@ import image3 from '../assets/images/image3.jpg';
 import image4 from '../assets/images/image4.jpg';
 import image5 from '../assets/images/image5.jpg';
 import image6 from '../assets/images/image6.jpg';
-import image7 from '../assets/images/image7.jpg';
+import apartmentblock from '../assets/images/apartmentblock.jpg';
+import bridgeimage from '../assets/images/bridgeimage.jpg';
+import calculatorimage from '../assets/images/mortgagecalculatorimage.jpg'
 
 
 export interface ServiceData {
@@ -106,25 +108,35 @@ export const SERVICES: ServiceData[] = [
         category: 'main',
         order: 6
     },
-    // Additional services (2-card grid)
+    {
+        id: 'bridging-loans',
+        title: 'Bridging Loans',
+        description: 'Short-term financing solutions to bridge the gap between property transactions',
+        icon: '🌉',
+        image: bridgeimage,
+        link: '/mortgages/bridging-loans',
+        category: 'main',
+        order: 7
+    },
     {
         id: 'limited-companies',
         title: 'Limited Companies',
         description: 'Corporate mortgage solutions for business property purchases',
         icon: '🏛️',
-        image: image7,
+        image: apartmentblock,
         link: '/mortgages/limited-companies',
-        category: 'additional',
-        order: 7
+        category: 'main',
+        order: 8
     },
     {
         id: 'calculators',
         title: 'Mortgage Calculators',
         description: 'Free tools to help you understand your mortgage options',
         icon: '🧮',
+        image: calculatorimage,
         link: '/calculators',
-        category: 'additional',
-        order: 8
+        category: 'main',
+        order: 9
     }
 ];
 

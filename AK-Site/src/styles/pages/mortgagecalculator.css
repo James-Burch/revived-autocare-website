@@ -1,3 +1,5 @@
+/* Calculator Page Styles */
+
 .calculator-page {
     min-height: 100vh;
 }
@@ -337,4 +339,14 @@
 
 .info-actions .button {
     flex: 1;
+}
+
+/* Content reordering for mobile */
+.mobile-info-first,
+.mobile-help-after {
+    display: none;
+}
+
+.desktop-sidebar {
+    display: block;
 }

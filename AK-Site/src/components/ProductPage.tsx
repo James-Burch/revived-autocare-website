@@ -15,7 +15,8 @@
                 'buy-to-let': 'Buy To Let',
                 'new-build': 'New Build',
                 'help-to-buy': 'Help To Buy',
-                'limited-companies': 'Limited Companies (BTL)'
+                'limited-companies': 'Limited Companies (BTL)',
+                'bridging-loans' : 'Bridging Loans',
             };
             return titles[type] || 'Product';
         };
@@ -28,7 +29,8 @@
                 'buy-to-let': 'Investment property finance with competitive rates and flexible terms for property investors.',
                 'new-build': 'Specialist financing for new construction properties with expert advice tailored to new builds.',
                 'help-to-buy': 'Government assistance schemes to help you get on the property ladder with reduced deposits.',
-                'limited-companies': 'Corporate buy-to-let mortgages for property investment through limited companies.'
+                'limited-companies': 'Corporate buy-to-let mortgages for property investment through limited companies.',
+                'bridging-loans' : 'Short-term financing solutions to bridge the gap between property transactions',
             };
             return descriptions[type] || 'Learn more about our mortgage products and services.';
         };
