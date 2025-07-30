@@ -3,10 +3,9 @@ import { useEffect } from 'react';
 import Home from './pages/Home';
 import Products from './pages/Products';
 import Contact from './pages/Contact';
-import ProductPage from './components/ProductPage';
 import InsurancePage from './pages/InsurancePage';
 import CalculatorPage from './pages/CalculatorPage';
-import { ScrollToTop } from './components';
+import { ScrollToTop, ProductPage } from './components';
 import { initScrollAnimations } from './utils/scrollObserver';
 import './styles/main.css';
 
