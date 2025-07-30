@@ -1,102 +1,175 @@
-/* Colour Palette */
+/* Color Palette - Lighthouse Optimized White + Tiffany Blue Theme */
 :root {
-  /* Primary Colours - Tiffany Blue Theme */
-  --color-primary: #088b87;
-  --color-primary-light: #5cdad6;
-  --color-primary-dark: #066e6a;
-;
-
-  /* Signature Teal/Turquoise (brighter) */
-  --color-accent: #088b87;
-  --color-accent-light: #b2ebe7;
-  --color-accent-dark: #5ac2bc;
-
-  /* Background Teal */
-  --color-teal: #0ABAB5;
-  --color-teal-light: #b2ebe7;
-  --color-teal-dark: #089E9A;
-
-  /* Secondary Colours */
-  --color-success: #4caf50;
-  --color-success-light: #81c784;
-  --color-success-dark: #388e3c;
-
-  /* Neutral Colours */
-  --color-gray-50: #fafafa;
-  --color-gray-100: #f5f5f5;
-  --color-gray-200: #eeeeee;
-  --color-gray-300: #e0e0e0;
-  --color-gray-400: #bdbdbd;
-  --color-gray-500: #9e9e9e;
-  --color-gray-600: #757575;
-  --color-gray-700: #616161;
-  --color-gray-800: #424242;
-  --color-gray-900: #212121;
-
-  /* Background Colours */
-  --color-background: #ffffff;
-  --color-surface: #fafafa;
-  --color-surface-elevated: #ffffff;
-  --color-dark-bg: #0ABAB5;
-
-  /* Text Colours */
-  --color-text-primary: #1f2937;
-  --color-text-secondary: #475569;
-  --color-text-muted: #9e9e9e;
-  --color-text-white: #ffffff;
-
+  /* Primary Colors - Tiffany Blue Theme with proper contrast */
+  --color-primary: #006B66; /* Darker for better contrast */
+  --color-primary-light: #088B87; /* Your original primary */
+  --color-primary-dark: #004D4A; /* Much darker for text on light */
+  
+  /* Signature Teal/Turquoise - Accessibility compliant */
+  --color-accent: #0ABAB5; /* Your bright teal */
+  --color-accent-light: #5CDAD6; /* Light version for backgrounds */
+  --color-accent-dark: #006B66; /* Dark enough for text contrast */
+  
+  /* Background Teal - Optimized for contrast */
+  --color-teal: #0ABAB5; /* Your signature color */
+  --color-teal-light: #E0F7F6; /* Very light for subtle backgrounds */
+  --color-teal-dark: #006B66; /* Dark for text/borders */
+  
+  /* Secondary Colors - Lighthouse compliant */
+  --color-success: #047857; /* Darker green for better contrast */
+  --color-success-light: #10B981; /* Medium for buttons */
+  --color-success-dark: #065F46; /* Dark for text */
+  
+  /* Neutral Colors - High contrast grays */
+  --color-gray-50: #FAFAFA;
+  --color-gray-100: #F4F4F5;
+  --color-gray-200: #E4E4E7;
+  --color-gray-300: #D4D4D8;
+  --color-gray-400: #A1A1AA;
+  --color-gray-500: #71717A;
+  --color-gray-600: #52525B; /* AA compliant on white */
+  --color-gray-700: #3F3F46; /* AAA compliant on white */
+  --color-gray-800: #27272A; /* High contrast */
+  --color-gray-900: #18181B; /* Maximum contrast */
+  
+  /* Background Colors - Clean whites */
+  --color-background: #FFFFFF; /* Pure white */
+  --color-surface: #FAFAFA; /* Subtle off-white */
+  --color-surface-elevated: #FFFFFF; /* Elevated elements */
+  --color-dark-bg: #006B66; /* Dark teal for dark sections */
+  
+  /* Text Colors - Lighthouse AAA compliant */
+  --color-text-primary: #18181B; /* Near black - AAA on white */
+  --color-text-secondary: #3F3F46; /* Dark gray - AAA on white */
+  --color-text-muted: #71717A; /* Medium gray - AA on white */
+  --color-text-white: #FFFFFF; /* Pure white for dark backgrounds */
+  --color-text-on-accent: #FFFFFF; /* White text on teal backgrounds */
+  
+  /* Interactive States - Accessible colors */
+  --color-link: #006B66; /* Dark teal - AAA compliant */
+  --color-link-hover: #004D4A; /* Darker on hover */
+  --color-focus: #0ABAB5; /* Bright teal for focus states */
+  
+  /* Status Colors - High contrast */
+  --color-error: #DC2626; /* Red with good contrast */
+  --color-error-light: #FEE2E2; /* Light red background */
+  --color-warning: #D97706; /* Orange with good contrast */
+  --color-warning-light: #FEF3C7; /* Light yellow background */
+  --color-info: #006B66; /* Using your teal for info */
+  --color-info-light: #E0F7F6; /* Light teal background */
+  
   /* Spacing Scale */
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 1.5rem;
-  --spacing-xl: 2rem;
-  --spacing-2xl: 3rem;
-  --spacing-3xl: 4rem;
-  --spacing-4xl: 6rem;
-  --spacing-5xl: 8rem;
-
-  /* Typography Scale */
-  --font-size-xs: 0.75rem;
-  --font-size-sm: 0.875rem;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.125rem;
-  --font-size-xl: 1.25rem;
-  --font-size-2xl: 1.5rem;
-  --font-size-3xl: 2rem;
-  --font-size-4xl: 2.5rem;
-  --font-size-5xl: 3rem;
-  --font-size-6xl: 4rem;
-
-  /* Font Weights */
+  --spacing-xs: 0.25rem;   /* 4px */
+  --spacing-sm: 0.5rem;    /* 8px */
+  --spacing-md: 1rem;      /* 16px */
+  --spacing-lg: 1.5rem;    /* 24px */
+  --spacing-xl: 2rem;      /* 32px */
+  --spacing-2xl: 3rem;     /* 48px */
+  --spacing-3xl: 4rem;     /* 64px */
+  --spacing-4xl: 6rem;     /* 96px */
+  --spacing-5xl: 8rem;     /* 128px */
+  
+  /* Typography Scale - Responsive friendly */
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px - base for accessibility */
+  --font-size-lg: 1.125rem;   /* 18px */
+  --font-size-xl: 1.25rem;    /* 20px */
+  --font-size-2xl: 1.5rem;    /* 24px */
+  --font-size-3xl: 2rem;      /* 32px */
+  --font-size-4xl: 2.5rem;    /* 40px */
+  --font-size-5xl: 3rem;      /* 48px */
+  --font-size-6xl: 4rem;      /* 64px */
+  
+  /* Font Weights - Performance optimized */
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
   --font-weight-black: 900;
-
-  /* Border Radius */
-  --border-radius: 0.5rem;
-  --border-radius-lg: 1rem;
-  --border-radius-xl: 1.5rem;
-  --border-radius-2xl: 2rem;
-
-  /* Professional Shadow System */
-  --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1);
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.08), 0 4px 6px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.08);
-  --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.15), 0 10px 20px rgba(0, 0, 0, 0.1);
-
-  /* Colored shadows for accent elements */
-  --shadow-accent: 0 10px 30px rgba(10, 186, 181, 0.3);
-  --shadow-accent-lg: 0 20px 40px rgba(10, 186, 181, 0.4);
-
-  /* Gradients */
+  
+  /* Border Radius - Modern but accessible */
+  --border-radius-sm: 0.25rem;  /* 4px */
+  --border-radius: 0.5rem;      /* 8px */
+  --border-radius-md: 0.75rem;  /* 12px */
+  --border-radius-lg: 1rem;     /* 16px */
+  --border-radius-xl: 1.5rem;   /* 24px */
+  --border-radius-2xl: 2rem;    /* 32px */
+  
+  /* Professional Shadow System - Performance optimized */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  
+  /* Colored shadows for accent elements - Subtle for performance */
+  --shadow-accent: 0 10px 25px -5px rgba(10, 186, 181, 0.25);
+  --shadow-accent-lg: 0 20px 40px -10px rgba(10, 186, 181, 0.3);
+  
+  /* Gradients - Your Tiffany Blue theme */
   --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
   --gradient-teal: linear-gradient(135deg, var(--color-teal) 0%, var(--color-teal-light) 100%);
   --gradient-accent: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
   --gradient-success: linear-gradient(135deg, var(--color-success) 0%, var(--color-success-light) 100%);
-  --gradient-hero: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 50%, var(--color-teal-dark) 100%);
+  --gradient-hero: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 50%, var(--color-teal) 100%);
+  
+  /* Light mode gradients for backgrounds */
+  --gradient-subtle: linear-gradient(135deg, var(--color-background) 0%, var(--color-surface) 100%);
+  --gradient-surface: linear-gradient(135deg, var(--color-surface) 0%, var(--color-teal-light) 100%);
+  
+  /* Interactive element colors - High contrast */
+  --color-button-primary: var(--color-accent);
+  --color-button-primary-hover: var(--color-accent-dark);
+  --color-button-secondary: var(--color-background);
+  --color-button-secondary-hover: var(--color-surface);
+  
+  /* Form element colors */
+  --color-input-border: var(--color-gray-300);
+  --color-input-border-focus: var(--color-accent);
+  --color-input-background: var(--color-background);
+  --color-input-text: var(--color-text-primary);
+  
+  /* Transition timing - Performance optimized */
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 250ms ease-in-out;
+  --transition-slow: 350ms ease-in-out;
+}
+
+/* Ensure proper contrast ratios for accessibility */
+.text-on-accent {
+  color: var(--color-text-on-accent);
+}
+
+.text-primary {
+  color: var(--color-text-primary);
+}
+
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --color-text-primary: #000000;
+    --color-text-secondary: #000000;
+    --color-background: #FFFFFF;
+    --shadow-md: 0 0 0 1px var(--color-gray-900);
+    --shadow-lg: 0 0 0 2px var(--color-gray-900);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0ms;
+    --transition-normal: 0ms;
+    --transition-slow: 0ms;
+  }
 }

@@ -1,125 +1,12 @@
-// import React, { useState } from 'react';
-// import { Button } from './';
-
-// interface ChatWidgetProps {
-//     className?: string;
-// }
-
-// const ChatWidget: React.FC<ChatWidgetProps> = ({ className = '' }) => {
-//     const [isOpen, setIsOpen] = useState(true); // Opens immediately on page load
-//     const [formData, setFormData] = useState({
-//         name: '',
-//         phone: '',
-//         message: ''
-//     });
-
-//     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-//         const { name, value } = e.target;
-//         setFormData(prev => ({
-//             ...prev,
-//             [name]: value
-//         }));
-//     };
-
-//     const handleSubmit = (e: React.FormEvent) => {
-//         e.preventDefault();
-//         // Handle form submission here
-//         console.log('Form submitted:', formData);
-//         // Reset form or show success message
-//         setFormData({ name: '', phone: '', message: '' });
-//         setIsOpen(false);
-//     };
-
-//     const toggleChat = () => {
-//         setIsOpen(!isOpen);
-//     };
-
-//     return (
-//         <div className={`chat-widget ${className}`}>
-//             <button
-//                 className="chat-toggle"
-//                 onClick={toggleChat}
-//                 aria-label="Toggle chat"
-//             >
-//                 {isOpen ? '×' : '💬'}
-//             </button>
-
-//             {isOpen && (
-//                 <div className="chat-window">
-//                     <div className="chat-header">
-//                         <h3>Quick Enquiry</h3>
-//                         <button
-//                             className="chat-close"
-//                             onClick={() => setIsOpen(false)}
-//                             aria-label="Close chat"
-//                         >
-//                             ×
-//                         </button>
-//                     </div>
-
-//                     <div className="chat-content">
-//                         <p>Get a free mortgage consultation in 24 hours</p>
-
-//                         <form onSubmit={handleSubmit} className="chat-form">
-//                             <div className="form-group">
-//                                 <input
-//                                     type="text"
-//                                     name="name"
-//                                     placeholder="Your Name"
-//                                     value={formData.name}
-//                                     onChange={handleInputChange}
-//                                     required
-//                                 />
-//                             </div>
-
-//                             <div className="form-group">
-//                                 <input
-//                                     type="tel"
-//                                     name="phone"
-//                                     placeholder="Phone Number"
-//                                     value={formData.phone}
-//                                     onChange={handleInputChange}
-//                                     required
-//                                 />
-//                             </div>
-
-//                             <div className="form-group">
-//                                 <textarea
-//                                     name="message"
-//                                     placeholder="How can we help you?"
-//                                     value={formData.message}
-//                                     onChange={handleInputChange}
-//                                     rows={3}
-//                                     required
-//                                 />
-//                             </div>
-
-//                             <Button
-//                                 type="submit"
-//                                 variant="primary"
-//                                 size="small"
-//                                 className="chat-submit"
-//                             >
-//                                 Send Message
-//                             </Button>
-//                         </form>
-//                     </div>
-//                 </div>
-//             )}
-//         </div>
-//     );
-// };
-
-// export default ChatWidget;
-
 import React, { useState } from 'react';
+import { Button } from './';
 
 interface ChatWidgetProps {
     className?: string;
 }
 
 const ChatWidget: React.FC<ChatWidgetProps> = ({ className = '' }) => {
-    const [isOpen, setIsOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState(true); // Opens immediately on page load
     const [formData, setFormData] = useState({
         name: '',
         phone: '',
@@ -136,7 +23,9 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ className = '' }) => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        // Handle form submission here
         console.log('Form submitted:', formData);
+        // Reset form or show success message
         setFormData({ name: '', phone: '', message: '' });
         setIsOpen(false);
     };
@@ -388,7 +277,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ className = '' }) => {
                             </p>
 
                             <form onSubmit={handleSubmit} className="chat-form-container">
-                                <div>
+                                <div className="form-group">
                                     <input
                                         type="text"
                                         name="name"
@@ -400,7 +289,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ className = '' }) => {
                                     />
                                 </div>
 
-                                <div>
+                                <div className="form-group">
                                     <input
                                         type="tel"
                                         name="phone"
@@ -412,7 +301,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ className = '' }) => {
                                     />
                                 </div>
 
-                                <div>
+                                <div className="form-group">
                                     <textarea
                                         name="message"
                                         placeholder="How can we help you?"
@@ -424,12 +313,14 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ className = '' }) => {
                                     />
                                 </div>
 
-                                <button
+                                <Button
                                     type="submit"
-                                    className="chat-submit-btn"
+                                    variant="primary"
+                                    size="small"
+                                    className="chat-submit"
                                 >
                                     Send Message
-                                </button>
+                                </Button>
                             </form>
                         </div>
                     </div>
