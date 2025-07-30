@@ -38,8 +38,6 @@ const Contact: React.FC = () => {
           from_email: formData.email,
           phone: formData.phone,
           mortgage_type: formData.mortgageType,
-          property_value: formData.propertyValue,
-          deposit: formData.deposit,
           message: formData.message,
         },
         'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
@@ -148,31 +146,6 @@ const Contact: React.FC = () => {
                           <option value="self-employed">Self-Employed</option>
                           <option value="other">Other</option>
                         </select>
-                      </div>
-                    </div>
-
-                    <div className="form-row">
-                      <div className="form-group">
-                        <label htmlFor="propertyValue">Property Value</label>
-                        <input
-                          type="text"
-                          id="propertyValue"
-                          name="propertyValue"
-                          value={formData.propertyValue}
-                          onChange={handleChange}
-                          placeholder="e.g. £350,000"
-                        />
-                      </div>
-                      <div className="form-group">
-                        <label htmlFor="deposit">Deposit Available</label>
-                        <input
-                          type="text"
-                          id="deposit"
-                          name="deposit"
-                          value={formData.deposit}
-                          onChange={handleChange}
-                          placeholder="e.g. £35,000"
-                        />
                       </div>
                     </div>
 
