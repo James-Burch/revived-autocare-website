@@ -3,6 +3,7 @@ import { ChatWidget, Layout, ContactBar, LendersCarousel } from '../components';
 import ServicesGrid from '../components/ServicesGrid';
 import { getMainServices, getAdditionalServices, INSURANCE_PRODUCTS } from '../data';
 import { Link } from 'react-router-dom';
+import FAQSection from '../components/FAQSection';
 
 const Home: React.FC = () => {
   // Get data from centralized data layer
@@ -143,6 +144,7 @@ const Home: React.FC = () => {
         </section>
 
         <ContactBar />
+        <FAQSection />
 
         {/* Reviews Section */}
         <section className="reviews-section">

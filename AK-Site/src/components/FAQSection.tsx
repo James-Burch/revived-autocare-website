@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 interface FAQItem {
     question: string;
@@ -62,12 +63,12 @@ const FAQSection: React.FC<FAQSectionProps> = ({ className = '' }) => {
                 <div className="faq-footer">
                     <p>Still have questions?</p>
                     <div className="faq-actions">
-                        <button className="faq-contact-btn primary">
-                            Speak to an Advisor
-                        </button>
-                        <button className="faq-contact-btn secondary">
-                            View All FAQs
-                        </button>
+                        <Link to="/contact">
+                            <button className="faq-contact-btn primary">
+                                Speak to an Advisor
+                            </button>
+                        </Link>
+
                     </div>
                 </div>
             </div>
