@@ -13,3 +13,4 @@ export { default as UnifiedCard } from './UnifiedCard';
 export { default as ProductsGrid } from './ProductsGrid';
 export { default as ContactBar } from './ContactBar';
 export { default as LendersCarousel } from './LendersCarousel';
+export { default as ScrollToTop } from './ScrollToTop'

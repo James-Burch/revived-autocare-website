@@ -6,6 +6,7 @@ import Contact from './pages/Contact';
 import ProductPage from './components/ProductPage';
 import InsurancePage from './pages/InsurancePage';
 import CalculatorPage from './pages/CalculatorPage';
+import { ScrollToTop } from './components';
 import { initScrollAnimations } from './utils/scrollObserver';
 import './styles/main.css';
 
@@ -34,6 +35,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
