@@ -1,112 +1,133 @@
 import React, { useState, useEffect } from 'react';
 
 interface Lender {
-    id: string;
     name: string;
-    logo: string; // Path to logo image
+    logo: string; // URL to logo image
     type: 'mortgage' | 'insurance';
 }
 
-const LENDERS: Lender[] = [
-    // Mortgage Lenders
-    { id: 'nationwide', name: 'Nationwide', logo: '/src/assets/lenders/nationwide.png', type: 'mortgage' },
-    { id: 'natwest', name: 'NatWest', logo: '/src/assets/lenders/natwest.png', type: 'mortgage' },
-    { id: 'barclays', name: 'Barclays', logo: '/src/assets/lenders/barclays.png', type: 'mortgage' },
-    { id: 'hsbc', name: 'HSBC', logo: '/src/assets/lenders/hsbc.png', type: 'mortgage' },
-    { id: 'santander', name: 'Santander', logo: '/src/assets/lenders/santander.png', type: 'mortgage' },
+interface LendersCarouselProps {
+    className?: string;
+}
 
-    // Insurance Providers
-    { id: 'aviva', name: 'Aviva', logo: '/src/assets/lenders/aviva.png', type: 'insurance' },
-    { id: 'zurich', name: 'Zurich', logo: '/src/assets/lenders/zurich.png', type: 'insurance' },
-    { id: 'vitality', name: 'Vitality', logo: '/src/assets/lenders/vitality.png', type: 'insurance' },
-    { id: 'lv', name: 'LV=', logo: '/src/assets/lenders/lv.png', type: 'insurance' },
-];
-
-const LendersCarousel: React.FC = () => {
+const LendersCarousel: React.FC<LendersCarouselProps> = ({ className = '' }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [isMobile, setIsMobile] = useState(false);
+    const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
+    // Sample lenders data - replace with your actual lender logos
+    const lenders: Lender[] = [
+        { name: 'Nationwide', logo: '/images/lenders/nationwide.png', type: 'mortgage' },
+        { name: 'NatWest', logo: '/images/lenders/natwest.png', type: 'mortgage' },
+        { name: 'Barclays', logo: '/images/lenders/barclays.png', type: 'mortgage' },
+        { name: 'HSBC', logo: '/images/lenders/hsbc.png', type: 'mortgage' },
+        { name: 'Santander', logo: '/images/lenders/santander.png', type: 'mortgage' },
+        { name: 'Aviva', logo: '/images/lenders/aviva.png', type: 'insurance' },
+        { name: 'Zurich', logo: '/images/lenders/zurich.png', type: 'insurance' },
+        { name: 'Vitality', logo: '/images/lenders/vitality.png', type: 'insurance' },
+        { name: 'LV=', logo: '/images/lenders/lv.png', type: 'insurance' },
+        { name: 'Halifax', logo: '/images/lenders/halifax.png', type: 'mortgage' }
+    ];
+
+    // Auto-scroll functionality
     useEffect(() => {
-        const checkMobile = () => {
-            setIsMobile(window.innerWidth <= 768);
-        };
+        if (!isAutoPlaying) return;
 
-        checkMobile();
-        window.addEventListener('resize', checkMobile);
-        return () => window.removeEventListener('resize', checkMobile);
-    }, []);
+        const timer = setInterval(() => {
+            setCurrentIndex((prevIndex) =>
+                prevIndex === lenders.length - 1 ? 0 : prevIndex + 1
+            );
+        }, 3000); // Change every 3 seconds
 
-    // Auto-advance carousel
-    useEffect(() => {
-        if (isMobile) {
-            const timer = setInterval(() => {
-                setCurrentIndex((prev) => (prev + 1) % LENDERS.length);
-            }, 3000); // Change every 3 seconds
+        return () => clearInterval(timer);
+    }, [currentIndex, isAutoPlaying, lenders.length]);
 
-            return () => clearInterval(timer);
-        }
-    }, [isMobile]);
-
-    const nextLender = () => {
-        setCurrentIndex((prev) => (prev + 1) % LENDERS.length);
+    const nextSlide = () => {
+        setIsAutoPlaying(false);
+        setCurrentIndex(currentIndex === lenders.length - 1 ? 0 : currentIndex + 1);
+        setTimeout(() => setIsAutoPlaying(true), 5000); // Resume auto-play after 5 seconds
     };
 
-    const prevLender = () => {
-        setCurrentIndex((prev) => (prev - 1 + LENDERS.length) % LENDERS.length);
+    const prevSlide = () => {
+        setIsAutoPlaying(false);
+        setCurrentIndex(currentIndex === 0 ? lenders.length - 1 : currentIndex - 1);
+        setTimeout(() => setIsAutoPlaying(true), 5000); // Resume auto-play after 5 seconds
     };
 
     const getVisibleLenders = () => {
-        if (isMobile) {
-            // Mobile: Show current + 2 adjacent (with opacity)
-            const prev = (currentIndex - 1 + LENDERS.length) % LENDERS.length;
-            const next = (currentIndex + 1) % LENDERS.length;
-            return [
-                { ...LENDERS[prev], position: 'prev' },
-                { ...LENDERS[currentIndex], position: 'current' },
-                { ...LENDERS[next], position: 'next' }
-            ];
-        } else {
-            // Desktop: Show all
-            return LENDERS.map(lender => ({ ...lender, position: 'current' }));
-        }
+        const visible = [];
+        const totalLenders = lenders.length;
+
+        // Get previous lender (faded)
+        const prevIndex = currentIndex === 0 ? totalLenders - 1 : currentIndex - 1;
+        visible.push({ ...lenders[prevIndex], position: 'prev' });
+
+        // Get current lender (main)
+        visible.push({ ...lenders[currentIndex], position: 'current' });
+
+        // Get next lender (faded)
+        const nextIndex = currentIndex === totalLenders - 1 ? 0 : currentIndex + 1;
+        visible.push({ ...lenders[nextIndex], position: 'next' });
+
+        return visible;
     };
 
     return (
-        <div className="lenders-carousel">
-            <div className="lenders-container">
-                <div className={`lenders-grid ${isMobile ? 'mobile' : 'desktop'}`}>
+        <div className={`lenders-carousel ${className}`}>
+            <div className="lenders-carousel-header">
+                <h3>Our Trusted Partners</h3>
+                <p>We work with 90+ leading lenders and insurers</p>
+            </div>
+
+            <div className="lenders-carousel-container">
+                <button
+                    className="carousel-arrow carousel-arrow-left"
+                    onClick={prevSlide}
+                    aria-label="Previous lender"
+                >
+                    ←
+                </button>
+
+                <div className="lenders-display">
                     {getVisibleLenders().map((lender, index) => (
                         <div
-                            key={`${lender.id}-${index}`}
+                            key={`${lender.name}-${index}`}
                             className={`lender-item ${lender.position}`}
                         >
                             <img
                                 src={lender.logo}
                                 alt={`${lender.name} logo`}
-                                className="lender-logo"
+                                onError={(e) => {
+                                    // Fallback for missing images
+                                    const target = e.currentTarget;
+                                    target.src = `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="60" viewBox="0 0 120 60"><rect width="120" height="60" fill="%23f3f4f6" stroke="%23d1d5db" stroke-width="1"/><text x="60" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="%236b7280">${lender.name}</text></svg>`;
+                                }}
                             />
                         </div>
                     ))}
                 </div>
 
-                {isMobile && (
-                    <div className="carousel-controls">
-                        <button
-                            className="carousel-btn prev"
-                            onClick={prevLender}
-                            aria-label="Previous lender"
-                        >
-                            ‹
-                        </button>
-                        <button
-                            className="carousel-btn next"
-                            onClick={nextLender}
-                            aria-label="Next lender"
-                        >
-                            ›
-                        </button>
-                    </div>
-                )}
+                <button
+                    className="carousel-arrow carousel-arrow-right"
+                    onClick={nextSlide}
+                    aria-label="Next lender"
+                >
+                    →
+                </button>
+            </div>
+
+            <div className="carousel-indicators">
+                {lenders.map((_, index) => (
+                    <button
+                        key={index}
+                        className={`indicator ${index === currentIndex ? 'active' : ''}`}
+                        onClick={() => {
+                            setCurrentIndex(index);
+                            setIsAutoPlaying(false);
+                            setTimeout(() => setIsAutoPlaying(true), 5000);
+                        }}
+                        aria-label={`Go to lender ${index + 1}`}
+                    />
+                ))}
             </div>
         </div>
     );
