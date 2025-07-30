@@ -74,8 +74,6 @@ const Home: React.FC = () => {
           </div>
         </section>
 
-        <ContactBar />
-
         {/* Protection Section */}
         <section className="protection-section">
           <div className="container">
@@ -95,19 +93,33 @@ const Home: React.FC = () => {
                       <div className="insurance-icon">
                         {insurance.id === 'life-insurance' && (
                           <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="var(--color-professional-blue)" />
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="var(--color-accent)" />
                           </svg>
                         )}
                         {insurance.id === 'income-protection' && (
                           <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2L3 7L12 12L21 7L12 2Z" fill="var(--color-professional-green)" />
-                            <path d="M3 17L12 22L21 17" stroke="var(--color-professional-green)" strokeWidth="2" />
-                            <path d="M3 12L12 17L21 12" stroke="var(--color-professional-green)" strokeWidth="2" />
+                            <path d="M12 2L3 7L12 12L21 7L12 2Z" fill="var(--color-accent)" />
+                            <path d="M3 17L12 22L21 17" stroke="var(--color-accent)" strokeWidth="2" />
+                            <path d="M3 12L12 17L21 12" stroke="var(--color-accent)" strokeWidth="2" />
                           </svg>
                         )}
                         {insurance.id === 'critical-illness' && (
                           <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M22 12H18L15 21L9 3L6 12H2" stroke="var(--color-professional-blue)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                            <path d="M22 12H18L15 21L9 3L6 12H2" stroke="var(--color-accent)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        )}
+                        {insurance.id === 'accident-sickness-unemployment' && (
+                          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L3 7V17L12 22L21 17V7L12 2Z" fill="var(--color-accent)" fillOpacity="0.2" />
+                            <path d="M12 2L3 7V17L12 22L21 17V7L12 2Z" stroke="var(--color-accent)" strokeWidth="2" />
+                            <path d="M9 12L11 14L15 10" stroke="var(--color-accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        )}
+                        {insurance.id === 'home-buildings-contents' && (
+                          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" fill="var(--color-accent)" fillOpacity="0.2" />
+                            <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="var(--color-accent)" strokeWidth="2" />
+                            <path d="M9 22V12H15V22" stroke="var(--color-accent)" strokeWidth="2" />
                           </svg>
                         )}
                       </div>
@@ -127,6 +139,8 @@ const Home: React.FC = () => {
             </div>
           </div>
         </section>
+
+        <ContactBar />
 
         {/* Reviews Section */}
         <section className="reviews-section">
