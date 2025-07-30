@@ -65,6 +65,7 @@
 
 // export default CalculatorPage;
 
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Layout, ContactBar } from '../components';
 import MortgageCalculator from '../components/MortgageCalculator';
