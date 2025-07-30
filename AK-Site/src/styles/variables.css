@@ -10,12 +10,12 @@
   --color-accent-light: #b2ebe7;
   --color-accent-dark: #5ac2bc;
 
-  /* Background Teal (updated to match theme) */
+  /* Background Teal */
   --color-teal: #0ABAB5;
   --color-teal-light: #b2ebe7;
   --color-teal-dark: #089E9A;
 
-  /* Secondary Colors (left unchanged unless you request update) */
+  /* Secondary Colors */
   --color-success: #4caf50;
   --color-success-light: #81c784;
   --color-success-dark: #388e3c;

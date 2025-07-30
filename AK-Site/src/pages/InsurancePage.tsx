@@ -30,7 +30,7 @@ const InsurancePage: React.FC = () => {
                             <h1>{insurance.title}</h1>
                             <p className="insurance-hero-description">{insurance.description}</p>
                             <div className="insurance-hero-actions">
-                                <Link to="/contact" className="nav-link"><button className="button button-secondary button-large">
+                                <Link to="/contact" className="nav-link"><button className="button button-primary button-large">
                                     Speak to an Advisor
                                 </button>
                                 </Link>
