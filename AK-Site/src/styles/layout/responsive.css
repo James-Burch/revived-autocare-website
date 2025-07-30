@@ -795,3 +795,82 @@
         min-width: 300px;
     }
 }
+
+/* Lenders Carousel Mobile */
+@media (max-width: 768px) {
+    .lenders-carousel {
+        padding: var(--spacing-2xl) 0;
+    }
+    
+    .lenders-carousel-header h3 {
+        font-size: var(--font-size-xl);
+    }
+    
+    .lenders-carousel-container {
+        padding: 0 var(--spacing-md);
+    }
+    
+    .carousel-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: var(--font-size-base);
+    }
+    
+    .carousel-arrow-left {
+        margin-right: var(--spacing-md);
+    }
+    
+    .carousel-arrow-right {
+        margin-left: var(--spacing-md);
+    }
+    
+    .lenders-display {
+        gap: var(--spacing-sm);
+        min-height: 60px;
+    }
+    
+    .lender-item img {
+        max-width: 80px;
+        max-height: 40px;
+    }
+    
+    .lender-item.current {
+        transform: scale(1.05);
+    }
+    
+    .lender-item.prev,
+    .lender-item.next {
+        transform: scale(0.7);
+        opacity: 0.3;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .lenders-carousel-container {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .carousel-arrow {
+        width: 35px;
+        height: 35px;
+        font-size: var(--font-size-sm);
+    }
+    
+    .carousel-arrow-left {
+        margin-right: var(--spacing-sm);
+    }
+    
+    .carousel-arrow-right {
+        margin-left: var(--spacing-sm);
+    }
+    
+    .lender-item img {
+        max-width: 60px;
+        max-height: 30px;
+    }
+    
+    .lenders-display {
+        gap: var(--spacing-xs);
+    }
+}
