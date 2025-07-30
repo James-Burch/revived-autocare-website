@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Button from './Button';
 import { formatCurrency, calculateStampDuty } from '../utils/formatters';
 
 interface MortgageResults {
@@ -21,8 +20,8 @@ const MortgageCalculator: React.FC = () => {
     const monthlyInterestRate = interestRate / 100 / 12;
     const numberOfPayments = loanTerm * 12;
 
-    const monthlyPayment = loanAmount * 
-      (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) / 
+    const monthlyPayment = loanAmount *
+      (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) /
       (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
 
     const totalCost = monthlyPayment * numberOfPayments;
@@ -38,83 +37,140 @@ const MortgageCalculator: React.FC = () => {
   };
 
   return (
-    <div className="mortgage-calculator card">
-      <h2>Mortgage Calculator</h2>
-      
-      <div className="calculator-form">
-        <div className="form-group">
-          <label htmlFor="propertyValue">Property Value</label>
-          <input
-            id="propertyValue"
-            type="number"
-            value={propertyValue}
-            onChange={(e) => setPropertyValue(Number(e.target.value))}
-            placeholder="Enter property value"
-          />
+    <div className="mortgage-calculator-professional">
+      <div className="calculator-content">
+        <div className="calculator-header">
+          <h2>Calculate Your Mortgage</h2>
+          <p>Get instant estimates for your monthly payments and total costs</p>
         </div>
 
-        <div className="form-group">
-          <label htmlFor="deposit">Deposit</label>
-          <input
-            id="deposit"
-            type="number"
-            value={deposit}
-            onChange={(e) => setDeposit(Number(e.target.value))}
-            placeholder="Enter deposit amount"
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="interestRate">Interest Rate (%)</label>
-          <input
-            id="interestRate"
-            type="number"
-            step="0.1"
-            value={interestRate}
-            onChange={(e) => setInterestRate(Number(e.target.value))}
-            placeholder="Enter interest rate"
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="loanTerm">Loan Term (years)</label>
-          <input
-            id="loanTerm"
-            type="number"
-            value={loanTerm}
-            onChange={(e) => setLoanTerm(Number(e.target.value))}
-            placeholder="Enter loan term"
-          />
-        </div>
-
-        <Button onClick={calculateMortgage} variant="primary" size="large">
-          Calculate Mortgage
-        </Button>
-      </div>
-
-      {results && (
-        <div className="results">
-          <h3>Calculation Results</h3>
-          <div className="results-grid">
-            <div className="result-item">
-              <span className="label">Monthly Payment:</span>
-              <span className="value">{formatCurrency(results.monthlyPayment)}</span>
+        <div className="calculator-form">
+          <div className="form-row">
+            <div className="form-group">
+              <label htmlFor="propertyValue">Property Value</label>
+              <div className="input-wrapper">
+                <span className="input-prefix">£</span>
+                <input
+                  id="propertyValue"
+                  type="number"
+                  value={propertyValue}
+                  onChange={(e) => setPropertyValue(Number(e.target.value))}
+                  placeholder="250000"
+                />
+              </div>
             </div>
-            <div className="result-item">
-              <span className="label">Total Cost:</span>
-              <span className="value">{formatCurrency(results.totalCost)}</span>
-            </div>
-            <div className="result-item">
-              <span className="label">Total Interest:</span>
-              <span className="value">{formatCurrency(results.totalInterest)}</span>
-            </div>
-            <div className="result-item">
-              <span className="label">Stamp Duty:</span>
-              <span className="value">{formatCurrency(results.stampDuty)}</span>
+
+            <div className="form-group">
+              <label htmlFor="deposit">Deposit</label>
+              <div className="input-wrapper">
+                <span className="input-prefix">£</span>
+                <input
+                  id="deposit"
+                  type="number"
+                  value={deposit}
+                  onChange={(e) => setDeposit(Number(e.target.value))}
+                  placeholder="25000"
+                />
+              </div>
             </div>
           </div>
+
+          <div className="form-row">
+            <div className="form-group">
+              <label htmlFor="interestRate">Interest Rate</label>
+              <div className="input-wrapper">
+                <input
+                  id="interestRate"
+                  type="number"
+                  step="0.1"
+                  value={interestRate}
+                  onChange={(e) => setInterestRate(Number(e.target.value))}
+                  placeholder="5.5"
+                />
+                <span className="input-suffix">%</span>
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="loanTerm">Loan Term</label>
+              <div className="input-wrapper">
+                <input
+                  id="loanTerm"
+                  type="number"
+                  value={loanTerm}
+                  onChange={(e) => setLoanTerm(Number(e.target.value))}
+                  placeholder="25"
+                />
+                <span className="input-suffix">years</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="calculator-actions">
+            <button
+              onClick={calculateMortgage}
+              className="button button-primary button-large calculate-btn"
+            >
+              Calculate Mortgage
+            </button>
+          </div>
         </div>
-      )}
+
+        {results && (
+          <div className="results-section">
+            <h3>Your Results</h3>
+            <div className="results-grid">
+              <div className="result-card primary">
+                <div className="result-icon">£</div>
+                <div className="result-content">
+                  <span className="result-label">Monthly Payment</span>
+                  <span className="result-value">{formatCurrency(results.monthlyPayment)}</span>
+                </div>
+              </div>
+
+              <div className="result-card">
+                <div className="result-icon">💰</div>
+                <div className="result-content">
+                  <span className="result-label">Total Cost</span>
+                  <span className="result-value">{formatCurrency(results.totalCost)}</span>
+                </div>
+              </div>
+
+              <div className="result-card">
+                <div className="result-icon">📈</div>
+                <div className="result-content">
+                  <span className="result-label">Total Interest</span>
+                  <span className="result-value">{formatCurrency(results.totalInterest)}</span>
+                </div>
+              </div>
+
+              <div className="result-card">
+                <div className="result-icon">🏛️</div>
+                <div className="result-content">
+                  <span className="result-label">Stamp Duty</span>
+                  <span className="result-value">{formatCurrency(results.stampDuty)}</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="results-summary">
+              <h4>Summary</h4>
+              <div className="summary-row">
+                <span>Loan Amount:</span>
+                <span>{formatCurrency(propertyValue - deposit)}</span>
+              </div>
+              <div className="summary-row">
+                <span>Loan to Value (LTV):</span>
+                <span>{(((propertyValue - deposit) / propertyValue) * 100).toFixed(1)}%</span>
+              </div>
+              <div className="summary-row">
+                <span>Deposit Percentage:</span>
+                <span>{((deposit / propertyValue) * 100).toFixed(1)}%</span>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
