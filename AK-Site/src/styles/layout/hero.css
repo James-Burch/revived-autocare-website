@@ -107,6 +107,28 @@
     justify-content: center;
 }
 
+.protection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+    margin-top: 48px;
+    justify-items: center;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* When there are 5 items, center the last row */
+.protection-grid:has(.card:nth-child(5):last-child) {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.protection-grid .card:nth-child(4):nth-last-child(2),
+.protection-grid .card:nth-child(5):last-child {
+    grid-column: span 1;
+    justify-self: center;
+}
+
 .insurance-icon {
     display: flex;
     align-items: center;

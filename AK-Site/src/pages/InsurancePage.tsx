@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import { Layout, ContactBar } from '../components';
 import { getInsuranceById, INSURANCE_PRODUCTS } from '../data';
+import { Link } from 'react-router-dom';
 
 const InsurancePage: React.FC = () => {
     const { insuranceType } = useParams<{ insuranceType: string }>();
@@ -29,12 +30,14 @@ const InsurancePage: React.FC = () => {
                             <h1>{insurance.title}</h1>
                             <p className="insurance-hero-description">{insurance.description}</p>
                             <div className="insurance-hero-actions">
-                                <button className="button button-primary button-large">
+                                <Link to="/contact" className="nav-link"><button className="button button-primary button-large">
                                     Get a Quote
                                 </button>
-                                <button className="button button-secondary button-large">
+                                </Link>
+                                <Link to="/contact" className="nav-link"><button className="button button-secondary button-large">
                                     Speak to an Advisor
                                 </button>
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -109,9 +112,11 @@ const InsurancePage: React.FC = () => {
                                 <div className="sidebar-card">
                                     <h3>Get Expert Advice</h3>
                                     <p>Speak to one of our qualified advisors about your insurance needs.</p>
-                                    <button className="button button-primary button-full-width">
-                                        Book Consultation
-                                    </button>
+                                    <Link to='/contact' className="nav-link">
+                                        <button className="button button-primary button-full-width">
+                                            Book Consultation
+                                        </button>
+                                    </Link>
                                     <div className="contact-methods">
                                         <div className="contact-method">
                                             <strong>Call:</strong> 0800 123 4567
