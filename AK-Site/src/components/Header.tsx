@@ -254,6 +254,13 @@ const Header: React.FC = () => {
           </div>
 
           <Link
+              to="/mortgage-calculator"
+              className={location.pathname === '/mortgage-calculator' ? 'nav-link active' : 'nav-link'}
+            >
+              Calculator
+            </Link>
+
+          <Link
             to="/contact"
             className={location.pathname === '/contact' ? 'nav-link active' : 'nav-link'}
             onClick={closeMobileMenu}
