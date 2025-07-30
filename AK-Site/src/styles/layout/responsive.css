@@ -75,11 +75,6 @@
         text-align: center;
     }
 
-    .contact-grid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-2xl);
-    }
-
     .protection-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -97,7 +92,6 @@
         grid-template-columns: 1fr;
     }
 }
-
 
 @media (max-width: 768px) {
     .hero-new {
@@ -298,29 +292,266 @@
     }
 }
 
-/* Contact Methods Mobile */
+/* Contact Page Mobile - COMPLETE FIX */
 @media (max-width: 768px) {
-    .contact-methods {
+    .contact-hero {
+        padding: var(--spacing-2xl) 0;
+        background: var(--gradient-primary);
+        text-align: center;
+    }
+    
+    .contact-hero .container {
+        padding: 0 var(--spacing-md);
+        max-width: 100%;
+    }
+    
+    .contact-hero h1 {
+        font-size: var(--font-size-2xl);
+        color: white;
+        margin-bottom: var(--spacing-md);
+        line-height: 1.2;
+    }
+    
+    .contact-hero p {
+        font-size: var(--font-size-base);
+        color: rgba(255, 255, 255, 0.9);
+        margin: 0;
+        line-height: 1.4;
+    }
+
+    /* Contact Form Section Mobile - CRITICAL FIX */
+    .contact-form-section {
+        padding: var(--spacing-xl) 0;
+        background: var(--color-surface);
+    }
+    
+    .contact-form-section .container {
+        padding: 0;
+        max-width: 100%;
+        margin: 0;
+    }
+    
+    .contact-grid {
+        display: block; /* Force block instead of grid */
+        width: 100%;
+        gap: 0;
+    }
+    
+    .contact-form-container {
+        width: 100%;
+        margin-bottom: var(--spacing-xl);
+        padding: 0 var(--spacing-md);
+        box-sizing: border-box;
+    }
+    
+    .contact-info {
+        width: 100%;
+        padding: 0 var(--spacing-md);
+        box-sizing: border-box;
+        display: flex;
         flex-direction: column;
         gap: var(--spacing-lg);
     }
 
-    .contact-method {
-        font-size: var(--font-size-sm);
+    /* Contact Form Card Mobile */
+    .contact-form-card {
+        margin: 0;
+        padding: var(--spacing-lg);
+        border-radius: var(--border-radius-lg);
+        background: var(--color-background);
+        box-shadow: var(--shadow);
+        border: 1px solid var(--color-gray-200);
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .contact-form-card h2 {
+        font-size: var(--font-size-xl);
+        margin-bottom: var(--spacing-lg);
         text-align: center;
+        color: var(--color-text);
     }
     
-    .contact-form-section {
-        padding: var(--spacing-2xl) 0;
+    /* Form Styles */
+    .contact-form {
+        width: 100%;
     }
     
-    .contact-grid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-xl);
+    .contact-form .form-row {
+        display: block; /* Stack form elements */
+        width: 100%;
+        margin-bottom: var(--spacing-md);
     }
     
+    .contact-form .form-group {
+        margin-bottom: var(--spacing-md);
+        width: 100%;
+    }
+    
+    .contact-form label {
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        margin-bottom: var(--spacing-xs);
+        display: block;
+        color: var(--color-text);
+    }
+    
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+        width: 100%;
+        padding: var(--spacing-md);
+        border: 1px solid var(--color-gray-300);
+        border-radius: var(--border-radius);
+        font-size: var(--font-size-base);
+        background: var(--color-background);
+        box-sizing: border-box;
+        font-family: inherit;
+    }
+    
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus {
+        outline: none;
+        border-color: var(--color-accent);
+        box-shadow: 0 0 0 2px rgba(77, 182, 172, 0.1);
+    }
+    
+    .contact-form textarea {
+        resize: vertical;
+        min-height: 100px;
+    }
+    
+    .submit-button {
+        width: 100%;
+        margin-top: var(--spacing-lg);
+        padding: var(--spacing-md) var(--spacing-lg);
+        font-size: var(--font-size-base);
+        min-height: 48px;
+    }
+    
+    .form-disclaimer {
+        font-size: var(--font-size-xs);
+        color: var(--color-text-secondary);
+        text-align: center;
+        margin-top: var(--spacing-md);
+        line-height: 1.4;
+    }
+
+    /* Contact Info Cards Mobile */
+    .contact-info-card,
+    .why-choose-card {
+        padding: var(--spacing-lg);
+        background: var(--color-background);
+        border-radius: var(--border-radius-lg);
+        box-shadow: var(--shadow);
+        border: 1px solid var(--color-gray-200);
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .contact-info-card h3,
+    .why-choose-card h3 {
+        font-size: var(--font-size-lg);
+        margin-bottom: var(--spacing-md);
+        text-align: center;
+        color: var(--color-accent);
+    }
+    
+    .contact-methods {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    
+    .contact-method {
+        text-align: center;
+        padding: var(--spacing-md);
+        background: var(--color-surface);
+        border-radius: var(--border-radius);
+        border: 1px solid var(--color-gray-200);
+    }
+    
+    .contact-method strong {
+        display: block;
+        font-size: var(--font-size-base);
+        color: var(--color-accent);
+        margin-bottom: var(--spacing-xs);
+    }
+    
+    .contact-method p {
+        font-size: var(--font-size-base);
+        font-weight: var(--font-weight-medium);
+        margin: var(--spacing-xs) 0;
+        color: var(--color-text);
+    }
+    
+    .contact-method small {
+        font-size: var(--font-size-sm);
+        color: var(--color-text-secondary);
+    }
+    
+    .benefits-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .benefits-list li {
+        padding: var(--spacing-sm) 0;
+        font-size: var(--font-size-sm);
+        line-height: 1.4;
+        border-bottom: 1px solid var(--color-gray-100);
+        color: var(--color-text);
+    }
+    
+    .benefits-list li:last-child {
+        border-bottom: none;
+    }
+
+    /* Success/Error Messages Mobile */
+    .success-message,
+    .error-message {
+        padding: var(--spacing-md);
+        border-radius: var(--border-radius);
+        margin-bottom: var(--spacing-lg);
+        text-align: center;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .success-message {
+        background: #d1fae5;
+        border: 1px solid #10b981;
+        color: #065f46;
+    }
+    
+    .error-message {
+        background: #fee2e2;
+        border: 1px solid #ef4444;
+        color: #991b1b;
+    }
+    
+    .success-message p,
+    .error-message p {
+        margin: 0;
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+    }
+
+    /* Contact Page Layout Mobile */
     .contact-page {
-        padding: 0 var(--spacing-md);
+        min-height: 100vh;
+        background: var(--color-surface);
+        width: 100%;
+        overflow-x: hidden; /* Prevent horizontal scroll */
+    }
+    
+    .contact-page .container {
+        padding: 0;
+        max-width: 100%;
+        margin: 0;
+        width: 100%;
     }
 }
 
@@ -495,6 +726,51 @@
     .calculate-btn {
         min-height: 52px;
         font-size: 16px;
+    }
+
+    /* Contact Page Small Mobile */
+    .contact-form-card,
+    .contact-info-card,
+    .why-choose-card {
+        margin: 0 var(--spacing-sm);
+        padding: var(--spacing-md);
+    }
+    
+    .contact-form-container,
+    .contact-info {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .contact-hero h1 {
+        font-size: var(--font-size-xl);
+    }
+    
+    .contact-form-card h2 {
+        font-size: var(--font-size-lg);
+    }
+    
+    .contact-method {
+        padding: var(--spacing-sm);
+    }
+    
+    .submit-button {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: var(--font-size-sm);
+        min-height: 44px;
+    }
+}
+
+/* Force proper stacking on very small screens */
+@media (max-width: 320px) {
+    .contact-form-container,
+    .contact-info {
+        padding: 0 var(--spacing-xs);
+    }
+    
+    .contact-form-card,
+    .contact-info-card,
+    .why-choose-card {
+        padding: var(--spacing-sm);
     }
 }
 

@@ -23,7 +23,8 @@ const Header: React.FC = () => {
     { name: 'Buy to Let', path: '/mortgages/buy-to-let' },
     { name: 'New Build', path: '/mortgages/new-build' },
     { name: 'Help to Buy', path: '/mortgages/help-to-buy' },
-    { name: 'Limited Companies', path: '/mortgages/limited-companies' }
+    { name: 'Limited Companies', path: '/mortgages/limited-companies' },
+    { name: 'Bridging Loans', path: '/mortgages/bridging-loans'}
   ];
 
   const insurance: NavigationItem[] = [

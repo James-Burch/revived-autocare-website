@@ -30,10 +30,6 @@ const InsurancePage: React.FC = () => {
                             <h1>{insurance.title}</h1>
                             <p className="insurance-hero-description">{insurance.description}</p>
                             <div className="insurance-hero-actions">
-                                <Link to="/contact" className="nav-link"><button className="button button-primary button-large">
-                                    Get a Quote
-                                </button>
-                                </Link>
                                 <Link to="/contact" className="nav-link"><button className="button button-secondary button-large">
                                     Speak to an Advisor
                                 </button>
@@ -114,7 +110,7 @@ const InsurancePage: React.FC = () => {
                                     <p>Speak to one of our qualified advisors about your insurance needs.</p>
                                     <Link to='/contact' className="nav-link">
                                         <button className="button button-primary button-full-width">
-                                            Book Consultation
+                                            Speak to an Advisor
                                         </button>
                                     </Link>
                                     <div className="contact-methods">

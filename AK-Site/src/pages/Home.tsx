@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChatWidget, Layout, ContactBar } from '../components';
+import { ChatWidget, Layout, ContactBar, LendersCarousel } from '../components';
 import ServicesGrid from '../components/ServicesGrid';
 import { getMainServices, getAdditionalServices, INSURANCE_PRODUCTS } from '../data';
 import { Link } from 'react-router-dom';
@@ -73,6 +73,8 @@ const Home: React.FC = () => {
             </div>
           </div>
         </section>
+
+        <LendersCarousel />
 
         {/* Protection Section */}
         <section className="protection-section">

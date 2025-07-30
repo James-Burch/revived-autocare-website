@@ -12,3 +12,4 @@ export { default as ServicesGrid } from './ServicesGrid';
 export { default as UnifiedCard } from './UnifiedCard';
 export { default as ProductsGrid } from './ProductsGrid';
 export { default as ContactBar } from './ContactBar';
+export { default as LendersCarousel } from './LendersCarousel';
