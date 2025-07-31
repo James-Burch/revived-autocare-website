@@ -4,36 +4,160 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Enhanced title for better SEO -->
+  <title>Professional Mortgage & Insurance Advice | Expert Mortgage Brokers UK</title>
+
   <!-- Essential SEO meta tags -->
   <meta name="description"
     content="Professional mortgage and insurance advice from regulated experts. Free consultation, access to 90+ lenders. Get your mortgage approved faster with expert guidance.">
   <meta name="keywords"
-    content="mortgage advisor, mortgage broker, home loans, remortgage, first time buyer, insurance">
+    content="mortgage advisor, mortgage broker, home loans, remortgage, first time buyer, insurance, mortgage, life insurance, income protection">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Professional Mortgage Advisory Services">
+
   <!-- Open Graph for social sharing -->
   <meta property="og:title" content="Professional Mortgage & Insurance Advisory Services">
   <meta property="og:description"
     content="Expert mortgage advice from regulated professionals. Access to 90+ lenders, free consultation available.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mortgageuk.netlify.app">
-  <meta property="og:image" content="/images/og-image.jpg">
+  <meta property="og:image" content="https://mortgageuk.netlify.app/images/og-image.jpg">
+  <meta property="og:site_name" content="Professional Mortgage Advisory">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Professional Mortgage Advisory Services">
+  <meta name="twitter:description" content="Expert mortgage advice, access to 90+ lenders, free consultation.">
+  <meta name="twitter:image" content="https://mortgageuk.netlify.app/images/og-image.jpg">
+
   <!-- Preconnect to external domains -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
-  <!-- Preload critical CSS -->
+  <!-- Preload critical resources -->
   <link rel="preload" href="/css/main.css" as="style">
+  <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
 
   <!-- Resource hints -->
   <link rel="dns-prefetch" href="//fonts.googleapis.com">
-  <title>Mortgage Advisor</title>
+  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+
+  <!-- Favicon and app icons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0ABAB5">
+
+  <!-- Critical CSS inline (for above-the-fold content) -->
+  <style>
+    /* Critical above-the-fold CSS */
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: #18181B;
+      background: #fff
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 6px;
+      background: #000;
+      color: #fff;
+      padding: 8px;
+      text-decoration: none;
+      z-index: 999999;
+      border-radius: 4px
+    }
+
+    .skip-link:focus {
+      top: 6px
+    }
+
+    .header {
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100
+    }
+
+    .loading-spinner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 200px;
+      font-size: 14px;
+      color: #71717A
+    }
+  </style>
+
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FinancialService",
+    "name": "Professional Mortgage Advisory Services",
+    "description": "Expert mortgage and insurance advice from regulated professionals",
+    "url": "https://mortgageuk.netlify.app",
+    "telephone": "0800-123-4567",
+    "email": "info@mortgageuk.netlify.app",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "123 High Street",
+      "addressLocality": "London",
+      "postalCode": "SW1A 1AA",
+      "addressCountry": "GB"
+    },
+    "serviceType": [
+      "Mortgage Advisory",
+      "Insurance Services", 
+      "First Time Buyer Mortgages",
+      "Remortgage Services",
+      "Buy to Let Mortgages"
+    ],
+    "areaServed": "United Kingdom",
+    "hasCredential": "FCA Regulated",
+    "priceRange": "Free consultation",
+    "openingHours": "Mo-Fr 08:00-18:00, Sa 09:00-17:00"
+  }
+  </script>
 </head>
 
 <body>
+  <!-- Skip link for accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
+
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => console.log('SW registered'))
+          .catch(registrationError => console.log('SW registration failed'));
+      });
+    }
+  </script>
 </body>
 
 </html>
