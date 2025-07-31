@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://mortgageuk.netlify.app/sitemap.xml
+
+# Block access to development and system files
+Disallow: /static/
+Disallow: /*.json$
+Disallow: /manifest.json
+Disallow: /sw.js
+Disallow: /service-worker.js
+Disallow: /_redirects
+Disallow: /.well-known/
+
+# Block search engines from indexing these paths
+Disallow: /admin/
+Disallow: /test/
+Disallow: /dev/
+
+# Crawl delay (optional - helps with server load)
+Crawl-delay: 1
