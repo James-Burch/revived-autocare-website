@@ -151,7 +151,7 @@ const LendersCarousel: React.FC<LendersCarouselProps> = ({ className = '' }) => 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
-    // Sample lenders data - replace with your actual lender logos
+    // Lenders data - replace with actual lender logos
     const lenders: Lender[] = [
         { name: 'Nationwide', logo: '/images/lenders/nationwide.png', type: 'mortgage' },
         { name: 'NatWest', logo: '/images/lenders/natwest.png', type: 'mortgage' },
