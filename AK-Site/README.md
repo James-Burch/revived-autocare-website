@@ -2,7 +2,7 @@
 
 > Modern, responsive website for mortgage and insurance advisory services featuring interactive calculators, live chat, and comprehensive service information.
 
-[![Live Site](https://img.shields.io/badge/Live%20Site-Visit-0ABAB5?style=for-the-badge&logo=google-chrome&logoColor=white)](https://mortgageuk.co.uk)
+[![Live Site](https://img.shields.io/badge/Live%20Site-Visit-0ABAB5?style=for-the-badge&logo=google-chrome&logoColor=white)](https://mortgageuk.netlify.app)
 [![Build Status](https://img.shields.io/badge/Build-Passing-success?style=for-the-badge)](https://github.com/james-burch/ak-site)
 [![Lighthouse](https://img.shields.io/badge/Lighthouse-95%2B-success?style=for-the-badge&logo=lighthouse&logoColor=white)](https://pagespeed.web.dev/)
 [![Accessibility](https://img.shields.io/badge/Accessibility-WCAG%20AA-blue?style=for-the-badge)](https://www.w3.org/WAI/WCAG21/quickref/)
@@ -69,7 +69,7 @@
 
 ## 🚀 Live Demo
 
-**🌐 [View Live Website](https://mortgageuk.co.uk)**
+**🌐 [View Live Website](https://mortgageuk.netlify.app)**
 
 ### **Key Pages**
 - Homepage with hero section and services overview
@@ -96,7 +96,7 @@
 ### **Quick Start**
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/mortgage-website.git
+git clone https://github.com/james-burch/ak-site.git
 
 # Navigate to project directory
 cd mortgage-website
@@ -163,7 +163,7 @@ REACT_APP_CONTACT_EMAIL=info@yourdomain.com
 REACT_APP_PHONE=0800-123-4567
 
 # Production (.env.production)
-REACT_APP_SITE_URL=https://yourdomain.com
+REACT_APP_SITE_URL=https://mortgageuk.netlify.app
 REACT_APP_SENTRY_DSN=your_sentry_dsn
 REACT_APP_GA_ID=your_analytics_id
 ```
@@ -233,7 +233,7 @@ REACT_APP_GA_ID=your_analytics_id
 ### **Technical Support**
 - **Developer**: [James Burch](mailto:james@jamesburch.co.uk)
 - **GitHub**: [@james-burch](https://github.com/james-burch)
-- **Website**: [yourportfolio.com](https://yourportfolio.com)
+- **Website**: [yourportfolio.com](https://jamesburch.co.uk)
 
 ### **Client Information**
 - **Business**: Professional Mortgage & Insurance Advisory
