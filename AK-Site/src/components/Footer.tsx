@@ -16,6 +16,9 @@ const Footer: React.FC<FooterProps> = ({
       <div className="footer-container">
         <div className="footer-content">
           <p className="footer-copyright">{copyright}</p>
+          <p className="footer-disclaimer">
+            Your home may be repossessed if you do not keep up repayments on your mortgage.
+          </p>
           {links.length > 0 && (
             <div className="footer-links">
               {links.map((link, index) => (
@@ -29,6 +32,21 @@ const Footer: React.FC<FooterProps> = ({
               ))}
             </div>
           )}
+
+          {/* Developer Credits */}
+          <div className="footer-credits-small">
+            <small>
+              <a
+                href="https://jamesburch.co.uk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="dev-credit"
+                aria-label="Website development by James Burch"
+              >
+                Web Development By James Burch
+              </a>
+            </small>
+          </div>
         </div>
       </div>
     </footer>
