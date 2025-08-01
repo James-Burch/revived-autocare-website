@@ -1,13 +1,16 @@
-Insurance Hero
+/* Insurance Hero - Fixed for proper spacing */
 .insurance-hero {
     background: var(--color-background);
     padding: 80px 0 60px;
     border-bottom: 1px solid var(--color-gray-200);
+    margin-top: 0;
 }
 
 .insurance-hero-content {
     max-width: 800px;
+    margin: 0 auto;
     text-align: center;
+    padding: 0 var(--spacing-lg);
 }
 
 .insurance-hero h1 {
@@ -276,6 +279,10 @@ Insurance Hero
         padding: 60px 0 40px;
     }
 
+    .insurance-hero-content {
+        padding: 0 var(--spacing-md);
+    }
+
     .insurance-hero h1 {
         font-size: 32px;
     }
@@ -323,5 +330,27 @@ Insurance Hero
     .related-grid {
         grid-template-columns: 1fr;
         gap: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .insurance-hero h1 {
+        font-size: 28px;
+    }
+
+    .insurance-hero-description {
+        font-size: 16px;
+    }
+
+    .insurance-section h2 {
+        font-size: 24px;
+    }
+
+    .insurance-coverage-highlight {
+        padding: 24px;
+    }
+
+    .sidebar-card {
+        padding: 20px;
     }
 }
