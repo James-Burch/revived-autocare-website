@@ -1,5 +1,6 @@
 import { Layout, ContactBar } from '../components';
 import MortgageCalculator from '../components/MortgageCalculator';
+import { Link } from 'react-router-dom';
 
 const CalculatorPage = () => {
     return (
@@ -44,12 +45,15 @@ const CalculatorPage = () => {
                                         available to you from across the whole of market.
                                     </p>
                                     <div className="info-actions">
-                                        <button className="button button-primary">
-                                            Speak to an Advisor
-                                        </button>
-                                        <button className="button button-outline">
+                                        <Link to="/contact" className='navlink'>
+                                            <button className="button button-primary">
+                                                Speak to an Advisor
+                                            </button>
+                                        </Link>
+                                        <Link to="/contact" className='navlink'><button className="button button-outline">
                                             Get a Quote
                                         </button>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
