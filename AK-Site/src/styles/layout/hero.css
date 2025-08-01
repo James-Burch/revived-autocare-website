@@ -32,7 +32,7 @@
 }
 
 .hero-text-professional h1 {
-    font-size: 48px;
+    font-size: 48px !important;
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: 24px;
@@ -77,6 +77,17 @@
 .product-hero-text {
     flex: 1;
     max-width: 600px;
+}
+
+/* LIGHTHOUSE FIX: Explicit font-size for h1 in sections */
+.product-hero h1,
+.product-hero-text h1 {
+    font-size: 48px !important;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    color: var(--color-text-primary);
+    letter-spacing: -0.02em;
 }
 
 .product-hero-description {
@@ -238,8 +249,10 @@
         text-align: center;
     }
 
-    .hero-text-professional h1 {
-        font-size: 40px;
+    .hero-text-professional h1,
+    .product-hero h1,
+    .product-hero-text h1 {
+        font-size: 40px !important;
     }
 
     .section-header-professional h2 {
@@ -256,8 +269,10 @@
         padding: 60px 0 40px;
     }
 
-    .hero-text-professional h1 {
-        font-size: 32px;
+    .hero-text-professional h1,
+    .product-hero h1,
+    .product-hero-text h1 {
+        font-size: 32px !important;
     }
 
     .hero-text-professional p {
@@ -327,8 +342,11 @@
 }
 
 @media (max-width: 480px) {
-    .hero-text-professional h1 {
-        font-size: 28px;
+
+    .hero-text-professional h1,
+    .product-hero h1,
+    .product-hero-text h1 {
+        font-size: 28px !important;
     }
 
     .hero-buttons-professional {

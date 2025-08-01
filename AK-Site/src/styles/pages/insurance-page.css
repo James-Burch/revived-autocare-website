@@ -13,8 +13,9 @@
     padding: 0 var(--spacing-lg);
 }
 
+/* LIGHTHOUSE FIX: Explicit font-size for h1 in sections */
 .insurance-hero h1 {
-    font-size: 48px;
+    font-size: 48px !important;
     font-weight: 700;
     color: var(--color-text-primary);
     margin-bottom: 24px;
@@ -334,7 +335,7 @@
     }
 
     .insurance-hero h1 {
-        font-size: 40px;
+        font-size: 40px !important;
     }
 
     .benefits-grid {
@@ -352,7 +353,7 @@
     }
 
     .insurance-hero h1 {
-        font-size: 32px;
+        font-size: 32px !important;
     }
 
     .insurance-hero-description {
@@ -404,7 +405,7 @@
 
 @media (max-width: 480px) {
     .insurance-hero h1 {
-        font-size: 28px;
+        font-size: 28px !important;
     }
 
     .insurance-hero-description {
