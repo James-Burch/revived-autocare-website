@@ -1,4 +1,4 @@
-import { Layout, ContactBar } from '../components';
+import { Layout, ContactBar, Button } from '../components';
 import MortgageCalculator from '../components/MortgageCalculator';
 import { Link } from 'react-router-dom';
 
@@ -45,14 +45,15 @@ const CalculatorPage = () => {
                                         available to you from across the whole of market.
                                     </p>
                                     <div className="info-actions">
-                                        <Link to="/contact" className='navlink'>
-                                            <button className="button button-primary">
+                                        <Link to="/contact">
+                                            <Button variant="primary" size="md">
                                                 Speak to an Advisor
-                                            </button>
+                                            </Button>
                                         </Link>
-                                        <Link to="/contact" className='navlink'><button className="button button-outline">
-                                            Get a Quote
-                                        </button>
+                                        <Link to="/contact">
+                                            <Button variant="outline" size="md">
+                                                Get a Quote
+                                            </Button>
                                         </Link>
                                     </div>
                                 </div>
