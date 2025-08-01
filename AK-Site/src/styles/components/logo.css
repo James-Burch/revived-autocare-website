@@ -1,0 +1,223 @@
+/* Logo Component Styles */
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    user-select: none;
+    position: relative;
+}
+
+.logo:hover {
+    transform: translateY(-1px);
+}
+
+.logo:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
+    border-radius: var(--border-radius);
+}
+
+/* SVG Logo Styles */
+.logo-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+/* Logo Sizes */
+.logo--sm {
+    width: 120px;
+    height: 36px;
+}
+
+.logo--md {
+    width: 160px;
+    height: 48px;
+}
+
+.logo--lg {
+    width: 200px;
+    height: 60px;
+}
+
+.logo--xl {
+    width: 240px;
+    height: 72px;
+}
+
+/* Logo Variants */
+.logo--icon {
+    width: 48px;
+    height: 48px;
+}
+
+.logo--icon .logo-text {
+    display: none;
+}
+
+.logo--compact .logo-tagline {
+    display: none;
+}
+
+/* Hover Effects */
+.logo:hover .logo-house-base {
+    transform: translateY(-1px);
+    transition: transform 0.3s ease;
+}
+
+.logo:hover .logo-house-roof {
+    transform: translateY(-2px);
+    transition: transform 0.3s ease;
+}
+
+.logo:hover .logo-company-name {
+    fill: var(--color-accent);
+    transition: fill 0.3s ease;
+}
+
+/* Animation for logo elements */
+.logo-icon {
+    transform-origin: center bottom;
+}
+
+.logo:hover .logo-icon {
+    animation: logoHouseHover 0.6s ease-in-out;
+}
+
+@keyframes logoHouseHover {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Responsive Logo Behavior */
+@media (max-width: 768px) {
+    .logo--full {
+        width: 140px;
+        height: 42px;
+    }
+
+    .logo--lg {
+        width: 160px;
+        height: 48px;
+    }
+
+    .logo--xl {
+        width: 180px;
+        height: 54px;
+    }
+
+    /* Hide tagline on very small screens */
+    .logo-tagline {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .logo--full,
+    .logo--compact {
+        width: 120px;
+        height: 36px;
+    }
+
+    .logo--md {
+        width: 140px;
+        height: 42px;
+    }
+
+    /* Simplify text on mobile */
+    .logo-company-subtitle {
+        font-size: 12px;
+    }
+
+    .logo-company-name {
+        font-size: 16px;
+    }
+}
+
+/* Logo for dark backgrounds */
+.logo--white .logo-house-base,
+.logo--white .logo-house-roof {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .logo-house-base {
+        fill: var(--color-text-primary);
+    }
+
+    .logo-house-roof {
+        fill: var(--color-accent);
+    }
+
+    .logo-company-name,
+    .logo-company-subtitle {
+        fill: var(--color-text-primary);
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+
+    .logo,
+    .logo-svg,
+    .logo:hover .logo-house-base,
+    .logo:hover .logo-house-roof,
+    .logo:hover .logo-company-name {
+        transition: none;
+    }
+
+    .logo:hover .logo-icon {
+        animation: none;
+    }
+
+    .logo:hover {
+        transform: none;
+    }
+}
+
+/* Loading state for logo */
+.logo--loading {
+    opacity: 0.7;
+}
+
+.logo--loading .logo-svg {
+    animation: logoLoading 1.5s ease-in-out infinite;
+}
+
+@keyframes logoLoading {
+
+    0%,
+    100% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Logo positioning utilities */
+.logo-center {
+    margin: 0 auto;
+}
+
+.logo-left {
+    margin-right: auto;
+}
+
+.logo-right {
+    margin-left: auto;
+}
