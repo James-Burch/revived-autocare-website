@@ -95,7 +95,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                             <Link to={primaryButtonLink}>
                                 <Button 
                                     variant="primary" 
-                                    size="large"
+                                    size="lg"
                                     className="btn-modern hover-lift"
                                 >
                                     {primaryButtonText}
@@ -106,7 +106,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                                 <Link to={secondaryButtonLink}>
                                     <Button 
                                         variant="secondary" 
-                                        size="large"
+                                        size="lg"
                                         className="btn-modern gradient-border hover-grow"
                                     >
                                         {secondaryButtonText}
@@ -115,7 +115,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                             ) : (
                                 <Button 
                                     variant="secondary" 
-                                    size="large"
+                                    size="lg"
                                     className="btn-modern gradient-border hover-grow"
                                 >
                                     {secondaryButtonText}
