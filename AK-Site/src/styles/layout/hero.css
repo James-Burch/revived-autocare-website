@@ -266,3 +266,65 @@
         font-size: 24px;
     }
 }
+
+/* Hero section with image layout */
+.insurance-hero-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    min-height: 500px;
+    padding: 3rem 0;
+}
+
+.hero-text-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-image-content {
+    flex: 0 0 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-product-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .insurance-hero-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+        min-height: auto;
+        padding: 2rem 0;
+    }
+
+    .hero-image-content {
+        flex: none;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .hero-product-image {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-image-content {
+        max-width: 250px;
+    }
+
+    .hero-product-image {
+        max-width: 250px;
+    }
+}
