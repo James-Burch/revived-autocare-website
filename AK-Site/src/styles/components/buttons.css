@@ -1,5 +1,3 @@
-/* Restored Button Styles - Clean and Working */
-
 .button {
     display: inline-flex;
     align-items: center;
@@ -23,7 +21,7 @@
     user-select: none;
 }
 
-/* Primary Button - Your Beautiful Teal */
+/* Primary Button */
 .button-primary {
     background: var(--color-accent);
     color: white;
