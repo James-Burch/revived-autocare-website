@@ -165,8 +165,7 @@ const Contact: React.FC = () => {
                       type="submit"
                       variant="primary"
                       size="lg"
-                      loading={isSubmitting}
-                      fullWidth
+                      disabled={isSubmitting}
                       className="submit-button"
                     >
                       {isSubmitting ? 'Sending...' : 'Get Free Mortgage Advice'}
