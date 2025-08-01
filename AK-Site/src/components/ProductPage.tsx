@@ -1,24 +1,23 @@
-const getHeroImage = (type: string) => {
-    const imageMap: { [key: string]: string } = {
-        'first-time-buyers': '/src/assets/images/image1.webp',
-        'home-mover': '/src/assets/images/image2.webp',
-        'remortgage': '/src/assets/images/image3.webp',
-        'buy-to-let': '/src/assets/images/image4.webp',
-        'new-build': '/src/assets/images/image5.webp',
-        'help-to-buy': '/src/assets/images/image6.webp',
-        'bridging-loans': '/src/assets/images/bridgeimage.webp',
-        'limited-companies': '/src/assets/images/apartmentblock.webp'
-    };
-    return imageMap[type] || '/src/assets/images/image1.webp';
-}; import React, { useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { Layout, ContactBar } from '../components';
 import { Link } from 'react-router-dom';
+import { getServiceById } from '../data';
 
 const ProductPage: React.FC = () => {
     const { productType } = useParams<{ productType: string }>();
 
-    // Memoize the title, short description, full description, and image calculations
+    // Get the service data which includes the imported image
+    const serviceData = getServiceById(productType || '');
+    
+    const getHeroImage = () => {
+        if (serviceData && serviceData.image) {
+            return serviceData.image;
+        }
+        // Fallback to a default image if service not found
+        return '/images/image1.webp';
+    };
+    // Memoize the title, short description, full description, and image
     const { title, shortDescription, fullDescription, heroImage } = useMemo(() => {
         // Convert URL param to readable title
         const getTitle = (type: string) => {
@@ -71,14 +70,14 @@ const ProductPage: React.FC = () => {
             title: getTitle(productType || ''),
             shortDescription: getShortDescription(productType || ''),
             fullDescription: getFullDescription(productType || ''),
-            heroImage: getHeroImage(productType || '')
+            heroImage: getHeroImage()
         };
-    }, [productType]);
+    }, [productType, serviceData]);
 
     return (
         <Layout title={`${title} - UK Mortgage Advisor`}>
             <div className="product-page">
-                {/* Hero Section - Now with image like home page cards */}
+                {/* Hero Section */}
                 <section className="insurance-hero">
                     <div className="container">
                         <div className="insurance-hero-content">
@@ -105,13 +104,13 @@ const ProductPage: React.FC = () => {
                     </div>
                 </section>
 
-                {/* Main Content - Uses full description in Overview */}
+                {/* Main Content */}
                 <section className="insurance-content">
                     <div className="container">
                         <div className="insurance-content-grid">
                             {/* Main Content */}
                             <div className="insurance-main">
-                                {/* Overview - Now uses full description */}
+                                {/* Overview */}
                                 <div className="insurance-section">
                                     <h2>Overview</h2>
                                     <p>{fullDescription}</p>
