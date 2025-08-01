@@ -1,12 +1,12 @@
-import image1 from '../assets/images/image1.jpg';
-import image2 from '../assets/images/image2.jpg';
-import image3 from '../assets/images/image3.jpg';
-import image4 from '../assets/images/image4.jpg';
-import image5 from '../assets/images/image5.jpg';
-import image6 from '../assets/images/image6.jpg';
-import apartmentblock from '../assets/images/apartmentblock.jpg';
-import bridgeimage from '../assets/images/bridgeimage.jpg';
-import calculatorimage from '../assets/images/mortgagecalculatorimage.jpg'
+import image1 from '../assets/images/image1.webp';
+import image2 from '../assets/images/image2.webp';
+import image3 from '../assets/images/image3.webp';
+import image4 from '../assets/images/image4.webp';
+import image5 from '../assets/images/image5.webp';
+import image6 from '../assets/images/image6.webp';
+import apartmentblock from '../assets/images/apartmentblock.webp';
+import bridgeimage from '../assets/images/bridgeimage.webp';
+import calculatorimage from '../assets/images/mortgagecalculatorimage.webp'
 
 
 export interface ServiceData {
