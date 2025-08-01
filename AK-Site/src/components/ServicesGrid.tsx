@@ -62,4 +62,3 @@ const ServicesGrid: React.FC<ServicesGridProps> = ({
 };
 
 export default ServicesGrid;
-

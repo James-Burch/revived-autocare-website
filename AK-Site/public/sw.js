@@ -1,5 +1,5 @@
 // Service Worker for Performance Caching
-const CACHE_NAME = 'mortgage-advisor-v1';
+const CACHE_NAME = 'mortgage-advisor-v2';
 const urlsToCache = [
     '/',
     '/static/css/main.css',
