@@ -261,7 +261,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ className = '' }) => {
                 {isOpen && (
                     <div className="chat-window-container">
                         <div className="chat-header-container">
-                            <h3 className="chat-header-title">Quick Enquiry</h3>
+                            <h3 className="chat-header-title">Noble Mortgage - Quick Enquiry</h3>
                             <button
                                 className="chat-close-btn"
                                 onClick={() => setIsOpen(false)}

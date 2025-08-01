@@ -196,7 +196,7 @@ const ProductPage: React.FC = () => {
                                             <strong>Call:</strong> 0800 123 4567
                                         </div>
                                         <div className="contact-method">
-                                            <strong>Email:</strong> advice@company.co.uk
+                                            <strong>Email:</strong> admin@noblemortgages.co.uk
                                         </div>
                                     </div>
                                 </div>

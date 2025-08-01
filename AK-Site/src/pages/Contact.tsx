@@ -190,7 +190,7 @@ const Contact: React.FC = () => {
                     </div>
                     <div className="contact-method">
                       <strong>📧 Email</strong>
-                      <p>info@yourmortgageadvisor.co.uk</p>
+                      <p>admin@noblemortgages.co.uk</p>
                       <small>We respond within 24 hours</small>
                     </div>
                     <div className="contact-method">

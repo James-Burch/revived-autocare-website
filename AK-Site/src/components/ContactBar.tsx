@@ -40,7 +40,7 @@ const ContactBar: React.FC<ContactBarProps> = ({ className = '' }) => {
                         aria-label="Send email to admin@youremailhere.co.uk"
                     >
                         <MailIcon className="contact-icon" />
-                        <span>admin@youremailhere.co.uk</span>
+                        <span>admin@noblemortgages.co.uk</span>
                     </a>
                     
                     <a 

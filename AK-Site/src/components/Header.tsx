@@ -87,7 +87,7 @@ const Header: React.FC = () => {
       <div className="container">
         <div className="header-content">
           <Link to="/" className="logo">
-            <h1>Insert Company Name Here Once Decided</h1>
+            <h1>NOBLE MORTGAGES</h1>
           </Link>
 
           {/* Desktop Navigation */}
