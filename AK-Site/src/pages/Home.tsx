@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react';
-import { ChatWidget, Layout, ContactBar } from '../components';
+import { ChatWidget, Layout, ContactBar, Button } from '../components';
 import ServicesGrid from '../components/ServicesGrid';
 import { getMainServices, getAdditionalServices, INSURANCE_PRODUCTS } from '../data';
 import { Link } from 'react-router-dom';
@@ -30,15 +30,15 @@ const Home: React.FC = () => {
                   lenders. We'll find you the perfect mortgage solution.
                 </p>
                 <div className="hero-buttons-professional">
-                  <Link to="/contact" className="nav-link">
-                    <button className="button button-primary button-large">
+                  <Link to="/contact">
+                    <Button variant="primary" size="lg">
                       Get Free Advice
-                    </button>
+                    </Button>
                   </Link>
-                  <Link to="/contact" className="nav-link">
-                    <button className="button button-secondary button-large">
+                  <Link to="/contact">
+                    <Button variant="secondary" size="lg">
                       Call 0800 123 4567
-                    </button>
+                    </Button>
                   </Link>
                 </div>
               </div>
@@ -144,7 +144,7 @@ const Home: React.FC = () => {
                       <p className="card__description">{insurance.description}</p>
                       <div className="card__coverage">{insurance.typicalCoverage}</div>
                       <div className="card__actions">
-                        <Link to={insurance.link} className="nav-link">
+                        <Link to={insurance.link}>
                           <span className="card__action-text">Find Out More</span>
                         </Link>
                         <span className="card__arrow" aria-hidden="true">→</span>
@@ -190,15 +190,15 @@ const Home: React.FC = () => {
                 We'll guide you through every step of the process.
               </p>
               <div className="cta-buttons-professional">
-                <Link to="/contact" className="nav-link">
-                  <button className="button button-primary button-large">
+                <Link to="/contact">
+                  <Button variant="primary" size="lg">
                     Contact Us Here
-                  </button>
+                  </Button>
                 </Link>
-                <Link to="/contact" className="nav-link">
-                  <button className="button button-secondary button-large">
+                <Link to="/contact">
+                  <Button variant="secondary" size="lg">
                     Book Free Consultation
-                  </button>
+                  </Button>
                 </Link>
               </div>
               <p className="cta-disclaimer">
