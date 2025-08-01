@@ -5,6 +5,7 @@ export { default as Header } from './Header';
 export { default as HeroSection } from './HeroSection';
 export { default as Layout } from './Layout';
 export { default as Loading } from './Loading';
+export { default as Logo } from './Logo';
 export { default as Modal } from './Modal';
 export { default as MortgageCalculator } from './MortgageCalculator';
 export { default as ProductPage } from './ProductPage';
