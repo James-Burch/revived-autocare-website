@@ -1,4 +1,4 @@
-/* Logo Component Styles */
+/* Logo Component Styles - Enhanced Responsive Control */
 
 .logo {
     display: inline-flex;
@@ -28,25 +28,25 @@
     transition: all 0.3s ease;
 }
 
-/* Logo Sizes */
+/* Logo Sizes - Desktop First */
 .logo--sm {
     width: 120px;
     height: 36px;
 }
 
 .logo--md {
-    width: 160px;
-    height: 48px;
+    width: 180px;
+    height: 54px;
 }
 
 .logo--lg {
-    width: 200px;
-    height: 60px;
+    width: 220px;
+    height: 66px;
 }
 
 .logo--xl {
-    width: 240px;
-    height: 72px;
+    width: 260px;
+    height: 78px;
 }
 
 /* Logo Variants */
@@ -60,6 +60,18 @@
 }
 
 .logo--compact .logo-tagline {
+    display: none;
+}
+
+/* Header-specific logo styling */
+.header-logo {
+    /* Default desktop size for header */
+    width: 180px;
+    height: 54px;
+}
+
+/* Hide tagline in compact spaces */
+.header-logo .logo-tagline {
     display: none;
 }
 
@@ -101,8 +113,31 @@
 }
 
 /* Responsive Logo Behavior */
+@media (max-width: 1024px) {
+    .header-logo {
+        width: 160px;
+        height: 48px;
+    }
+
+    .logo--lg {
+        width: 180px;
+        height: 54px;
+    }
+
+    .logo--xl {
+        width: 200px;
+        height: 60px;
+    }
+}
+
 @media (max-width: 768px) {
-    .logo--full {
+    .header-logo {
+        width: 140px;
+        height: 42px;
+    }
+
+    .logo--full,
+    .logo--md {
         width: 140px;
         height: 42px;
     }
@@ -117,32 +152,46 @@
         height: 54px;
     }
 
-    /* Hide tagline on very small screens */
+    /* Hide tagline on smaller screens */
     .logo-tagline {
         display: none;
+    }
+
+    /* Adjust text sizes for mobile */
+    .logo-company-name {
+        font-size: 16px;
+    }
+
+    .logo-company-subtitle {
+        font-size: 12px;
     }
 }
 
 @media (max-width: 480px) {
-
-    .logo--full,
-    .logo--compact {
+    .header-logo {
         width: 120px;
         height: 36px;
     }
 
+    .logo--full,
+    .logo--compact,
     .logo--md {
+        width: 120px;
+        height: 36px;
+    }
+
+    .logo--lg {
         width: 140px;
         height: 42px;
     }
 
-    /* Simplify text on mobile */
-    .logo-company-subtitle {
-        font-size: 12px;
+    /* Further reduce text on very small screens */
+    .logo-company-name {
+        font-size: 14px;
     }
 
-    .logo-company-name {
-        font-size: 16px;
+    .logo-company-subtitle {
+        font-size: 10px;
     }
 }
 
@@ -150,6 +199,19 @@
 .logo--white .logo-house-base,
 .logo--white .logo-house-roof {
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+/* Mobile navigation specific logo */
+.logo-mobile-nav {
+    width: 160px;
+    height: 48px;
+}
+
+@media (max-width: 480px) {
+    .logo-mobile-nav {
+        width: 140px;
+        height: 42px;
+    }
 }
 
 /* High contrast mode support */

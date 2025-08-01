@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Layout, Button, UnifiedCard} from '../components';
+import { Layout, Button, UnifiedCard } from '../components';
 import emailjs from '@emailjs/browser';
 
 const Contact: React.FC = () => {
@@ -42,7 +42,7 @@ const Contact: React.FC = () => {
         },
         'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
       );
-      
+
       setSubmitStatus('success');
       setFormData({
         name: '',
@@ -79,13 +79,13 @@ const Contact: React.FC = () => {
               <div className="contact-form-container">
                 <UnifiedCard className="contact-form-card">
                   <h2>Tell Us About Your Requirements</h2>
-                  
+
                   {submitStatus === 'success' && (
                     <div className="success-message">
                       <p>✅ Thank you! We've received your enquiry and will be in touch within 24 hours.</p>
                     </div>
                   )}
-                  
+
                   {submitStatus === 'error' && (
                     <div className="error-message">
                       <p>❌ Sorry, there was an error sending your message. Please try again or call us directly.</p>
@@ -161,18 +161,19 @@ const Contact: React.FC = () => {
                       />
                     </div>
 
-                    <Button 
-                      type="submit" 
-                      variant="primary" 
-                      size="large" 
-                      disabled={isSubmitting}
+                    <Button
+                      type="submit"
+                      variant="primary"
+                      size="lg"
+                      loading={isSubmitting}
+                      fullWidth
                       className="submit-button"
                     >
                       {isSubmitting ? 'Sending...' : 'Get Free Mortgage Advice'}
                     </Button>
 
                     <p className="form-disclaimer">
-                      By submitting this form, you consent to being contacted by our mortgage advisers. 
+                      By submitting this form, you consent to being contacted by our mortgage advisers.
                       Your home may be repossessed if you do not keep up repayments on your mortgage.
                     </p>
                   </form>
