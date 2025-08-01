@@ -59,6 +59,56 @@
     flex-wrap: wrap;
 }
 
+/* Product Page Hero - Separate from Insurance Hero */
+.product-hero {
+    background: var(--color-background);
+    padding: 80px 0 60px;
+    border-bottom: 1px solid var(--color-gray-200);
+}
+
+.product-hero-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    min-height: 500px;
+    padding: 3rem 0;
+}
+
+.product-hero-text {
+    flex: 1;
+    max-width: 600px;
+}
+
+.product-hero-description {
+    font-size: 20px;
+    color: var(--color-text-secondary);
+    margin-bottom: 32px;
+    line-height: 1.6;
+}
+
+.product-hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.product-hero-image {
+    flex: 0 0 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-product-image {
+    width: 400px;
+    height: 300px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+    object-position: center;
+}
+
 /* Professional Section Headers */
 .section-header-professional {
     text-align: center;
@@ -97,14 +147,6 @@
 .protection-section {
     padding: 80px 0;
     background: var(--color-background);
-}
-
-.protection-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 32px;
-    margin-top: 48px;
-    justify-content: center;
 }
 
 .protection-grid {
@@ -245,6 +287,43 @@
         flex-direction: column;
         align-items: center;
     }
+
+    /* Product Hero Mobile */
+    .product-hero {
+        padding: 60px 0 40px;
+    }
+
+    .product-hero-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+        min-height: auto;
+        padding: 2rem 0;
+    }
+
+    .product-hero-text {
+        max-width: 100%;
+    }
+
+    .product-hero-description {
+        font-size: 18px;
+    }
+
+    .product-hero-actions {
+        justify-content: center;
+    }
+
+    .product-hero-image {
+        flex: none;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .hero-product-image {
+        width: 300px;
+        height: 225px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -265,68 +344,24 @@
     .section-header-professional h2 {
         font-size: 24px;
     }
-}
 
-/* Hero section with image layout */
-.insurance-hero-content {
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-    min-height: 500px;
-    padding: 3rem 0;
-}
-
-.hero-text-content {
-    flex: 1;
-    max-width: 600px;
-}
-
-.hero-image-content {
-    flex: 0 0 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.hero-product-image {
-    width: 400px;
-    height: 300px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    object-fit: cover;
-    object-position: center;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-    .insurance-hero-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 2rem;
-        min-height: auto;
-        padding: 2rem 0;
-    }
-
-    .hero-image-content {
-        flex: none;
-        width: 100%;
-        max-width: 300px;
-        margin: 0 auto;
-    }
-
-    .hero-product-image {
-        width: 300px;
-        height: 225px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-image-content {
+    /* Product Hero Small Mobile */
+    .product-hero-image {
         max-width: 250px;
     }
 
     .hero-product-image {
         width: 250px;
         height: 188px;
+    }
+
+    .product-hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-hero-actions .button {
+        width: 100%;
+        max-width: 300px;
     }
 }

@@ -9,14 +9,7 @@ const ProductPage: React.FC = () => {
 
     // Get the service data which includes the imported image
     const serviceData = getServiceById(productType || '');
-    
-    const getHeroImage = () => {
-        if (serviceData && serviceData.image) {
-            return serviceData.image;
-        }
-        // Fallback to a default image if service not found
-        return '/images/image1.webp';
-    };
+
     // Memoize the title, short description, full description, and image
     const { title, shortDescription, fullDescription, heroImage } = useMemo(() => {
         // Convert URL param to readable title
@@ -66,6 +59,13 @@ const ProductPage: React.FC = () => {
             return fullDescriptions[type] || 'Expert mortgage advice tailored to your specific circumstances.';
         };
 
+        const getHeroImage = () => {
+            if (serviceData && serviceData.image) {
+                return serviceData.image;
+            }
+            return '/images/image1.webp';
+        };
+
         return {
             title: getTitle(productType || ''),
             shortDescription: getShortDescription(productType || ''),
@@ -77,14 +77,14 @@ const ProductPage: React.FC = () => {
     return (
         <Layout title={`${title} - UK Mortgage Advisor`}>
             <div className="product-page">
-                {/* Hero Section */}
-                <section className="insurance-hero">
+                {/* Hero Section - Using PRODUCT-specific classes */}
+                <section className="product-hero">
                     <div className="container">
-                        <div className="insurance-hero-content">
-                            <div className="hero-text-content">
+                        <div className="product-hero-content">
+                            <div className="product-hero-text">
                                 <h1>{title}</h1>
-                                <p className="insurance-hero-description">{shortDescription}</p>
-                                <div className="insurance-hero-actions">
+                                <p className="product-hero-description">{shortDescription}</p>
+                                <div className="product-hero-actions">
                                     <Link to="/contact" className="nav-link">
                                         <button className="button button-secondary button-large">
                                             Get Free Advice
@@ -92,7 +92,7 @@ const ProductPage: React.FC = () => {
                                     </Link>
                                 </div>
                             </div>
-                            <div className="hero-image-content">
+                            <div className="product-hero-image">
                                 <img
                                     src={heroImage}
                                     alt={`${title} - UK Mortgage Advisor`}
@@ -181,7 +181,7 @@ const ProductPage: React.FC = () => {
                                 </div>
                             </div>
 
-                            {/* Sidebar - Match Insurance Sidebar */}
+                            {/* Sidebar */}
                             <div className="insurance-sidebar">
                                 <div className="sidebar-card">
                                     <h3>Get Expert Advice</h3>
