@@ -289,12 +289,12 @@
 }
 
 .hero-product-image {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
+    width: 400px;
+    height: 300px;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     object-fit: cover;
+    object-position: center;
 }
 
 /* Responsive design */
@@ -315,7 +315,8 @@
     }
 
     .hero-product-image {
-        max-width: 300px;
+        width: 300px;
+        height: 225px;
     }
 }
 
@@ -325,6 +326,7 @@
     }
 
     .hero-product-image {
-        max-width: 250px;
+        width: 250px;
+        height: 188px;
     }
 }
