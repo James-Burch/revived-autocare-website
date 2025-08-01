@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Navigate } from 'react-router-dom';
-import { Layout, ContactBar } from '../components';
+import { Layout, ContactBar, Button } from '../components';
 import { getInsuranceById, INSURANCE_PRODUCTS } from '../data';
 import { Link } from 'react-router-dom';
 
@@ -30,10 +30,10 @@ const InsurancePage: React.FC = () => {
                             <h1>{insurance.title}</h1>
                             <p className="insurance-hero-description">{insurance.description}</p>
                             <div className="insurance-hero-actions">
-                                <Link to="/contact" className="nav-link">
-                                    <button className="button button-primary button-large">
+                                <Link to="/contact">
+                                    <Button variant="primary" size="lg">
                                         Speak to an Advisor
-                                    </button>
+                                    </Button>
                                 </Link>
                             </div>
                         </div>
@@ -109,10 +109,10 @@ const InsurancePage: React.FC = () => {
                                 <div className="sidebar-card">
                                     <h3>Get Expert Advice</h3>
                                     <p>Speak to one of our qualified advisors about your insurance needs.</p>
-                                    <Link to='/contact' className="nav-link">
-                                        <button className="button button-primary button-full-width">
+                                    <Link to='/contact'>
+                                        <Button variant="primary" className="button-full-width">
                                             Speak to an Advisor
-                                        </button>
+                                        </Button>
                                     </Link>
                                     <div className="contact-methods">
                                         <div className="contact-method">
@@ -185,12 +185,12 @@ const InsurancePage: React.FC = () => {
                                 We'll help you find the right coverage at the right price.
                             </p>
                             <div className="cta-buttons-professional">
-                                <button className="button button-primary button-large">
+                                <Button variant="primary" size="lg">
                                     Get a Quote
-                                </button>
-                                <button className="button button-secondary button-large">
+                                </Button>
+                                <Button variant="secondary" size="lg">
                                     Call 0800 123 4567
-                                </button>
+                                </Button>
                             </div>
                         </div>
                     </div>
