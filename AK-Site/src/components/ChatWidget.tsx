@@ -25,14 +25,14 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ className = '' }) => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
-
+        
         try {
             // Handle form submission here
             console.log('Form submitted:', formData);
-
+            
             // Simulate delay
             await new Promise(resolve => setTimeout(resolve, 2000));
-
+            
             // Reset form or show success message
             setFormData({ name: '', phone: '', message: '' });
             setIsOpen(false);
@@ -54,7 +54,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ className = '' }) => {
                     position: fixed;
                     bottom: 24px;
                     right: 24px;
-                    z-index: 1000;
+                    z-index: 99999999;
                     font-family: inherit;
                 }
 
