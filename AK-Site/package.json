@@ -7,7 +7,7 @@
     "dev": "vite",
     "lint": "eslint .",
     "preview": "vite preview",
-    "generate-sitemap": "node scripts/generateSitemap.js",
+    "generate-sitemap": "node scripts/generateSitemap.cjs",
     "build": "npm run generate-sitemap && tsc -b && vite build"
   },
   "dependencies": {
