@@ -1,4 +1,4 @@
-/* Clean Hero Section - Professional Design with Hero Image */
+/* Clean Hero Section - Professional Design */
 .hero-professional {
   background: var(--color-background);
   padding: 80px 0 60px;
@@ -141,56 +141,44 @@
   object-position: center;
 }
 
-/* Professional Section Styling with Alternating Backgrounds */
-.services-section-professional {
-  padding: 80px 0;
-  background: linear-gradient(
-    135deg,
-    var(--color-teal-light) 0%,
-    var(--color-accent-light) 100%
-  );
-  position: relative;
+/* Professional Section Headers */
+.section-header-professional {
+  text-align: center;
+  margin-bottom: 48px;
 }
 
-.services-section-professional::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(
-    circle at 30% 40%,
-    rgba(10, 186, 181, 0.1) 0%,
-    transparent 50%
-  );
+.section-header-professional h2 {
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.section-header-professional p {
+  font-size: 18px;
+  color: var(--color-text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Professional Sections - Keep Original Backgrounds */
+.services-section-professional {
+  padding: 80px 0;
+  background: var(--color-background);
 }
 
 .lenders-section-professional {
   padding: 60px 0;
-  background: var(--color-background);
+  background: var(--color-surface);
   border-top: 1px solid var(--color-gray-200);
   border-bottom: 1px solid var(--color-gray-200);
 }
 
 .protection-section {
   padding: 80px 0;
-  background: var(--color-teal-light);
-  position: relative;
-}
-
-.protection-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(
-    circle at 70% 60%,
-    rgba(10, 186, 181, 0.05) 0%,
-    transparent 50%
-  );
+  background: var(--color-background);
 }
 
 .protection-grid {
@@ -202,8 +190,6 @@
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  position: relative;
-  z-index: 1;
 }
 
 /* When there are 5 items, center the last row */
@@ -226,97 +212,6 @@
   background: var(--color-background);
   border-radius: 50%;
   box-shadow: var(--shadow-md);
-}
-
-.reviews-section {
-  padding: 80px 0;
-  background: var(--color-teal-light);
-  border-top: 1px solid var(--color-gray-200);
-}
-
-/* CTA Section with Tiffany Blue Gradient */
-.cta-professional-tiffany {
-  padding: 80px 0;
-  background: linear-gradient(
-    135deg,
-    var(--color-teal) 0%,
-    var(--color-accent-light) 100%
-  );
-  position: relative;
-  overflow: hidden;
-}
-
-.cta-professional-tiffany::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(
-      circle at 30% 40%,
-      rgba(255, 255, 255, 0.1) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 70% 60%,
-      rgba(255, 255, 255, 0.05) 0%,
-      transparent 50%
-    );
-}
-
-.cta-professional-tiffany .cta-content-professional {
-  position: relative;
-  z-index: 1;
-}
-
-.cta-professional-tiffany h2 {
-  font-size: 36px;
-  color: white;
-  margin-bottom: 16px;
-  font-weight: 700;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.cta-professional-tiffany p {
-  font-size: 18px;
-  color: rgba(255, 255, 255, 0.95);
-  margin-bottom: 32px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.6;
-}
-
-.cta-professional-tiffany .cta-disclaimer {
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.8);
-  font-style: italic;
-  margin-top: 24px;
-}
-
-/* Professional Section Headers */
-.section-header-professional {
-  text-align: center;
-  margin-bottom: 48px;
-  position: relative;
-  z-index: 1;
-}
-
-.section-header-professional h2 {
-  font-size: 36px;
-  font-weight: 600;
-  color: var(--color-text-primary);
-  margin-bottom: 16px;
-  line-height: 1.2;
-}
-
-.section-header-professional p {
-  font-size: 18px;
-  color: var(--color-text-secondary);
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.6;
 }
 
 .cta-professional {
@@ -361,6 +256,12 @@
   margin-top: 24px;
 }
 
+.reviews-section {
+  padding: 80px 0;
+  background: var(--color-background);
+  border-top: 1px solid var(--color-gray-200);
+}
+
 /* Hero Responsive Design */
 @media (max-width: 1024px) {
   .hero-content-professional {
@@ -379,8 +280,7 @@
     font-size: 32px;
   }
 
-  .cta-content-professional h2,
-  .cta-professional-tiffany h2 {
+  .cta-content-professional h2 {
     font-size: 32px;
   }
 }
@@ -423,8 +323,7 @@
 
   .services-section-professional,
   .protection-section,
-  .cta-professional,
-  .cta-professional-tiffany {
+  .cta-professional {
     padding: 60px 0;
   }
 
