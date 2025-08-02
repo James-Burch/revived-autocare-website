@@ -8,8 +8,6 @@ const Contact: React.FC = () => {
     email: '',
     phone: '',
     mortgageType: '',
-    propertyValue: '',
-    deposit: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -40,8 +38,6 @@ const Contact: React.FC = () => {
         from_email: formData.email,
         phone: formData.phone,
         mortgage_type: formData.mortgageType || 'Not specified',
-        property_value: formData.propertyValue || 'Not specified',
-        deposit: formData.deposit || 'Not specified',
         message: formData.message || 'No additional message',
         reply_to: formData.email
       };
@@ -61,8 +57,6 @@ const Contact: React.FC = () => {
         email: '',
         phone: '',
         mortgageType: '',
-        propertyValue: '',
-        deposit: '',
         message: ''
       });
 
@@ -182,33 +176,6 @@ const Contact: React.FC = () => {
                       </div>
                     </div>
 
-                    <div className="form-row">
-                      <div className="form-group">
-                        <label htmlFor="propertyValue">Property Value (Optional)</label>
-                        <input
-                          type="text"
-                          id="propertyValue"
-                          name="propertyValue"
-                          value={formData.propertyValue}
-                          onChange={handleChange}
-                          disabled={isSubmitting}
-                          placeholder="£250,000"
-                        />
-                      </div>
-                      <div className="form-group">
-                        <label htmlFor="deposit">Deposit Amount (Optional)</label>
-                        <input
-                          type="text"
-                          id="deposit"
-                          name="deposit"
-                          value={formData.deposit}
-                          onChange={handleChange}
-                          disabled={isSubmitting}
-                          placeholder="£25,000"
-                        />
-                      </div>
-                    </div>
-
                     <div className="form-group">
                       <label htmlFor="message">Additional Information</label>
                       <textarea
@@ -269,7 +236,6 @@ const Contact: React.FC = () => {
                     <li>✅ No fees to you - completely free advice</li>
                     <li>✅ Access to 90+ lenders</li>
                     <li>✅ FCA regulated for your protection</li>
-                    <li>✅ Award-winning service</li>
                     <li>✅ Typically complete in 2-3 weeks</li>
                   </ul>
                 </UnifiedCard>
