@@ -1,19 +1,26 @@
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://mortgageuk.netlify.app/sitemap.xml
-
-# Block staging and test pages
-Disallow: /test/
-Disallow: /staging/
-Disallow: /_netlify/
-
-# Allow important pages
+# Important pages for mortgage brokers
 Allow: /mortgages/
 Allow: /insurance/
 Allow: /contact
 Allow: /mortgage-calculator
 
-# Crawl delay (optional - be nice to smaller crawlers)
+# Block admin, test, and development pages
+Disallow: /admin/
+Disallow: /test/
+Disallow: /staging/
+Disallow: /_netlify/
+Disallow: /api/
+Disallow: /.well-known/
+
+# Block search and utility pages
+Disallow: /search
+Disallow: /404
+
+# Sitemap location
+Sitemap: https://mortgageuk.netlify.app/sitemap.xml
+
+# Crawl delay (be nice to smaller crawlers)
 Crawl-delay: 1

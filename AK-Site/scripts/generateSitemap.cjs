@@ -1,5 +1,5 @@
-// File: scripts/generateSitemap.js
-// Run with: node scripts/generateSitemap.js
+// Simple sitemap generator for your actual pages
+// Run with: node scripts/generateSitemap.cjs
 
 const fs = require('fs');
 const path = require('path');
@@ -7,14 +7,14 @@ const path = require('path');
 // Your website's base URL
 const SITE_URL = 'https://mortgageuk.netlify.app';
 
-// Define your routes with priorities and change frequencies
+// Your actual pages only - keep it simple and focused
 const routes = [
   // Main pages
   { url: '/', priority: '1.0', changefreq: 'weekly' },
   { url: '/contact', priority: '0.9', changefreq: 'monthly' },
   { url: '/mortgage-calculator', priority: '0.8', changefreq: 'weekly' },
   
-  // Mortgage service pages
+  // Mortgage service pages (your existing routes)
   { url: '/mortgages/first-time-buyers', priority: '0.9', changefreq: 'monthly' },
   { url: '/mortgages/home-mover', priority: '0.8', changefreq: 'monthly' },
   { url: '/mortgages/remortgage', priority: '0.9', changefreq: 'monthly' },
@@ -24,7 +24,7 @@ const routes = [
   { url: '/mortgages/limited-companies', priority: '0.7', changefreq: 'monthly' },
   { url: '/mortgages/bridging-loans', priority: '0.7', changefreq: 'monthly' },
   
-  // Insurance pages
+  // Insurance pages (your existing routes)
   { url: '/insurance/life-insurance', priority: '0.7', changefreq: 'monthly' },
   { url: '/insurance/income-protection', priority: '0.7', changefreq: 'monthly' },
   { url: '/insurance/critical-illness', priority: '0.7', changefreq: 'monthly' },
@@ -32,27 +32,12 @@ const routes = [
   { url: '/insurance/home-buildings-contents', priority: '0.6', changefreq: 'monthly' },
 ];
 
-// UK cities for location pages (add your target cities)
-const targetCities = [
-  'london', 'manchester', 'birmingham', 'leeds', 'glasgow', 
-  'liverpool', 'newcastle', 'bristol', 'edinburgh', 'cardiff'
-];
-
-// Add city-specific pages
-targetCities.forEach(city => {
-  routes.push({
-    url: `/mortgage-broker-${city}`,
-    priority: '0.8',
-    changefreq: 'monthly'
-  });
-});
-
-// Generate current date in ISO format
+// Generate current date
 const getCurrentDate = () => {
   return new Date().toISOString().split('T')[0];
 };
 
-// Generate sitemap XML
+// Generate clean sitemap XML
 const generateSitemap = () => {
   const currentDate = getCurrentDate();
   
@@ -80,26 +65,33 @@ const generateSitemap = () => {
   return sitemap;
 };
 
-// Generate robots.txt
+// Generate optimized robots.txt
 const generateRobotsTxt = () => {
   return `User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: ${SITE_URL}/sitemap.xml
-
-# Block staging and test pages
-Disallow: /test/
-Disallow: /staging/
-Disallow: /_netlify/
-
-# Allow important pages
+# Important pages for mortgage brokers
 Allow: /mortgages/
 Allow: /insurance/
 Allow: /contact
 Allow: /mortgage-calculator
 
-# Crawl delay (optional - be nice to smaller crawlers)
+# Block admin, test, and development pages
+Disallow: /admin/
+Disallow: /test/
+Disallow: /staging/
+Disallow: /_netlify/
+Disallow: /api/
+Disallow: /.well-known/
+
+# Block search and utility pages
+Disallow: /search
+Disallow: /404
+
+# Sitemap location
+Sitemap: ${SITE_URL}/sitemap.xml
+
+# Crawl delay (be nice to smaller crawlers)
 Crawl-delay: 1`;
 };
 
@@ -119,7 +111,13 @@ const main = () => {
     console.log('✅ Robots.txt generated successfully at:', robotsPath);
     
     console.log(`📊 Total URLs in sitemap: ${routes.length}`);
-    console.log('🚀 Ready for search engine submission!');
+    console.log('🚀 Clean, focused sitemap ready for search engines!');
+    
+    // Show the URLs being indexed
+    console.log('\n📋 Pages included in sitemap:');
+    routes.forEach(route => {
+      console.log(`   • ${SITE_URL}${route.url}`);
+    });
     
   } catch (error) {
     console.error('❌ Error generating sitemap:', error);
