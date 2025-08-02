@@ -15,7 +15,7 @@ const Home: React.FC = () => {
   const allInsurance = INSURANCE_PRODUCTS; // Show all insurance products, not just featured
 
   return (
-    <Layout title="UK Mortgage Advisor - Expert Mortgage Advice">
+    <Layout title="Noble Mortgages">
       <div className="home-page">
         {/* Hero Section - Clean Professional Design */}
         <section className="hero-professional">
