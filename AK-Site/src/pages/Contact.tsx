@@ -28,22 +28,34 @@ const Contact: React.FC = () => {
     setSubmitStatus('idle');
 
     try {
-      // Replace these with your EmailJS credentials
+      // EmailJS configuration - Replace with actual IDs
+      const serviceId = 'YOUR_SERVICE_ID';  // Replace with Service ID
+      const templateId = 'YOUR_TEMPLATE_ID'; // Replace with Template ID
+      const publicKey = 'YOUR_PUBLIC_KEY';   // Replace with Public Key
+
+      // Template parameters that match your EmailJS template
+      const templateParams = {
+        to_name: 'Noble Mortgages',
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        mortgage_type: formData.mortgageType || 'Not specified',
+        property_value: formData.propertyValue || 'Not specified',
+        deposit: formData.deposit || 'Not specified',
+        message: formData.message || 'No additional message',
+        reply_to: formData.email
+      };
+
       await emailjs.send(
-        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
-        'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
-        {
-          to_name: 'Mortgage Advisor', // Your client's name
-          from_name: formData.name,
-          from_email: formData.email,
-          phone: formData.phone,
-          mortgage_type: formData.mortgageType,
-          message: formData.message,
-        },
-        'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
+        serviceId,
+        templateId,
+        templateParams,
+        publicKey
       );
 
       setSubmitStatus('success');
+
+      // Reset form after successful submission
       setFormData({
         name: '',
         email: '',
@@ -53,9 +65,20 @@ const Contact: React.FC = () => {
         deposit: '',
         message: ''
       });
+
+      // Auto-hide success message after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 5000);
+
     } catch (error) {
       console.error('EmailJS error:', error);
       setSubmitStatus('error');
+
+      // Auto-hide error message after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 5000);
     } finally {
       setIsSubmitting(false);
     }
@@ -88,7 +111,7 @@ const Contact: React.FC = () => {
 
                   {submitStatus === 'error' && (
                     <div className="error-message">
-                      <p>❌ Sorry, there was an error sending your message. Please try again or call us directly.</p>
+                      <p>❌ Sorry, there was an error sending your message. Please try again or call us directly on 0800 123 4567.</p>
                     </div>
                   )}
 
@@ -103,6 +126,8 @@ const Contact: React.FC = () => {
                           value={formData.name}
                           onChange={handleChange}
                           required
+                          disabled={isSubmitting}
+                          placeholder="Enter your full name"
                         />
                       </div>
                       <div className="form-group">
@@ -114,6 +139,8 @@ const Contact: React.FC = () => {
                           value={formData.email}
                           onChange={handleChange}
                           required
+                          disabled={isSubmitting}
+                          placeholder="your.email@example.com"
                         />
                       </div>
                     </div>
@@ -128,6 +155,8 @@ const Contact: React.FC = () => {
                           value={formData.phone}
                           onChange={handleChange}
                           required
+                          disabled={isSubmitting}
+                          placeholder="07123 456789"
                         />
                       </div>
                       <div className="form-group">
@@ -137,6 +166,7 @@ const Contact: React.FC = () => {
                           name="mortgageType"
                           value={formData.mortgageType}
                           onChange={handleChange}
+                          disabled={isSubmitting}
                         >
                           <option value="">Select mortgage type</option>
                           <option value="first-time-buyer">First Time Buyer</option>
@@ -144,8 +174,38 @@ const Contact: React.FC = () => {
                           <option value="home-mover">Home Mover</option>
                           <option value="buy-to-let">Buy-to-Let</option>
                           <option value="self-employed">Self-Employed</option>
+                          <option value="new-build">New Build</option>
+                          <option value="help-to-buy">Help to Buy</option>
+                          <option value="bridging-loan">Bridging Loan</option>
                           <option value="other">Other</option>
                         </select>
+                      </div>
+                    </div>
+
+                    <div className="form-row">
+                      <div className="form-group">
+                        <label htmlFor="propertyValue">Property Value (Optional)</label>
+                        <input
+                          type="text"
+                          id="propertyValue"
+                          name="propertyValue"
+                          value={formData.propertyValue}
+                          onChange={handleChange}
+                          disabled={isSubmitting}
+                          placeholder="£250,000"
+                        />
+                      </div>
+                      <div className="form-group">
+                        <label htmlFor="deposit">Deposit Amount (Optional)</label>
+                        <input
+                          type="text"
+                          id="deposit"
+                          name="deposit"
+                          value={formData.deposit}
+                          onChange={handleChange}
+                          disabled={isSubmitting}
+                          placeholder="£25,000"
+                        />
                       </div>
                     </div>
 
@@ -157,6 +217,7 @@ const Contact: React.FC = () => {
                         value={formData.message}
                         onChange={handleChange}
                         rows={4}
+                        disabled={isSubmitting}
                         placeholder="Tell us about your situation, timeline, or any specific requirements..."
                       />
                     </div>
@@ -166,6 +227,7 @@ const Contact: React.FC = () => {
                       variant="primary"
                       size="lg"
                       disabled={isSubmitting}
+                      loading={isSubmitting}
                       className="submit-button"
                     >
                       {isSubmitting ? 'Sending...' : 'Get Free Mortgage Advice'}
@@ -185,12 +247,12 @@ const Contact: React.FC = () => {
                   <div className="contact-methods">
                     <div className="contact-method">
                       <strong>📞 Phone</strong>
-                      <p>0800 123 4567</p>
+                      <p><a href="tel:08001234567">0800 123 4567</a></p>
                       <small>Mon-Fri 8am-8pm, Sat 9am-5pm</small>
                     </div>
                     <div className="contact-method">
                       <strong>📧 Email</strong>
-                      <p>admin@noblemortgages.co.uk</p>
+                      <p><a href="mailto:admin@noblemortgages.co.uk">admin@noblemortgages.co.uk</a></p>
                       <small>We respond within 24 hours</small>
                     </div>
                     <div className="contact-method">

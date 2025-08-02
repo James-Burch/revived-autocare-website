@@ -28,6 +28,9 @@
     position: relative;
     z-index: 10;
     flex-shrink: 0;
+    /* Default desktop size */
+    width: 200px;
+    height: 60px;
 }
 
 /* Hide mobile menu toggle on desktop */
@@ -276,19 +279,22 @@
 
 .logo-mobile-nav {
     flex-shrink: 0;
+    /* Bigger mobile nav logo */
+    width: 180px;
+    height: 54px;
 }
 
 .mobile-close-btn {
     background: none;
     border: none;
-    font-size: var(--font-size-2xl);
-    color: var(--color-text-primary);
+    font-size: var(--font-size-3xl); /* Bigger close button */
+    color: var(--color-primary-light);
     cursor: pointer;
-    padding: var(--spacing-xs);
+    padding: var(--spacing-sm);
     border-radius: var(--border-radius);
     transition: all 0.3s ease;
-    min-height: 44px;
-    min-width: 44px;
+    min-height: 48px; /* Bigger touch target */
+    min-width: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -312,19 +318,20 @@
 
 .mobile-nav-menu .nav-link {
     color: var(--color-text-primary);
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-xl); /* Bigger navigation text */
     font-weight: var(--font-weight-medium);
     text-decoration: none;
-    padding: var(--spacing-md) 0;
+    padding: var(--spacing-lg) 0; /* More padding */
     border-bottom: 1px solid var(--color-gray-200);
     transition: all 0.3s ease;
-    min-height: 48px;
+    min-height: 52px; /* Bigger touch targets */
     display: flex;
     align-items: center;
 }
 
 .mobile-nav-menu .nav-link.active {
     color: var(--color-accent);
+    font-weight: var(--font-weight-semibold);
 }
 
 .mobile-nav-menu .nav-link:hover,
@@ -337,9 +344,9 @@
     background: none;
     border: none;
     color: var(--color-text-primary);
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-xl); /* Bigger dropdown text */
     font-weight: var(--font-weight-medium);
-    padding: var(--spacing-md) 0;
+    padding: var(--spacing-lg) 0; /* More padding */
     border-bottom: 1px solid var(--color-gray-200);
     cursor: pointer;
     display: flex;
@@ -347,7 +354,7 @@
     align-items: center;
     width: 100%;
     transition: all 0.3s ease;
-    min-height: 48px;
+    min-height: 52px; /* Bigger touch targets */
 }
 
 .mobile-dropdown-toggle:hover,
@@ -362,6 +369,11 @@
     border-radius: var(--border-radius);
 }
 
+.mobile-dropdown-toggle span:last-child {
+    font-size: var(--font-size-lg); /* Bigger arrow */
+    font-weight: bold;
+}
+
 .mobile-dropdown-menu {
     display: none;
     flex-direction: column;
@@ -370,7 +382,7 @@
     margin-top: var(--spacing-md);
     background: rgba(10, 186, 181, 0.05);
     border-radius: var(--border-radius);
-    padding: var(--spacing-sm) 0;
+    padding: var(--spacing-md) 0; /* More padding */
 }
 
 .mobile-dropdown-menu.open {
@@ -379,12 +391,12 @@
 
 .mobile-dropdown-menu .dropdown-item {
     color: var(--color-text-secondary);
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-lg); /* Bigger dropdown items */
     text-decoration: none;
-    padding: var(--spacing-sm) var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-lg); /* More padding */
     transition: all 0.3s ease;
     border-radius: var(--border-radius);
-    min-height: 44px;
+    min-height: 48px; /* Bigger touch targets */
     display: flex;
     align-items: center;
 }
@@ -397,12 +409,25 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+    .header-logo {
+        width: 180px;
+        height: 54px;
+    }
+}
+
 @media (max-width: 768px) {
     .header-content {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        padding: var(--spacing-md) 0;
+        padding: var(--spacing-lg) 0; /* More padding on mobile */
+    }
+
+    /* Bigger mobile header logo */
+    .header-logo {
+        width: 160px;
+        height: 48px;
     }
 
     /* Hide desktop navigation */
@@ -416,12 +441,12 @@
         background: none;
         border: none;
         cursor: pointer;
-        padding: var(--spacing-sm);
-        color: var(--color-text-primary);
+        padding: var(--spacing-md); /* More padding */
+        color: var(--color-primary-light);
         transition: all 0.3s ease;
         border-radius: var(--border-radius);
-        min-height: 44px;
-        min-width: 44px;
+        min-height: 52px; /* Bigger touch target */
+        min-width: 52px;
         align-items: center;
         justify-content: center;
     }
@@ -437,15 +462,10 @@
     }
 
     .hamburger-icon {
-        font-size: var(--font-size-xl);
+        font-size: var(--font-size-2xl); /* Bigger hamburger icon */
         font-weight: bold;
         color: inherit;
         transition: transform 0.3s ease;
-    }
-
-    /* Responsive logo sizing - handled by logo.css */
-    .header-logo {
-        /* Logo component will handle responsive sizing internally */
     }
 
     .dropdown-menu {
@@ -456,7 +476,13 @@
 
 @media (max-width: 480px) {
     .header-content {
-        padding: var(--spacing-sm) 0;
+        padding: var(--spacing-md) 0;
+    }
+
+    /* Even bigger on small screens */
+    .header-logo {
+        width: 140px;
+        height: 42px;
     }
 
     .mobile-nav-overlay {
@@ -467,15 +493,32 @@
         margin-bottom: var(--spacing-xl);
     }
 
+    .logo-mobile-nav {
+        width: 160px;
+        height: 48px;
+    }
+
     .mobile-nav-menu .nav-link,
     .mobile-dropdown-toggle {
-        font-size: var(--font-size-base);
-        padding: var(--spacing-sm) 0;
+        font-size: var(--font-size-lg); /* Still bigger than before */
+        padding: var(--spacing-md) 0;
+        min-height: 48px;
     }
 
     .mobile-dropdown-menu .dropdown-item {
-        font-size: var(--font-size-sm);
-        padding: var(--spacing-xs) var(--spacing-md);
+        font-size: var(--font-size-base);
+        padding: var(--spacing-sm) var(--spacing-lg);
+        min-height: 44px;
+    }
+
+    .mobile-menu-toggle {
+        min-height: 48px;
+        min-width: 48px;
+        padding: var(--spacing-sm);
+    }
+
+    .hamburger-icon {
+        font-size: var(--font-size-xl);
     }
 }
 
@@ -518,7 +561,6 @@
 
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
-
     .header,
     .nav-link,
     .dropdown-toggle,

@@ -1,4 +1,4 @@
-/* Logo Component Styles - Enhanced Responsive Control */
+/* Logo Component Styles - Enhanced Mobile Responsive Control */
 
 .logo {
     display: inline-flex;
@@ -28,31 +28,31 @@
     transition: all 0.3s ease;
 }
 
-/* Logo Sizes - Desktop First */
+/* Logo Sizes - Desktop First with Better Mobile Scaling */
 .logo--sm {
-    width: 120px;
-    height: 36px;
+    width: 140px;
+    height: 42px;
 }
 
 .logo--md {
-    width: 180px;
-    height: 54px;
+    width: 200px;
+    height: 60px;
 }
 
 .logo--lg {
-    width: 220px;
-    height: 66px;
+    width: 240px;
+    height: 72px;
 }
 
 .logo--xl {
-    width: 260px;
-    height: 78px;
+    width: 280px;
+    height: 84px;
 }
 
 /* Logo Variants */
 .logo--icon {
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
 }
 
 .logo--icon .logo-text {
@@ -63,16 +63,16 @@
     display: none;
 }
 
-/* Header-specific logo styling */
+/* Header-specific logo styling - Now bigger by default */
 .header-logo {
-    /* Default desktop size for header */
-    width: 180px;
-    height: 54px;
+    /* Default desktop size for header - increased from 180x54 */
+    width: 200px;
+    height: 60px;
 }
 
 /* Hide tagline in compact spaces */
 .header-logo .logo-tagline {
-    display: none;
+    display: block; /* Show tagline on desktop */
 }
 
 /* Hover Effects */
@@ -101,20 +101,41 @@
 }
 
 @keyframes logoHouseHover {
-
-    0%,
-    100% {
+    0%, 100% {
         transform: scale(1);
     }
-
     50% {
         transform: scale(1.05);
     }
 }
 
-/* Responsive Logo Behavior */
+/* Responsive Logo Behavior - Better Mobile Scaling */
 @media (max-width: 1024px) {
     .header-logo {
+        width: 180px;
+        height: 54px;
+    }
+
+    .logo--lg {
+        width: 200px;
+        height: 60px;
+    }
+
+    .logo--xl {
+        width: 240px;
+        height: 72px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Bigger mobile header logo for better visibility */
+    .header-logo {
+        width: 160px;
+        height: 48px;
+    }
+
+    .logo--full,
+    .logo--md {
         width: 160px;
         height: 48px;
     }
@@ -128,15 +149,32 @@
         width: 200px;
         height: 60px;
     }
+
+    /* Keep tagline on tablet sizes */
+    .logo-tagline {
+        display: block;
+        font-size: 8px;
+    }
+
+    /* Adjust text sizes for mobile */
+    .logo-company-name {
+        font-size: 18px;
+    }
+
+    .logo-company-subtitle {
+        font-size: 14px;
+    }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
+    /* Even bigger on small phones for better readability */
     .header-logo {
         width: 140px;
         height: 42px;
     }
 
     .logo--full,
+    .logo--compact,
     .logo--md {
         width: 140px;
         height: 42px;
@@ -147,17 +185,12 @@
         height: 48px;
     }
 
-    .logo--xl {
-        width: 180px;
-        height: 54px;
-    }
-
-    /* Hide tagline on smaller screens */
+    /* Hide tagline on very small screens to save space */
     .logo-tagline {
         display: none;
     }
 
-    /* Adjust text sizes for mobile */
+    /* Adjust text for very small screens */
     .logo-company-name {
         font-size: 16px;
     }
@@ -165,33 +198,11 @@
     .logo-company-subtitle {
         font-size: 12px;
     }
-}
 
-@media (max-width: 480px) {
-    .header-logo {
-        width: 120px;
-        height: 36px;
-    }
-
-    .logo--full,
-    .logo--compact,
-    .logo--md {
-        width: 120px;
-        height: 36px;
-    }
-
-    .logo--lg {
-        width: 140px;
-        height: 42px;
-    }
-
-    /* Further reduce text on very small screens */
-    .logo-company-name {
-        font-size: 14px;
-    }
-
-    .logo-company-subtitle {
-        font-size: 10px;
+    /* Make icon version bigger on mobile */
+    .logo--icon {
+        width: 48px;
+        height: 48px;
     }
 }
 
@@ -201,10 +212,17 @@
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
-/* Mobile navigation specific logo */
+/* Mobile navigation specific logo - Bigger for better visibility */
 .logo-mobile-nav {
-    width: 160px;
-    height: 48px;
+    width: 180px;
+    height: 54px;
+}
+
+@media (max-width: 768px) {
+    .logo-mobile-nav {
+        width: 160px;
+        height: 48px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -232,7 +250,6 @@
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
-
     .logo,
     .logo-svg,
     .logo:hover .logo-house-base,
@@ -260,12 +277,9 @@
 }
 
 @keyframes logoLoading {
-
-    0%,
-    100% {
+    0%, 100% {
         opacity: 0.7;
     }
-
     50% {
         opacity: 1;
     }
@@ -282,4 +296,22 @@
 
 .logo-right {
     margin-left: auto;
+}
+
+/* Better mobile touch targets */
+@media (max-width: 768px) {
+    .logo[role="button"] {
+        min-height: 48px;
+        min-width: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: var(--spacing-xs, 4px);
+        margin: calc(-1 * var(--spacing-xs, 4px));
+        border-radius: var(--border-radius, 8px);
+    }
+    
+    .logo[role="button"]:focus-visible {
+        outline-offset: 2px;
+    }
 }
