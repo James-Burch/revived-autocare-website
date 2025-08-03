@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import Logo from './Logo';
+import React, { useState, useRef, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Logo from "./Logo";
 
 interface NavigationItem {
   name: string;
@@ -19,44 +19,56 @@ const Header: React.FC = () => {
   const insuranceDropdownRef = useRef<HTMLDivElement>(null);
 
   const mortgages: NavigationItem[] = [
-    { name: 'First Time Buyers', path: '/mortgages/first-time-buyers' },
-    { name: 'Home Mover', path: '/mortgages/home-mover' },
-    { name: 'Remortgage', path: '/mortgages/remortgage' },
-    { name: 'Buy to Let', path: '/mortgages/buy-to-let' },
-    { name: 'New Build', path: '/mortgages/new-build' },
-    { name: 'Help to Buy', path: '/mortgages/help-to-buy' },
-    { name: 'Limited Companies', path: '/mortgages/limited-companies' },
-    { name: 'Bridging Loans', path: '/mortgages/bridging-loans' }
+    { name: "First Time Buyers", path: "/mortgages/first-time-buyers" },
+    { name: "Home Mover", path: "/mortgages/home-mover" },
+    { name: "Remortgage", path: "/mortgages/remortgage" },
+    { name: "Buy to Let", path: "/mortgages/buy-to-let" },
+    { name: "New Build", path: "/mortgages/new-build" },
+    { name: "Help to Buy", path: "/mortgages/help-to-buy" },
+    { name: "Limited Companies", path: "/mortgages/limited-companies" },
+    { name: "Bridging Loans", path: "/mortgages/bridging-loans" },
   ];
 
   const insurance: NavigationItem[] = [
-    { name: 'Life Insurance', path: '/insurance/life-insurance' },
-    { name: 'Income Protection', path: '/insurance/income-protection' },
-    { name: 'Critical Illness', path: '/insurance/critical-illness' },
-    { name: 'Accident, Sickness & Unemployment', path: '/insurance/accident-sickness-unemployment' },
-    { name: 'Home, Buildings & Contents Insurance', path: '/insurance/home-buildings-contents' }
+    { name: "Life Insurance", path: "/insurance/life-insurance" },
+    { name: "Income Protection", path: "/insurance/income-protection" },
+    { name: "Critical Illness", path: "/insurance/critical-illness" },
+    {
+      name: "Accident, Sickness & Unemployment",
+      path: "/insurance/accident-sickness-unemployment",
+    },
+    {
+      name: "Home, Buildings & Contents Insurance",
+      path: "/insurance/home-buildings-contents",
+    },
   ];
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (mortgagesDropdownRef.current && !mortgagesDropdownRef.current.contains(event.target as Node)) {
+      if (
+        mortgagesDropdownRef.current &&
+        !mortgagesDropdownRef.current.contains(event.target as Node)
+      ) {
         setIsMortgagesOpen(false);
       }
-      if (insuranceDropdownRef.current && !insuranceDropdownRef.current.contains(event.target as Node)) {
+      if (
+        insuranceDropdownRef.current &&
+        !insuranceDropdownRef.current.contains(event.target as Node)
+      ) {
         setIsInsuranceOpen(false);
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
   // Enhanced keyboard navigation
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
+      if (event.key === "Escape") {
         setIsMortgagesOpen(false);
         setIsInsuranceOpen(false);
         setIsMobileMenuOpen(false);
@@ -65,9 +77,9 @@ const Header: React.FC = () => {
       }
     };
 
-    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener("keydown", handleKeyDown);
     return () => {
-      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
 
@@ -105,12 +117,12 @@ const Header: React.FC = () => {
   };
 
   const handleLogoClick = () => {
-    navigate('/');
+    navigate("/");
     closeMobileMenu();
   };
 
-  const isMortgagesActive = location.pathname.startsWith('/mortgages');
-  const isInsuranceActive = location.pathname.startsWith('/insurance');
+  const isMortgagesActive = location.pathname.startsWith("/mortgages");
+  const isInsuranceActive = location.pathname.startsWith("/insurance");
 
   return (
     <header className="header" role="banner">
@@ -128,27 +140,46 @@ const Header: React.FC = () => {
           <nav className="nav" role="navigation" aria-label="Main navigation">
             <Link
               to="/"
-              className={location.pathname === '/' ? 'nav-link active' : 'nav-link'}
-              aria-current={location.pathname === '/' ? 'page' : undefined}
+              className={
+                location.pathname === "/" ? "nav-link active" : "nav-link"
+              }
+              aria-current={location.pathname === "/" ? "page" : undefined}
             >
               Home
+            </Link>
+
+            <Link
+              to="/about"
+              className={
+                location.pathname === "/about" ? "nav-link active" : "nav-link"
+              }
+              aria-current={location.pathname === "/about" ? "page" : undefined}
+            >
+              About
             </Link>
 
             {/* Mortgages Dropdown */}
             <div className="nav-dropdown" ref={mortgagesDropdownRef}>
               <button
-                className={`nav-link dropdown-toggle ${isMortgagesActive ? 'active' : ''}`}
+                className={`nav-link dropdown-toggle ${
+                  isMortgagesActive ? "active" : ""
+                }`}
                 onClick={toggleMortgages}
                 aria-expanded={isMortgagesOpen}
                 aria-haspopup="true"
                 aria-label="Mortgages menu"
               >
                 Mortgages
-                <span className={`dropdown-arrow ${isMortgagesOpen ? 'open' : ''}`} aria-hidden="true">▼</span>
+                <span
+                  className={`dropdown-arrow ${isMortgagesOpen ? "open" : ""}`}
+                  aria-hidden="true"
+                >
+                  ▼
+                </span>
               </button>
 
               <div
-                className={`dropdown-menu ${isMortgagesOpen ? 'open' : ''}`}
+                className={`dropdown-menu ${isMortgagesOpen ? "open" : ""}`}
                 role="menu"
                 aria-labelledby="mortgages-dropdown"
               >
@@ -174,18 +205,25 @@ const Header: React.FC = () => {
             {/* Insurance Dropdown */}
             <div className="nav-dropdown" ref={insuranceDropdownRef}>
               <button
-                className={`nav-link dropdown-toggle ${isInsuranceActive ? 'active' : ''}`}
+                className={`nav-link dropdown-toggle ${
+                  isInsuranceActive ? "active" : ""
+                }`}
                 onClick={toggleInsurance}
                 aria-expanded={isInsuranceOpen}
                 aria-haspopup="true"
                 aria-label="Insurance menu"
               >
                 Insurance
-                <span className={`dropdown-arrow ${isInsuranceOpen ? 'open' : ''}`} aria-hidden="true">▼</span>
+                <span
+                  className={`dropdown-arrow ${isInsuranceOpen ? "open" : ""}`}
+                  aria-hidden="true"
+                >
+                  ▼
+                </span>
               </button>
 
               <div
-                className={`dropdown-menu ${isInsuranceOpen ? 'open' : ''}`}
+                className={`dropdown-menu ${isInsuranceOpen ? "open" : ""}`}
                 role="menu"
                 aria-labelledby="insurance-dropdown"
               >
@@ -210,16 +248,30 @@ const Header: React.FC = () => {
 
             <Link
               to="/mortgage-calculator"
-              className={location.pathname === '/mortgage-calculator' ? 'nav-link active' : 'nav-link'}
-              aria-current={location.pathname === '/mortgage-calculator' ? 'page' : undefined}
+              className={
+                location.pathname === "/mortgage-calculator"
+                  ? "nav-link active"
+                  : "nav-link"
+              }
+              aria-current={
+                location.pathname === "/mortgage-calculator"
+                  ? "page"
+                  : undefined
+              }
             >
               Calculator
             </Link>
 
             <Link
               to="/contact"
-              className={location.pathname === '/contact' ? 'nav-link active' : 'nav-link'}
-              aria-current={location.pathname === '/contact' ? 'page' : undefined}
+              className={
+                location.pathname === "/contact"
+                  ? "nav-link active"
+                  : "nav-link"
+              }
+              aria-current={
+                location.pathname === "/contact" ? "page" : undefined
+              }
             >
               Contact
             </Link>
@@ -229,12 +281,12 @@ const Header: React.FC = () => {
           <button
             className="mobile-menu-toggle"
             onClick={toggleMobileMenu}
-            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-nav-menu"
           >
             <span className="hamburger-icon" aria-hidden="true">
-              {isMobileMenuOpen ? '✕' : '☰'}
+              {isMobileMenuOpen ? "✕" : "☰"}
             </span>
           </button>
         </div>
@@ -242,7 +294,9 @@ const Header: React.FC = () => {
 
       {/* Mobile Navigation Overlay */}
       <div
-        className={`mobile-nav-overlay ${isMobileMenuOpen ? 'open fade-in-up' : ''}`}
+        className={`mobile-nav-overlay ${
+          isMobileMenuOpen ? "open fade-in-up" : ""
+        }`}
         id="mobile-nav-menu"
         role="dialog"
         aria-modal="true"
@@ -264,14 +318,31 @@ const Header: React.FC = () => {
           </button>
         </div>
 
-        <nav className="mobile-nav-menu" role="navigation" aria-label="Mobile navigation">
+        <nav
+          className="mobile-nav-menu"
+          role="navigation"
+          aria-label="Mobile navigation"
+        >
           <Link
             to="/"
-            className={location.pathname === '/' ? 'nav-link active' : 'nav-link'}
+            className={
+              location.pathname === "/" ? "nav-link active" : "nav-link"
+            }
             onClick={closeMobileMenu}
-            aria-current={location.pathname === '/' ? 'page' : undefined}
+            aria-current={location.pathname === "/" ? "page" : undefined}
           >
             Home
+          </Link>
+
+          <Link
+            to="/about"
+            className={
+              location.pathname === "/about" ? "nav-link active" : "nav-link"
+            }
+            onClick={closeMobileMenu}
+            aria-current={location.pathname === "/about" ? "page" : undefined}
+          >
+            About
           </Link>
 
           {/* Mobile Mortgages Dropdown */}
@@ -283,11 +354,15 @@ const Header: React.FC = () => {
               aria-controls="mobile-mortgages-menu"
             >
               Mortgages
-              <span aria-hidden="true">{isMobileMortgagesOpen ? '▲' : '▼'}</span>
+              <span aria-hidden="true">
+                {isMobileMortgagesOpen ? "▲" : "▼"}
+              </span>
             </button>
 
             <div
-              className={`mobile-dropdown-menu ${isMobileMortgagesOpen ? 'open fade-in-up' : ''}`}
+              className={`mobile-dropdown-menu ${
+                isMobileMortgagesOpen ? "open fade-in-up" : ""
+              }`}
               id="mobile-mortgages-menu"
             >
               {mortgages.map((mortgage) => (
@@ -312,11 +387,15 @@ const Header: React.FC = () => {
               aria-controls="mobile-insurance-menu"
             >
               Insurance
-              <span aria-hidden="true">{isMobileInsuranceOpen ? '▲' : '▼'}</span>
+              <span aria-hidden="true">
+                {isMobileInsuranceOpen ? "▲" : "▼"}
+              </span>
             </button>
 
             <div
-              className={`mobile-dropdown-menu ${isMobileInsuranceOpen ? 'open fade-in-up' : ''}`}
+              className={`mobile-dropdown-menu ${
+                isMobileInsuranceOpen ? "open fade-in-up" : ""
+              }`}
               id="mobile-insurance-menu"
             >
               {insurance.map((insuranceItem) => (
@@ -334,18 +413,26 @@ const Header: React.FC = () => {
 
           <Link
             to="/mortgage-calculator"
-            className={location.pathname === '/mortgage-calculator' ? 'nav-link active' : 'nav-link'}
+            className={
+              location.pathname === "/mortgage-calculator"
+                ? "nav-link active"
+                : "nav-link"
+            }
             onClick={closeMobileMenu}
-            aria-current={location.pathname === '/mortgage-calculator' ? 'page' : undefined}
+            aria-current={
+              location.pathname === "/mortgage-calculator" ? "page" : undefined
+            }
           >
             Calculator
           </Link>
 
           <Link
             to="/contact"
-            className={location.pathname === '/contact' ? 'nav-link active' : 'nav-link'}
+            className={
+              location.pathname === "/contact" ? "nav-link active" : "nav-link"
+            }
             onClick={closeMobileMenu}
-            aria-current={location.pathname === '/contact' ? 'page' : undefined}
+            aria-current={location.pathname === "/contact" ? "page" : undefined}
           >
             Contact
           </Link>

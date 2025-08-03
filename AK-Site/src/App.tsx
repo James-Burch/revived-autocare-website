@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import Home from './pages/Home';
 import Products from './pages/Products';
 import Contact from './pages/Contact';
+import About from './pages/About';
 import InsurancePage from './pages/InsurancePage';
 import CalculatorPage from './pages/CalculatorPage';
 import { ScrollToTop, ProductPage } from './components';
@@ -37,6 +38,7 @@ function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
         <Route path="/products" element={<Products />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/mortgages/:productType" element={<ProductPage />} />

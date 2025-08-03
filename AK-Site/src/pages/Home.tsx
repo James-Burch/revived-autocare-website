@@ -46,7 +46,7 @@ const Home: React.FC = () => {
                   </Link>
                   <Link to="/contact">
                     <Button variant="secondary" size="lg">
-                      Call 0800 123 4567
+                      Call 07956 758625
                     </Button>
                   </Link>
                 </div>
