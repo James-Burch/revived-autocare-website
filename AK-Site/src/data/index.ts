@@ -276,7 +276,7 @@ export const INSURANCE_PRODUCTS: InsuranceData[] = [
             'Flexible coverage amounts'
         ],
         whoNeedsIt: 'Anyone with financial dependents or outstanding debts',
-        typicalCoverage: '£100,000 - £1,000,000+',
+        typicalCoverage: '£50,000 - £1,000,000+',
         link: '/insurance/life-insurance',
         featured: true,
         category: 'life'
@@ -324,7 +324,7 @@ export const INSURANCE_PRODUCTS: InsuranceData[] = [
             'Involuntary unemployment protection'
         ],
         whoNeedsIt: 'Homeowners concerned about mortgage payment difficulties',
-        typicalCoverage: 'Monthly mortgage payments up to £2,000',
+        typicalCoverage: 'Covering the full amount borrowed',
         link: '/insurance/accident-sickness-unemployment',
         featured: false,
         category: 'property'

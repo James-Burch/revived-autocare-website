@@ -208,7 +208,6 @@ const ProductPage: React.FC = () => {
                                         <li>Access to 90+ lenders</li>
                                         <li>FCA regulated for your protection</li>
                                         <li>Award-winning service</li>
-                                        <li>Typically complete in 2-3 weeks</li>
                                     </ul>
                                 </div>
                             </div>

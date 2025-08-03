@@ -287,7 +287,7 @@ const Home: React.FC = () => {
           <div className="container">
             <div className="section-header-professional">
               <h2>What Our Clients Say</h2>
-              <p>Trusted by thousands of homeowners across the UK</p>
+              <p>Trusted by homeowners across the UK</p>
             </div>
           </div>
         </section>
