@@ -302,7 +302,7 @@ export const INSURANCE_PRODUCTS: InsuranceData[] = [
         title: 'Critical Illness Cover',
         description: 'Lump sum payment following diagnosis of a serious illness',
         keyBenefits: [
-            'Covers over 50 critical illnesses',
+            'Covers critical illnesses',
             'Tax-free lump sum payment',
             'Partial payment options',
             'Additional support services'
@@ -318,7 +318,7 @@ export const INSURANCE_PRODUCTS: InsuranceData[] = [
         title: 'Accident, Sickness & Unemployment',
         description: 'Short-term cover for mortgage payments during unemployment or illness',
         keyBenefits: [
-            'Covers monthly mortgage payments',
+            'Covers monthly mortgage payments up to £20,000',
             'Up to 12-24 months coverage',
             'Accident and sickness cover',
             'Involuntary unemployment protection'
