@@ -165,7 +165,7 @@ const InsurancePage: React.FC = () => {
                   </Link>
                   <div className="contact-methods">
                     <div className="contact-method">
-                      <strong>Call:</strong> 0800 123 4567
+                      <strong>Call:</strong> 07956 758625
                     </div>
                     <div className="contact-method">
                       <strong>Email:</strong> admin@noblemortgages.co.uk

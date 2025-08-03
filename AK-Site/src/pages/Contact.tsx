@@ -121,7 +121,7 @@ const Contact: React.FC = () => {
                           onChange={handleChange}
                           required
                           disabled={isSubmitting}
-                          placeholder="Enter your full name"
+                          placeholder="John Smith"
                         />
                       </div>
                       <div className="form-group">
@@ -134,7 +134,7 @@ const Contact: React.FC = () => {
                           onChange={handleChange}
                           required
                           disabled={isSubmitting}
-                          placeholder="your.email@example.com"
+                          placeholder="john.smith@example.com"
                         />
                       </div>
                     </div>
@@ -214,7 +214,7 @@ const Contact: React.FC = () => {
                   <div className="contact-methods">
                     <div className="contact-method">
                       <strong>📞 Phone</strong>
-                      <p><a href="tel:08001234567">0800 123 4567</a></p>
+                      <p><a href="tel:447956758625">+44 79567 58625</a></p>
                       <small>Mon-Fri 8am-8pm, Sat 9am-5pm</small>
                     </div>
                     <div className="contact-method">
@@ -236,7 +236,6 @@ const Contact: React.FC = () => {
                     <li>✅ No fees to you - completely free advice</li>
                     <li>✅ Access to 90+ lenders</li>
                     <li>✅ FCA regulated for your protection</li>
-                    <li>✅ Typically complete in 2-3 weeks</li>
                   </ul>
                 </UnifiedCard>
               </div>

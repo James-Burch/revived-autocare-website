@@ -46,14 +46,14 @@ const ContactBar: React.FC<ContactBarProps> = ({ className = "" }) => {
           </a>
 
           <a
-            href="https://wa.me/447123456789"
+            href="https://wa.me/447956758625"
             className="contact-link"
-            aria-label="Send WhatsApp message to 07123 456789"
+            aria-label="Send WhatsApp message to +447956758625"
             target="_blank"
             rel="noopener noreferrer"
           >
             <WhatsAppIcon className="contact-icon" />
-            <span>WhatsApp: 07123 456789</span>
+            <span>WhatsApp: 07956 758625</span>
           </a>
         </div>
       </div>
