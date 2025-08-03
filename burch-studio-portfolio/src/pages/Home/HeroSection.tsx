@@ -6,7 +6,9 @@ const HeroSection: React.FC = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-navy via-charcoal to-navy">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23ffffff" fill-opacity="0.03"%3E%3Cpath d="M20 20c0-4.4-3.6-8-8-8s-8 3.6-8 8 3.6 8 8 8 8-3.6 8-8zm0 0v-2h2v2h-2zm2 0h2v2h-2v-2z"/%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0 bg-[length:40px_40px] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_1px,transparent_1px)]"></div>
+        </div>
       </div>
 
       <div className="relative z-10 container-custom section-padding text-center">
