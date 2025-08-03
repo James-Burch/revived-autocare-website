@@ -26,6 +26,7 @@ const Home: React.FC = () => {
       <div className="home-page">
         {/* Hero Section - Clean Professional Design with Image */}
         <section className="hero-professional">
+          
           <div className="container">
             <div className="hero-content-professional">
               <div className="hero-text-professional">
