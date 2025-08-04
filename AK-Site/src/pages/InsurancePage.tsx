@@ -84,7 +84,7 @@ const InsurancePage: React.FC = () => {
                 {/* Overview */}
                 <div className="insurance-section">
                   <h2>Overview</h2>
-                  <p>{insurance.description}</p>
+                  <p>{insurance.longDescription}</p>
                   <div className="insurance-coverage-highlight">
                     <h3>Typical Coverage</h3>
                     <p className="coverage-amount">
