@@ -26,7 +26,6 @@ const Home: React.FC = () => {
       <div className="home-page">
         {/* Hero Section - Clean Professional Design with Image */}
         <section className="hero-professional">
-          
           <div className="container">
             <div className="hero-content-professional">
               <div className="hero-text-professional">
@@ -45,11 +44,9 @@ const Home: React.FC = () => {
                       Get Free Advice
                     </Button>
                   </Link>
-                  <Link to="/contact">
                     <Button variant="secondary" size="lg">
-                      Call 07956 758625
+                      <a href="tel:447956758625">Call 07956 758625</a>
                     </Button>
-                  </Link>
                 </div>
               </div>
               <div className="hero-image-professional">
