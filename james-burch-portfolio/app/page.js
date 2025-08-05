@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Header from "./components/layout/Header";
+import Hero from "./components/sections/Hero";
 import styles from "../styles/components/Page.module.css";
 
 export default function Home() {
@@ -44,83 +45,9 @@ export default function Home() {
     <main className={styles.main}>
       <Header activeSection={activeSection} onNavigate={scrollToSection} />
 
-      {/* Hero Section */}
-      <section id="hero" className={styles.heroSection}>
-        <div className={styles.heroContent}>
-          <div className={styles.heroGreeting}>👋 Hi, I'm</div>
-
-          <h1 className={styles.heroTitle}>James Burch</h1>
-
-          <div className={styles.heroSubtitle}>
-            I'm a <span className={styles.heroRole}>Full-Stack Developer</span>
-          </div>
-
-          <p className={styles.heroDescription}>
-            Passionate about building intelligent solutions with{" "}
-            <span
-              className={`${styles.heroHighlight} ${styles.heroHighlightPurple}`}
-            >
-              Python & Machine Learning
-            </span>
-            , creating seamless user experiences with{" "}
-            <span
-              className={`${styles.heroHighlight} ${styles.heroHighlightBlue}`}
-            >
-              React & Next.js
-            </span>
-            , and automating workflows with{" "}
-            <span
-              className={`${styles.heroHighlight} ${styles.heroHighlightGreen}`}
-            >
-              DevOps practices
-            </span>
-            .
-          </p>
-
-          {/* Stats */}
-          <div className={styles.heroStats}>
-            <div className={styles.heroStat}>
-              <div
-                className={`${styles.heroStatNumber} ${styles.heroStatNumberBlue}`}
-              >
-                15+
-              </div>
-              <div className={styles.heroStatLabel}>Months Learning</div>
-            </div>
-            <div className={styles.heroStat}>
-              <div
-                className={`${styles.heroStatNumber} ${styles.heroStatNumberPurple}`}
-              >
-                10+
-              </div>
-              <div className={styles.heroStatLabel}>Projects Built</div>
-            </div>
-            <div className={styles.heroStat}>
-              <div
-                className={`${styles.heroStatNumber} ${styles.heroStatNumberGreen}`}
-              >
-                5+
-              </div>
-              <div className={styles.heroStatLabel}>Technologies</div>
-            </div>
-          </div>
-
-          {/* CTA Buttons */}
-          <div className={styles.heroButtons}>
-            <button
-              onClick={() => scrollToSection("projects")}
-              className={styles.heroPrimaryBtn}
-            >
-              View My Work
-            </button>
-            <button
-              onClick={() => scrollToSection("contact")}
-              className={styles.heroSecondaryBtn}
-            >
-              Get In Touch
-            </button>
-          </div>
-        </div>
+      {/* Animated Hero Section */}
+      <section id="hero">
+        <Hero onNavigate={scrollToSection} />
       </section>
 
       {/* About Section */}
