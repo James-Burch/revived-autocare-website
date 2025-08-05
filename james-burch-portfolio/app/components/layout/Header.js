@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { Sun, Moon, Menu, X } from "lucide-react";
-import styles from "../../../styles/Header.module.css";
+import styles from "../../../styles/components/Header.module.css";
 
 const navigation = [
   { name: "Home", href: "hero" },

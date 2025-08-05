@@ -1,0 +1,272 @@
+/* Main page styles */
+.main {
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.heroSection {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    var(--bg-primary) 0%,
+    var(--bg-secondary) 100%
+  );
+  padding-top: 80px;
+}
+
+.heroContent {
+  text-align: center;
+  max-width: 800px;
+  padding: 0 var(--space-8);
+}
+
+.heroGreeting {
+  margin-bottom: var(--space-4);
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+}
+
+.heroTitle {
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 800;
+  margin-bottom: var(--space-6);
+  background: linear-gradient(
+    135deg,
+    var(--primary-blue),
+    var(--accent-purple)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroSubtitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: var(--space-8);
+  color: var(--text-primary);
+}
+
+.heroRole {
+  color: var(--primary-blue);
+}
+
+.heroDescription {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--space-12);
+}
+
+.heroHighlight {
+  font-weight: 600;
+}
+
+.heroHighlightPurple {
+  color: var(--accent-purple);
+}
+
+.heroHighlightBlue {
+  color: var(--primary-blue);
+}
+
+.heroHighlightGreen {
+  color: var(--accent-green);
+}
+
+/* Hero Stats */
+.heroStats {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-12);
+  margin-bottom: var(--space-12);
+  flex-wrap: wrap;
+}
+
+.heroStat {
+  text-align: center;
+}
+
+.heroStatNumber {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.heroStatNumberBlue {
+  color: var(--primary-blue);
+}
+
+.heroStatNumberPurple {
+  color: var(--accent-purple);
+}
+
+.heroStatNumberGreen {
+  color: var(--accent-green);
+}
+
+.heroStatLabel {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* Hero CTA Buttons */
+.heroButtons {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.heroPrimaryBtn {
+  background: linear-gradient(
+    135deg,
+    var(--primary-blue),
+    var(--secondary-blue)
+  );
+  color: white;
+  border: none;
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-lg);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-lg);
+}
+
+.heroPrimaryBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+}
+
+.heroSecondaryBtn {
+  background: transparent;
+  color: var(--primary-blue);
+  border: 2px solid var(--primary-blue);
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-lg);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.heroSecondaryBtn:hover {
+  background: var(--primary-blue);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Section Base Styles */
+.section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-20) var(--space-8);
+}
+
+.sectionSecondary {
+  background: var(--bg-secondary);
+}
+
+.sectionPrimary {
+  background: var(--bg-primary);
+}
+
+.sectionContent {
+  text-align: center;
+  max-width: 800px;
+}
+
+.sectionTitle {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: var(--space-8);
+}
+
+.sectionTitleBlue {
+  color: var(--primary-blue);
+}
+
+.sectionTitlePurple {
+  color: var(--accent-purple);
+}
+
+.sectionTitleGreen {
+  color: var(--accent-green);
+}
+
+.sectionTitleOrange {
+  color: var(--accent-orange);
+}
+
+.sectionDescription {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .heroContent {
+    padding: 0 var(--space-4);
+  }
+
+  .heroTitle {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+  }
+
+  .heroSubtitle {
+    font-size: 1.5rem;
+  }
+
+  .heroDescription {
+    font-size: 1.1rem;
+  }
+
+  .heroStats {
+    gap: var(--space-8);
+  }
+
+  .heroButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .heroPrimaryBtn,
+  .heroSecondaryBtn {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .section {
+    padding: var(--space-16) var(--space-4);
+  }
+
+  .sectionTitle {
+    font-size: 2.5rem;
+  }
+
+  .sectionDescription {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroStats {
+    gap: var(--space-6);
+  }
+
+  .heroStatNumber {
+    font-size: 1.75rem;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+}

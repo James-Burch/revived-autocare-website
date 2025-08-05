@@ -2,14 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Header from "./components/layout/Header";
-import Footer from "./components/layout/Footer";
-import ScrollProgress from "./components/layout/ScrollProgress";
-import Hero from "./components/sections/Hero";
-import About from "./components/sections/About";
-import Projects from "./components/sections/Projects";
-import Skills from "./components/sections/Skills";
-import Experience from "./components/sections/Experience";
-import Contact from "./components/sections/Contact";
+import styles from "../styles/components/Page.module.css";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("hero");
@@ -48,35 +41,164 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-bg-primary">
-      <ScrollProgress />
+    <main className={styles.main}>
       <Header activeSection={activeSection} onNavigate={scrollToSection} />
 
-      <section id="hero">
-        <Hero onNavigate={scrollToSection} />
+      {/* Hero Section */}
+      <section id="hero" className={styles.heroSection}>
+        <div className={styles.heroContent}>
+          <div className={styles.heroGreeting}>👋 Hi, I'm</div>
+
+          <h1 className={styles.heroTitle}>James Burch</h1>
+
+          <div className={styles.heroSubtitle}>
+            I'm a <span className={styles.heroRole}>Full-Stack Developer</span>
+          </div>
+
+          <p className={styles.heroDescription}>
+            Passionate about building intelligent solutions with{" "}
+            <span
+              className={`${styles.heroHighlight} ${styles.heroHighlightPurple}`}
+            >
+              Python & Machine Learning
+            </span>
+            , creating seamless user experiences with{" "}
+            <span
+              className={`${styles.heroHighlight} ${styles.heroHighlightBlue}`}
+            >
+              React & Next.js
+            </span>
+            , and automating workflows with{" "}
+            <span
+              className={`${styles.heroHighlight} ${styles.heroHighlightGreen}`}
+            >
+              DevOps practices
+            </span>
+            .
+          </p>
+
+          {/* Stats */}
+          <div className={styles.heroStats}>
+            <div className={styles.heroStat}>
+              <div
+                className={`${styles.heroStatNumber} ${styles.heroStatNumberBlue}`}
+              >
+                15+
+              </div>
+              <div className={styles.heroStatLabel}>Months Learning</div>
+            </div>
+            <div className={styles.heroStat}>
+              <div
+                className={`${styles.heroStatNumber} ${styles.heroStatNumberPurple}`}
+              >
+                10+
+              </div>
+              <div className={styles.heroStatLabel}>Projects Built</div>
+            </div>
+            <div className={styles.heroStat}>
+              <div
+                className={`${styles.heroStatNumber} ${styles.heroStatNumberGreen}`}
+              >
+                5+
+              </div>
+              <div className={styles.heroStatLabel}>Technologies</div>
+            </div>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className={styles.heroButtons}>
+            <button
+              onClick={() => scrollToSection("projects")}
+              className={styles.heroPrimaryBtn}
+            >
+              View My Work
+            </button>
+            <button
+              onClick={() => scrollToSection("contact")}
+              className={styles.heroSecondaryBtn}
+            >
+              Get In Touch
+            </button>
+          </div>
+        </div>
       </section>
 
-      <section id="about">
-        <About />
+      {/* About Section */}
+      <section
+        id="about"
+        className={`${styles.section} ${styles.sectionSecondary}`}
+      >
+        <div className={styles.sectionContent}>
+          <h2 className={`${styles.sectionTitle} ${styles.sectionTitleBlue}`}>
+            About Me
+          </h2>
+          <p className={styles.sectionDescription}>
+            🚀 Amazing about section with interactive animations coming soon...
+          </p>
+        </div>
       </section>
 
-      <section id="projects">
-        <Projects />
+      {/* Projects Section */}
+      <section
+        id="projects"
+        className={`${styles.section} ${styles.sectionPrimary}`}
+      >
+        <div className={styles.sectionContent}>
+          <h2 className={`${styles.sectionTitle} ${styles.sectionTitlePurple}`}>
+            Featured Projects
+          </h2>
+          <p className={styles.sectionDescription}>
+            🎯 Interactive project showcase with alternating layouts and modal
+            popups coming soon...
+          </p>
+        </div>
       </section>
 
-      <section id="skills">
-        <Skills />
+      {/* Skills Section */}
+      <section
+        id="skills"
+        className={`${styles.section} ${styles.sectionSecondary}`}
+      >
+        <div className={styles.sectionContent}>
+          <h2 className={`${styles.sectionTitle} ${styles.sectionTitleGreen}`}>
+            Technical Skills
+          </h2>
+          <p className={styles.sectionDescription}>
+            📊 Interactive skills visualization with animated progress bars
+            coming soon...
+          </p>
+        </div>
       </section>
 
-      <section id="experience">
-        <Experience />
+      {/* Experience Section */}
+      <section
+        id="experience"
+        className={`${styles.section} ${styles.sectionPrimary}`}
+      >
+        <div className={styles.sectionContent}>
+          <h2 className={`${styles.sectionTitle} ${styles.sectionTitleOrange}`}>
+            Experience
+          </h2>
+          <p className={styles.sectionDescription}>
+            📈 Professional timeline with learning milestones coming soon...
+          </p>
+        </div>
       </section>
 
-      <section id="contact">
-        <Contact />
+      {/* Contact Section */}
+      <section
+        id="contact"
+        className={`${styles.section} ${styles.sectionSecondary}`}
+      >
+        <div className={styles.sectionContent}>
+          <h2 className={`${styles.sectionTitle} ${styles.sectionTitleBlue}`}>
+            Get In Touch
+          </h2>
+          <p className={styles.sectionDescription}>
+            📧 Professional contact form with EmailJS integration coming soon...
+          </p>
+        </div>
       </section>
-
-      <Footer />
     </main>
   );
 }
