@@ -1,4 +1,4 @@
-/* Logo Component Styles - Enhanced Mobile Responsive Control */
+/* Logo Component Styles - Enhanced for Dark Header */
 
 .logo {
     display: inline-flex;
@@ -26,9 +26,10 @@
     height: 100%;
     display: block;
     transition: all 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
-/* Logo Sizes - Desktop First with Better Mobile Scaling */
+/* Logo Sizes - Optimized for Dark Header */
 .logo--sm {
     width: 140px;
     height: 42px;
@@ -63,31 +64,37 @@
     display: none;
 }
 
-/* Header-specific logo styling - Now bigger by default */
+/* Header-specific logo styling - Bigger for dark header visibility */
 .header-logo {
-    /* Default desktop size for header - increased from 180x54 */
     width: 200px;
     height: 60px;
 }
 
-/* Hide tagline in compact spaces */
+/* Show tagline on desktop for dark header */
 .header-logo .logo-tagline {
-    display: block; /* Show tagline on desktop */
+    display: block;
 }
 
-/* Hover Effects */
+/* Enhanced Hover Effects for Dark Background */
 .logo:hover .logo-house-base {
     transform: translateY(-1px);
     transition: transform 0.3s ease;
+    filter: brightness(1.1);
 }
 
 .logo:hover .logo-house-roof {
     transform: translateY(-2px);
     transition: transform 0.3s ease;
+    filter: brightness(1.1);
 }
 
 .logo:hover .logo-company-name {
-    fill: var(--color-accent);
+    fill: var(--color-accent-light);
+    transition: fill 0.3s ease;
+}
+
+.logo:hover .logo-company-subtitle {
+    fill: var(--color-accent-light);
     transition: fill 0.3s ease;
 }
 
@@ -109,7 +116,7 @@
     }
 }
 
-/* Responsive Logo Behavior - Better Mobile Scaling */
+/* Responsive Logo Behavior - Better visibility on dark header */
 @media (max-width: 1024px) {
     .header-logo {
         width: 180px;
@@ -128,7 +135,7 @@
 }
 
 @media (max-width: 768px) {
-    /* Bigger mobile header logo for better visibility */
+    /* Bigger mobile header logo for better visibility on dark background */
     .header-logo {
         width: 160px;
         height: 48px;
@@ -150,7 +157,7 @@
         height: 60px;
     }
 
-    /* Keep tagline on tablet sizes */
+    /* Keep tagline on tablet sizes for branding */
     .logo-tagline {
         display: block;
         font-size: 8px;
@@ -167,7 +174,7 @@
 }
 
 @media (max-width: 480px) {
-    /* Even bigger on small phones for better readability */
+    /* Even bigger on small phones for dark header readability */
     .header-logo {
         width: 140px;
         height: 42px;
@@ -206,10 +213,12 @@
     }
 }
 
-/* Logo for dark backgrounds */
+/* Logo optimized for dark backgrounds */
 .logo--white .logo-house-base,
-.logo--white .logo-house-roof {
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+.logo--white .logo-house-roof,
+.logo-house-base,
+.logo-house-roof {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
 /* Mobile navigation specific logo - Bigger for better visibility */
@@ -232,19 +241,23 @@
     }
 }
 
-/* High contrast mode support */
+/* High contrast mode support - Enhanced for dark header */
 @media (prefers-contrast: high) {
     .logo-house-base {
-        fill: var(--color-text-primary);
+        fill: var(--color-accent);
     }
 
     .logo-house-roof {
-        fill: var(--color-accent);
+        fill: #FFFFFF;
     }
 
     .logo-company-name,
     .logo-company-subtitle {
-        fill: var(--color-text-primary);
+        fill: #FFFFFF;
+    }
+
+    .logo-svg {
+        filter: drop-shadow(0 0 0 #FFFFFF);
     }
 }
 
@@ -254,7 +267,8 @@
     .logo-svg,
     .logo:hover .logo-house-base,
     .logo:hover .logo-house-roof,
-    .logo:hover .logo-company-name {
+    .logo:hover .logo-company-name,
+    .logo:hover .logo-company-subtitle {
         transition: none;
     }
 
@@ -298,7 +312,7 @@
     margin-left: auto;
 }
 
-/* Better mobile touch targets */
+/* Better mobile touch targets - Enhanced for dark header */
 @media (max-width: 768px) {
     .logo[role="button"] {
         min-height: 48px;
@@ -309,9 +323,45 @@
         padding: var(--spacing-xs, 4px);
         margin: calc(-1 * var(--spacing-xs, 4px));
         border-radius: var(--border-radius, 8px);
+        background: rgba(255, 255, 255, 0.05);
+        transition: background-color 0.3s ease;
+    }
+    
+    .logo[role="button"]:hover {
+        background: rgba(255, 255, 255, 0.1);
     }
     
     .logo[role="button"]:focus-visible {
+        outline: 2px solid var(--color-accent);
         outline-offset: 2px;
+        background: rgba(255, 255, 255, 0.1);
     }
+}
+
+/* Dark header specific optimizations */
+.header .logo-svg {
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
+}
+
+.header .logo:hover .logo-svg {
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
+}
+
+/* Ensure white text is always visible on dark header */
+.header .logo-company-name,
+.header .logo-company-subtitle {
+    fill: #FFFFFF !important;
+}
+
+.header .logo-tagline {
+    fill: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Ensure teal house icon stands out on dark background */
+.header .logo-house-base {
+    fill: var(--color-accent) !important;
+}
+
+.header .logo-house-roof {
+    fill: #FFFFFF !important;
 }
