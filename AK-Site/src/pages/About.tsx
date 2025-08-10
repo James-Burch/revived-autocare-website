@@ -2,6 +2,9 @@ import React from "react";
 import { Layout, ContactBar, Button } from "../components";
 import { Link } from "react-router-dom";
 
+// Import background image
+import aboutHeroBackground from "../assets/images/consultationimage.webp";
+
 const About: React.FC = () => {
   return (
     <Layout
@@ -11,7 +14,16 @@ const About: React.FC = () => {
     >
       <div className="about-page">
         {/* Hero Section - Background Image with Overlay */}
-        <section className="about-hero">
+        <section 
+          className="about-hero"
+          style={{
+            backgroundImage: `linear-gradient(
+              135deg,
+              rgba(52, 73, 93, 0.85) 0%,
+              rgba(52, 73, 93, 0.9) 100%
+            ), url(${aboutHeroBackground})`
+          }}
+        >
           <div className="container">
             <div className="about-hero-content">
               <div className="about-hero-text">
@@ -238,7 +250,9 @@ const About: React.FC = () => {
                   </Button>
                 </Link>
                 <Button variant="secondary" size="lg">
-                  Call 0800 123 4567
+                  <a href="tel:447956758625" style={{ color: 'inherit', textDecoration: 'none' }}>
+                    Call 07956 758625
+                  </a>
                 </Button>
               </div>
               <p className="cta-disclaimer">
