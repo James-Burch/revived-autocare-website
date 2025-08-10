@@ -148,3 +148,4 @@ const LendersCarousel: React.FC<LendersCarouselProps> = ({ className = '' }) => 
 };
 
 export default LendersCarousel;
+

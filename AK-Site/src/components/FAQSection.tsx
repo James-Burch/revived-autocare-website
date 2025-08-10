@@ -72,7 +72,7 @@ const FAQSection: React.FC<FAQSectionProps> = ({ className = "" }) => {
           <p>Still have questions?</p>
           <div className="faq-actions">
             <Link to="/contact">
-              <Button variant="primary" size="lg">
+              <Button variant="primary" size="large">
                 Speak to an Advisor
               </Button>
             </Link>
