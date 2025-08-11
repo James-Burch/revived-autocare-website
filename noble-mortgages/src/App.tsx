@@ -6,6 +6,11 @@ import "./styles/global.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
+import LendersCarousel from "./components/LendersCarousel";
+import ProductCards from "./components/ProductCards";
+
+// Data
+import { mortgageProducts, insuranceProducts } from "./data/products";
 
 function App() {
   return (
@@ -42,19 +47,26 @@ function App() {
                     </button>
                   </Hero>
 
+                  <LendersCarousel />
+
+                  <ProductCards
+                    title="Mortgage Solutions"
+                    products={mortgageProducts} // Show all 6 mortgage products
+                    type="mortgage"
+                  />
+
+                  <ProductCards
+                    title="Insurance Protection"
+                    products={insuranceProducts} // Show all 5 insurance products
+                    type="insurance"
+                  />
+
                   <div className="container" style={{ padding: "2rem 0" }}>
-                    <h2>Welcome to Noble Mortgages</h2>
+                    <h2>More sections coming soon...</h2>
                     <p>
-                      Professional mortgage and insurance services across the
-                      UK.
+                      Calculator teaser, FAQs, and Contact CTA will be added
+                      next.
                     </p>
-                    <div style={{ marginTop: "2rem" }}>
-                      <h3>Test Navigation</h3>
-                      <p>
-                        Try the navigation menu above - desktop dropdowns and
-                        mobile hamburger menu should work!
-                      </p>
-                    </div>
                   </div>
                 </>
               }
