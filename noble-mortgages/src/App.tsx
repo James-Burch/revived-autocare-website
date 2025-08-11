@@ -1,59 +1,141 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './styles/global.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./styles/global.css";
 
 // Components
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Hero from "./components/Hero";
 
 function App() {
   return (
     <Router>
-      <div className="App" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <div
+        className="App"
+        style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}
+      >
         <a href="#main-content" className="skip-to-content">
           Skip to main content
         </a>
-        
+
         <Header />
-        
+
         <main id="main-content" style={{ flex: 1 }}>
           <Routes>
-            <Route 
-              path="/" 
+            <Route
+              path="/"
               element={
-                <div className="container" style={{ padding: '2rem 0' }}>
-                  <h1>Noble Mortgages</h1>
-                  <p>Website coming soon...</p>
-                  <p style={{ color: 'var(--color-primary)' }}>
-                    Tiffany blue color test - this should appear in the brand color.
-                  </p>
-                  <div style={{ marginTop: '2rem' }}>
-                    <button className="btn-primary" style={{ marginRight: '1rem' }}>
-                      Primary Button
+                <>
+                  <Hero
+                    title="Expert Mortgage & Insurance Advice"
+                    subtitle="Professional guidance to help you make confident financial decisions for your future"
+                    backgroundImage="/images/homeinsurance.webp"
+                  >
+                    <button
+                      className="btn-primary"
+                      style={{ marginRight: "1rem" }}
+                    >
+                      Get Expert Advice
                     </button>
-                    <button className="btn-secondary">
-                      Secondary Button
+                    <button className="btn-outline">
+                      Calculate Your Mortgage
                     </button>
+                  </Hero>
+
+                  <div className="container" style={{ padding: "2rem 0" }}>
+                    <h2>Welcome to Noble Mortgages</h2>
+                    <p>
+                      Professional mortgage and insurance services across the
+                      UK.
+                    </p>
+                    <div style={{ marginTop: "2rem" }}>
+                      <h3>Test Navigation</h3>
+                      <p>
+                        Try the navigation menu above - desktop dropdowns and
+                        mobile hamburger menu should work!
+                      </p>
+                    </div>
                   </div>
-                  <div style={{ marginTop: '2rem' }}>
-                    <h2>Test Navigation</h2>
-                    <p>Try the navigation menu above - desktop dropdowns and mobile hamburger menu should work!</p>
-                  </div>
-                </div>
-              } 
+                </>
+              }
             />
-            {/* Placeholder routes for testing navigation */}
-            <Route path="/about" element={<div className="container" style={{ padding: '2rem 0' }}><h1>About Page</h1><p>About page coming soon...</p></div>} />
-            <Route path="/mortgages" element={<div className="container" style={{ padding: '2rem 0' }}><h1>Mortgages</h1><p>Mortgages page coming soon...</p></div>} />
-            <Route path="/insurance" element={<div className="container" style={{ padding: '2rem 0' }}><h1>Insurance</h1><p>Insurance page coming soon...</p></div>} />
-            <Route path="/calculators" element={<div className="container" style={{ padding: '2rem 0' }}><h1>Calculators</h1><p>Calculators page coming soon...</p></div>} />
-            <Route path="/faqs" element={<div className="container" style={{ padding: '2rem 0' }}><h1>FAQs</h1><p>FAQs page coming soon...</p></div>} />
-            <Route path="/contact" element={<div className="container" style={{ padding: '2rem 0' }}><h1>Contact</h1><p>Contact page coming soon...</p></div>} />
+
+            <Route
+              path="/about"
+              element={
+                <>
+                  <Hero
+                    title="About Noble Mortgages"
+                    subtitle="Your trusted mortgage and insurance advisors"
+                    backgroundImage="/images/apartmentblock.webp"
+                  />
+                  <div className="container" style={{ padding: "2rem 0" }}>
+                    <h2>About Us</h2>
+                    <p>Learn more about our team and services...</p>
+                  </div>
+                </>
+              }
+            />
+
+            {/* Other placeholder routes */}
+            <Route
+              path="/mortgages"
+              element={
+                <div className="container" style={{ padding: "2rem 0" }}>
+                  <h1>Mortgages</h1>
+                  <p>Mortgages page coming soon...</p>
+                </div>
+              }
+            />
+            <Route
+              path="/insurance"
+              element={
+                <div className="container" style={{ padding: "2rem 0" }}>
+                  <h1>Insurance</h1>
+                  <p>Insurance page coming soon...</p>
+                </div>
+              }
+            />
+            <Route
+              path="/calculators"
+              element={
+                <div className="container" style={{ padding: "2rem 0" }}>
+                  <h1>Calculators</h1>
+                  <p>Calculators page coming soon...</p>
+                </div>
+              }
+            />
+            <Route
+              path="/faqs"
+              element={
+                <div className="container" style={{ padding: "2rem 0" }}>
+                  <h1>FAQs</h1>
+                  <p>FAQs page coming soon...</p>
+                </div>
+              }
+            />
+            <Route
+              path="/contact"
+              element={
+                <div className="container" style={{ padding: "2rem 0" }}>
+                  <h1>Contact</h1>
+                  <p>Contact page coming soon...</p>
+                </div>
+              }
+            />
             {/* Catch all other routes for now */}
-            <Route path="*" element={<div className="container" style={{ padding: '2rem 0' }}><h1>Page Coming Soon</h1><p>This page is under construction.</p></div>} />
+            <Route
+              path="*"
+              element={
+                <div className="container" style={{ padding: "2rem 0" }}>
+                  <h1>Page Coming Soon</h1>
+                  <p>This page is under construction.</p>
+                </div>
+              }
+            />
           </Routes>
         </main>
-        
+
         <Footer />
       </div>
     </Router>
