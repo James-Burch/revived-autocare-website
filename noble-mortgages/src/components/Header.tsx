@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import styles from './Header.module.css';
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import styles from "./Header.module.css";
 
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -17,14 +17,17 @@ const Header: React.FC = () => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
-      if (!target.closest(`.${styles.nav}`) && !target.closest(`.${styles.mobileMenuToggle}`)) {
+      if (
+        !target.closest(`.${styles.nav}`) &&
+        !target.closest(`.${styles.mobileMenuToggle}`)
+      ) {
         setIsMobileMenuOpen(false);
         setActiveDropdown(null);
       }
     };
 
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
   }, []);
 
   const toggleMobileMenu = () => {
@@ -33,11 +36,17 @@ const Header: React.FC = () => {
   };
 
   const toggleDropdown = (dropdown: string) => {
+    console.log(
+      "Toggling dropdown:",
+      dropdown,
+      "Current active:",
+      activeDropdown
+    );
     setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
   };
 
   const handleKeyDown = (event: React.KeyboardEvent, action: () => void) => {
-    if (event.key === 'Enter' || event.key === ' ') {
+    if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
       action();
     }
@@ -48,7 +57,11 @@ const Header: React.FC = () => {
       <div className={styles.container}>
         <div className={styles.headerContent}>
           {/* Logo */}
-          <Link to="/" className={styles.logo} aria-label="Noble Mortgages - Home">
+          <Link
+            to="/"
+            className={styles.logo}
+            aria-label="Noble Mortgages - Home"
+          >
             <h1 className={styles.logoText}>Noble Mortgages</h1>
           </Link>
 
@@ -65,65 +78,201 @@ const Header: React.FC = () => {
                   About
                 </Link>
               </li>
-              
+
               {/* Mortgages Dropdown */}
-              <li 
+              <li
                 className={styles.dropdown}
-                onMouseEnter={() => setActiveDropdown('mortgages')}
+                onMouseEnter={() => setActiveDropdown("mortgages")}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
                 <button
                   className={`${styles.navLink} ${styles.dropdownToggle}`}
-                  onClick={() => toggleDropdown('mortgages')}
-                  onKeyDown={(e) => handleKeyDown(e, () => toggleDropdown('mortgages'))}
-                  aria-expanded={activeDropdown === 'mortgages'}
+                  onClick={() => toggleDropdown("mortgages")}
+                  onKeyDown={(e) =>
+                    handleKeyDown(e, () => toggleDropdown("mortgages"))
+                  }
+                  aria-expanded={activeDropdown === "mortgages"}
                   aria-haspopup="true"
                 >
                   Mortgages
-                  <span className={styles.dropdownArrow} aria-hidden="true">▼</span>
+                  <span className={styles.dropdownArrow} aria-hidden="true">
+                    ▼
+                  </span>
                 </button>
-                <ul 
-                  className={`${styles.dropdownMenu} ${activeDropdown === 'mortgages' ? styles.dropdownMenuOpen : ''}`}
+                <ul
+                  className={`${styles.dropdownMenu} ${
+                    activeDropdown === "mortgages"
+                      ? styles.dropdownMenuOpen
+                      : ""
+                  }`}
                   role="menu"
                 >
-                  <li><Link to="/mortgages" className={styles.dropdownLink} role="menuitem">Overview</Link></li>
-                  <li><Link to="/mortgages/first-time-buyers" className={styles.dropdownLink} role="menuitem">First Time Buyers</Link></li>
-                  <li><Link to="/mortgages/home-mover" className={styles.dropdownLink} role="menuitem">Home Mover</Link></li>
-                  <li><Link to="/mortgages/remortgage" className={styles.dropdownLink} role="menuitem">Remortgage</Link></li>
-                  <li><Link to="/mortgages/buy-to-let" className={styles.dropdownLink} role="menuitem">Buy to Let</Link></li>
-                  <li><Link to="/mortgages/new-build" className={styles.dropdownLink} role="menuitem">New Build</Link></li>
-                  <li><Link to="/mortgages/help-to-buy" className={styles.dropdownLink} role="menuitem">Help to Buy</Link></li>
-                  <li><Link to="/mortgages/limited-companies" className={styles.dropdownLink} role="menuitem">Limited Companies</Link></li>
-                  <li><Link to="/mortgages/bridging-loans" className={styles.dropdownLink} role="menuitem">Bridging Loans</Link></li>
+                  <li>
+                    <Link
+                      to="/mortgages"
+                      className={styles.dropdownLink}
+                      role="menuitem"
+                    >
+                      Overview
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/mortgages/first-time-buyers"
+                      className={styles.dropdownLink}
+                      role="menuitem"
+                    >
+                      First Time Buyers
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/mortgages/home-mover"
+                      className={styles.dropdownLink}
+                      role="menuitem"
+                    >
+                      Home Mover
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/mortgages/remortgage"
+                      className={styles.dropdownLink}
+                      role="menuitem"
+                    >
+                      Remortgage
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/mortgages/buy-to-let"
+                      className={styles.dropdownLink}
+                      role="menuitem"
+                    >
+                      Buy to Let
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/mortgages/new-build"
+                      className={styles.dropdownLink}
+                      role="menuitem"
+                    >
+                      New Build
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/mortgages/help-to-buy"
+                      className={styles.dropdownLink}
+                      role="menuitem"
+                    >
+                      Help to Buy
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/mortgages/limited-companies"
+                      className={styles.dropdownLink}
+                      role="menuitem"
+                    >
+                      Limited Companies
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/mortgages/bridging-loans"
+                      className={styles.dropdownLink}
+                      role="menuitem"
+                    >
+                      Bridging Loans
+                    </Link>
+                  </li>
                 </ul>
               </li>
 
               {/* Insurance Dropdown */}
-              <li 
+              <li
                 className={styles.dropdown}
-                onMouseEnter={() => setActiveDropdown('insurance')}
+                onMouseEnter={() => setActiveDropdown("insurance")}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
                 <button
                   className={`${styles.navLink} ${styles.dropdownToggle}`}
-                  onClick={() => toggleDropdown('insurance')}
-                  onKeyDown={(e) => handleKeyDown(e, () => toggleDropdown('insurance'))}
-                  aria-expanded={activeDropdown === 'insurance'}
+                  onClick={() => toggleDropdown("insurance")}
+                  onKeyDown={(e) =>
+                    handleKeyDown(e, () => toggleDropdown("insurance"))
+                  }
+                  aria-expanded={activeDropdown === "insurance"}
                   aria-haspopup="true"
                 >
                   Insurance
-                  <span className={styles.dropdownArrow} aria-hidden="true">▼</span>
+                  <span className={styles.dropdownArrow} aria-hidden="true">
+                    ▼
+                  </span>
                 </button>
-                <ul 
-                  className={`${styles.dropdownMenu} ${activeDropdown === 'insurance' ? styles.dropdownMenuOpen : ''}`}
+                <ul
+                  className={`${styles.dropdownMenu} ${
+                    activeDropdown === "insurance"
+                      ? styles.dropdownMenuOpen
+                      : ""
+                  }`}
                   role="menu"
                 >
-                  <li><Link to="/insurance" className={styles.dropdownLink} role="menuitem">Overview</Link></li>
-                  <li><Link to="/insurance/life-insurance" className={styles.dropdownLink} role="menuitem">Life Insurance</Link></li>
-                  <li><Link to="/insurance/income-protection" className={styles.dropdownLink} role="menuitem">Income Protection</Link></li>
-                  <li><Link to="/insurance/critical-illness" className={styles.dropdownLink} role="menuitem">Critical Illness</Link></li>
-                  <li><Link to="/insurance/accident-sickness-unemployment" className={styles.dropdownLink} role="menuitem">Accident, Sickness & Unemployment</Link></li>
-                  <li><Link to="/insurance/home-buildings-contents" className={styles.dropdownLink} role="menuitem">Home, Buildings & Contents Insurance</Link></li>
+                  <li>
+                    <Link
+                      to="/insurance"
+                      className={styles.dropdownLink}
+                      role="menuitem"
+                    >
+                      Overview
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/insurance/life-insurance"
+                      className={styles.dropdownLink}
+                      role="menuitem"
+                    >
+                      Life Insurance
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/insurance/income-protection"
+                      className={styles.dropdownLink}
+                      role="menuitem"
+                    >
+                      Income Protection
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/insurance/critical-illness"
+                      className={styles.dropdownLink}
+                      role="menuitem"
+                    >
+                      Critical Illness
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/insurance/accident-sickness-unemployment"
+                      className={styles.dropdownLink}
+                      role="menuitem"
+                    >
+                      Accident, Sickness & Unemployment
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/insurance/home-buildings-contents"
+                      className={styles.dropdownLink}
+                      role="menuitem"
+                    >
+                      Home, Buildings & Contents Insurance
+                    </Link>
+                  </li>
                 </ul>
               </li>
 
@@ -160,7 +309,11 @@ const Header: React.FC = () => {
         </div>
 
         {/* Mobile Navigation Overlay */}
-        <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : ''}`}>
+        <div
+          className={`${styles.mobileMenu} ${
+            isMobileMenuOpen ? styles.mobileMenuOpen : ""
+          }`}
+        >
           <nav className={styles.mobileNav} aria-label="Mobile navigation">
             <ul className={styles.mobileNavList}>
               <li>
@@ -173,29 +326,100 @@ const Header: React.FC = () => {
                   About
                 </Link>
               </li>
-              
+
               {/* Mobile Mortgages Section */}
               <li>
                 <button
                   className={`${styles.mobileNavLink} ${styles.mobileDropdownToggle}`}
-                  onClick={() => toggleDropdown('mortgages-mobile')}
-                  aria-expanded={activeDropdown === 'mortgages-mobile'}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    toggleDropdown("mortgages-mobile");
+                  }}
+                  aria-expanded={activeDropdown === "mortgages-mobile"}
+                  type="button"
                 >
                   Mortgages
                   <span className={styles.dropdownArrow} aria-hidden="true">
-                    {activeDropdown === 'mortgages-mobile' ? '▲' : '▼'}
+                    {activeDropdown === "mortgages-mobile" ? "▲" : "▼"}
                   </span>
                 </button>
-                <ul className={`${styles.mobileSubMenu} ${activeDropdown === 'mortgages-mobile' ? styles.mobileSubMenuOpen : ''}`}>
-                  <li><Link to="/mortgages" className={styles.mobileSubLink}>Overview</Link></li>
-                  <li><Link to="/mortgages/first-time-buyers" className={styles.mobileSubLink}>First Time Buyers</Link></li>
-                  <li><Link to="/mortgages/home-mover" className={styles.mobileSubLink}>Home Mover</Link></li>
-                  <li><Link to="/mortgages/remortgage" className={styles.mobileSubLink}>Remortgage</Link></li>
-                  <li><Link to="/mortgages/buy-to-let" className={styles.mobileSubLink}>Buy to Let</Link></li>
-                  <li><Link to="/mortgages/new-build" className={styles.mobileSubLink}>New Build</Link></li>
-                  <li><Link to="/mortgages/help-to-buy" className={styles.mobileSubLink}>Help to Buy</Link></li>
-                  <li><Link to="/mortgages/limited-companies" className={styles.mobileSubLink}>Limited Companies</Link></li>
-                  <li><Link to="/mortgages/bridging-loans" className={styles.mobileSubLink}>Bridging Loans</Link></li>
+                <ul
+                  className={`${styles.mobileSubMenu} ${
+                    activeDropdown === "mortgages-mobile"
+                      ? styles.mobileSubMenuOpen
+                      : ""
+                  }`}
+                >
+                  <li>
+                    <Link to="/mortgages" className={styles.mobileSubLink}>
+                      Overview
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/mortgages/first-time-buyers"
+                      className={styles.mobileSubLink}
+                    >
+                      First Time Buyers
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/mortgages/home-mover"
+                      className={styles.mobileSubLink}
+                    >
+                      Home Mover
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/mortgages/remortgage"
+                      className={styles.mobileSubLink}
+                    >
+                      Remortgage
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/mortgages/buy-to-let"
+                      className={styles.mobileSubLink}
+                    >
+                      Buy to Let
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/mortgages/new-build"
+                      className={styles.mobileSubLink}
+                    >
+                      New Build
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/mortgages/help-to-buy"
+                      className={styles.mobileSubLink}
+                    >
+                      Help to Buy
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/mortgages/limited-companies"
+                      className={styles.mobileSubLink}
+                    >
+                      Limited Companies
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/mortgages/bridging-loans"
+                      className={styles.mobileSubLink}
+                    >
+                      Bridging Loans
+                    </Link>
+                  </li>
                 </ul>
               </li>
 
@@ -203,21 +427,71 @@ const Header: React.FC = () => {
               <li>
                 <button
                   className={`${styles.mobileNavLink} ${styles.mobileDropdownToggle}`}
-                  onClick={() => toggleDropdown('insurance-mobile')}
-                  aria-expanded={activeDropdown === 'insurance-mobile'}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    toggleDropdown("insurance-mobile");
+                  }}
+                  aria-expanded={activeDropdown === "insurance-mobile"}
+                  type="button"
                 >
                   Insurance
                   <span className={styles.dropdownArrow} aria-hidden="true">
-                    {activeDropdown === 'insurance-mobile' ? '▲' : '▼'}
+                    {activeDropdown === "insurance-mobile" ? "▲" : "▼"}
                   </span>
                 </button>
-                <ul className={`${styles.mobileSubMenu} ${activeDropdown === 'insurance-mobile' ? styles.mobileSubMenuOpen : ''}`}>
-                  <li><Link to="/insurance" className={styles.mobileSubLink}>Overview</Link></li>
-                  <li><Link to="/insurance/life-insurance" className={styles.mobileSubLink}>Life Insurance</Link></li>
-                  <li><Link to="/insurance/income-protection" className={styles.mobileSubLink}>Income Protection</Link></li>
-                  <li><Link to="/insurance/critical-illness" className={styles.mobileSubLink}>Critical Illness</Link></li>
-                  <li><Link to="/insurance/accident-sickness-unemployment" className={styles.mobileSubLink}>Accident, Sickness & Unemployment</Link></li>
-                  <li><Link to="/insurance/home-buildings-contents" className={styles.mobileSubLink}>Home, Buildings & Contents Insurance</Link></li>
+                <ul
+                  className={`${styles.mobileSubMenu} ${
+                    activeDropdown === "insurance-mobile"
+                      ? styles.mobileSubMenuOpen
+                      : ""
+                  }`}
+                >
+                  <li>
+                    <Link to="/insurance" className={styles.mobileSubLink}>
+                      Overview
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/insurance/life-insurance"
+                      className={styles.mobileSubLink}
+                    >
+                      Life Insurance
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/insurance/income-protection"
+                      className={styles.mobileSubLink}
+                    >
+                      Income Protection
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/insurance/critical-illness"
+                      className={styles.mobileSubLink}
+                    >
+                      Critical Illness
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/insurance/accident-sickness-unemployment"
+                      className={styles.mobileSubLink}
+                    >
+                      Accident, Sickness & Unemployment
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/insurance/home-buildings-contents"
+                      className={styles.mobileSubLink}
+                    >
+                      Home, Buildings & Contents Insurance
+                    </Link>
+                  </li>
                 </ul>
               </li>
 

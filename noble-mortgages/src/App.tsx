@@ -8,6 +8,9 @@ import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import LendersCarousel from "./components/LendersCarousel";
 import ProductCards from "./components/ProductCards";
+import CalculatorTeaser from "./components/CalculatorTeaser";
+import FAQSection from "./components/FAQSection";
+import ContactCTA from "./components/ContactCTA";
 
 // Data
 import { mortgageProducts, insuranceProducts } from "./data/products";
@@ -51,23 +54,21 @@ function App() {
 
                   <ProductCards
                     title="Mortgage Solutions"
-                    products={mortgageProducts} // Show all 6 mortgage products
+                    products={mortgageProducts}
                     type="mortgage"
                   />
 
                   <ProductCards
                     title="Insurance Protection"
-                    products={insuranceProducts} // Show all 5 insurance products
+                    products={insuranceProducts}
                     type="insurance"
                   />
 
-                  <div className="container" style={{ padding: "2rem 0" }}>
-                    <h2>More sections coming soon...</h2>
-                    <p>
-                      Calculator teaser, FAQs, and Contact CTA will be added
-                      next.
-                    </p>
-                  </div>
+                  <CalculatorTeaser />
+
+                  <FAQSection />
+
+                  <ContactCTA />
                 </>
               }
             />

@@ -32,6 +32,7 @@
 .carousel {
   overflow: hidden;
   position: relative;
+  width: 100%;
   mask-image: linear-gradient(
     to right,
     transparent 0%,
