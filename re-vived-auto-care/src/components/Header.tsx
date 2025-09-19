@@ -7,7 +7,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="bg-primary-900 border-b border-primary-800">
+    <header className="bg-gray-900 border-b border-gray-800">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="text-xl font-bold text-white">
@@ -18,19 +18,19 @@ export default function Header() {
           <div className="hidden md:flex space-x-8">
             <Link
               href="/"
-              className="text-primary-100 hover:text-accent-400 transition-colors"
+              className="text-gray-100 hover:text-yellow-400 transition-colors"
             >
               Home
             </Link>
             <Link
               href="/services"
-              className="text-primary-100 hover:text-accent-400 transition-colors"
+              className="text-gray-100 hover:text-yellow-400 transition-colors"
             >
               Services
             </Link>
             <Link
               href="/contact"
-              className="text-primary-100 hover:text-accent-400 transition-colors"
+              className="text-gray-100 hover:text-yellow-400 transition-colors"
             >
               Contact
             </Link>
@@ -38,7 +38,7 @@ export default function Header() {
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden text-primary-100"
+            className="md:hidden text-gray-100"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <svg
@@ -71,19 +71,19 @@ export default function Header() {
           <div className="md:hidden py-4 space-y-4">
             <Link
               href="/"
-              className="block text-primary-100 hover:text-accent-400 transition-colors"
+              className="block text-gray-100 hover:text-yellow-400 transition-colors"
             >
               Home
             </Link>
             <Link
               href="/services"
-              className="block text-primary-100 hover:text-accent-400 transition-colors"
+              className="block text-gray-100 hover:text-yellow-400 transition-colors"
             >
               Services
             </Link>
             <Link
               href="/contact"
-              className="block text-primary-100 hover:text-accent-400 transition-colors"
+              className="block text-gray-100 hover:text-yellow-400 transition-colors"
             >
               Contact
             </Link>

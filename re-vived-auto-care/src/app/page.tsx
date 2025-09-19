@@ -5,7 +5,7 @@ export default function Home() {
         <h1 className="text-4xl md:text-6xl font-bold mb-6">
           Premium Auto Care
         </h1>
-        <p className="text-xl text-primary-200 mb-8 max-w-2xl mx-auto">
+        <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
           Professional car detailing services that restore your vehicle's beauty
           and protect its value.
         </p>
