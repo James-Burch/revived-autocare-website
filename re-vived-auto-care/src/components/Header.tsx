@@ -72,18 +72,21 @@ export default function Header() {
             <Link
               href="/"
               className="block text-gray-100 hover:text-yellow-400 transition-colors"
+              onClick={() => setIsMenuOpen(false)}
             >
               Home
             </Link>
             <Link
               href="/services"
               className="block text-gray-100 hover:text-yellow-400 transition-colors"
+              onClick={() => setIsMenuOpen(false)}
             >
               Services
             </Link>
             <Link
               href="/contact"
               className="block text-gray-100 hover:text-yellow-400 transition-colors"
+              onClick={() => setIsMenuOpen(false)}
             >
               Contact
             </Link>
