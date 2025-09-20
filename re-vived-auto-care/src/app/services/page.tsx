@@ -19,7 +19,7 @@ export default function ServicesPage() {
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             From regular maintenance to complete transformations, we offer
-            comprehensive car detailing services tailored to your vehicle's
+            comprehensive car detailing services tailored to your vehicle&apos;s
             needs.
           </p>
         </div>
@@ -104,7 +104,8 @@ export default function ServicesPage() {
                       Satisfaction Guarantee
                     </h3>
                     <p className="text-gray-300">
-                      We're not happy until you're completely satisfied.
+                      We&apos;re not happy until you&apos;re completely
+                      satisfied.
                     </p>
                   </div>
                 </div>
@@ -116,7 +117,7 @@ export default function ServicesPage() {
               </h3>
               <p className="text-gray-300 mb-6">
                 Need something specific? We can create a custom detailing
-                package tailored to your vehicle's unique requirements.
+                package tailored to your vehicle&apos;s unique requirements.
               </p>
               <button className="btn-primary w-full">
                 Request Custom Quote

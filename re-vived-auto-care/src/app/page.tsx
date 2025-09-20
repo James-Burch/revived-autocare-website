@@ -12,7 +12,7 @@ export default function Home() {
             Premium Auto Care
           </h1>
           <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
-            Professional car detailing services that restore your vehicle's
+            Professional car detailing services that restore your vehicle&apos;s
             beauty and protect its value.
           </p>
           <button className="btn-primary text-lg mr-4">Get Started</button>
